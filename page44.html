@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> page 44 தமிழ் எழுத்துகள்</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<style>
+    
+
+/* ===========================================
+   RESET
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Noto Sans Tamil',sans-serif;
+    background:#1b2c73;
+    padding:20px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    perspective:1500px;
+}
+
+/* ===========================================
+   FLIP ANIMATION
+=========================================== */
+
+.flip-out-next{
+    animation:flipNext .6s ease forwards;
+    transform-origin:left center;
+}
+
+.flip-out-prev{
+    animation:flipPrev .6s ease forwards;
+    transform-origin:right center;
+}
+
+@keyframes flipNext{
+
+    from{
+        transform:rotateY(0);
+        opacity:1;
+    }
+
+    to{
+        transform:rotateY(-120deg);
+        opacity:0;
+    }
+
+}
+
+@keyframes flipPrev{
+
+    from{
+        transform:rotateY(0);
+        opacity:1;
+    }
+
+    to{
+        transform:rotateY(120deg);
+        opacity:0;
+    }
+
+}
+
+/* ===========================================
+   WRAPPER
+=========================================== */
+
+.page-wrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    transform-style:preserve-3d;
+}
+
+.book{
+
+    width:100%;
+    max-width:980px;
+
+    background:#fbf8ef;
+
+    border:8px solid #e9dcb8;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.35);
+
+    transition:.5s ease;
+
+}
+
+/* ===========================================
+   TITLE
+=========================================== */
+
+.page-title{
+    display:flex;
+    justify-content:center;
+    margin-bottom:18px;
+}
+
+.page-title h1{
+
+    background:#f8c45d;
+
+    border:3px solid #b88214;
+
+    border-radius:15px;
+
+    padding:12px 45px;
+
+    font-size:42px;
+
+    box-shadow:0 6px 12px rgba(0,0,0,.15);
+
+}
+
+.lesson{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+/* ===========================================
+   GRID
+=========================================== */
+
+.main{
+
+    display:grid;
+
+    grid-template-columns:60px repeat(3,minmax(120px,1fr));
+
+    gap:22px;
+
+    justify-items:center;
+
+    align-items:start;
+
+}
+
+.sound-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-top:85px;
+
+}
+
+.sound{
+
+    width:60px;
+
+    height:52px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f8d8d8;
+
+    border:2px solid #b38c8c;
+
+    border-radius:10px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    user-select:none;
+
+}
+
+.empty{
+    visibility:hidden;
+}
+
+/* ===========================================
+   COLUMN & GROUP
+=========================================== */
+
+.column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+/* ===========================================
+   BUTTONS
+=========================================== */
+
+.head,
+.btn{
+
+    width:120px;
+
+    height:54px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-family:'Noto Sans Tamil',sans-serif;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    transition:.25s;
+
+    user-select:none;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+
+}
+
+.head{
+
+    position:relative;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+
+.head::after{
+
+    content:"🔊";
+
+    position:absolute;
+
+    top:4px;
+
+    right:6px;
+
+    font-size:12px;
+
+    opacity:.85;
+
+    pointer-events:none;
+
+}
+
+.btn{
+
+    cursor:default;
+
+    pointer-events:none;
+
+}
+
+/* Hover only for clickable buttons */
+
+.head:hover{
+
+    transform:translateY(-4px) scale(1.03);
+
+}
+
+.head:active{
+
+    transform:scale(.96);
+
+}
+
+/* ===========================================
+   COLORS
+=========================================== */
+
+.green{
+
+    background:#b7ef67;
+
+    border:2px solid #709541;
+
+}
+
+.head.green{
+
+    background:#79d15d;
+
+}
+
+.yellow{
+
+    background:#fff29a;
+
+    border:2px solid #b9a548;
+
+}
+
+.blue{
+
+    background:#66d8e8;
+
+    border:2px solid #397f89;
+
+}
+
+.orange{
+
+    background:#ff9d71;
+
+    border:2px solid #ba6c47;
+
+}
+
+/* ===========================================
+   GLOW
+=========================================== */
+
+.playing{
+
+    animation:glow 1s infinite;
+
+}
+
+@keyframes glow{
+
+    0%{
+
+        box-shadow:0 0 0 rgba(255,196,0,0);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 15px rgba(255,196,0,.9),
+        0 0 30px rgba(255,196,0,.5);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 rgba(255,196,0,0);
+
+    }
+
+}
+
+
+/* ===========================================
+   PAGE NUMBER
+=========================================== */
+
+.page-number{
+
+    margin-top:28px;
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#7a42d5;
+
+}
+
+/* ===========================================
+   NAVIGATION
+=========================================== */
+
+.navigation{
+
+    margin-top:22px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.nav-btn{
+
+    width:64px;
+
+    height:64px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f8f1e4;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.18);
+
+}
+
+.nav-btn:hover{
+
+    transform:scale(1.08);
+
+}
+
+.nav-btn:active{
+
+    transform:scale(.95);
+
+}
+
+.dots{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#a8a8a8;
+
+}
+
+.dot.active{
+
+    background:#32ff3f;
+
+}
+
+/* ===========================================
+   TABLET & MOBILE
+=========================================== */
+
+@media (max-width:900px){
+
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.page-wrapper{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:6px;
+}
+
+.container{
+    width:100%;
+}
+
+.book{
+    width:100%;
+    max-width:100%;
+    min-height:98vh;
+
+    padding:10px;
+
+    border:5px solid #e9dcb8;
+    border-radius:16px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+/* ---------- Title ---------- */
+
+.page-title{
+    margin-bottom:8px;
+}
+
+.page-title h1{
+    font-size:22px;
+    padding:6px 18px;
+}
+
+.lesson{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+/* ---------- Main ---------- */
+
+.main{
+    flex:1;
+    display:grid;
+    grid-template-columns:38px repeat(3,1fr);
+    gap:6px;
+}
+
+/* ---------- Pronunciation ---------- */
+
+.sound-column{
+    margin-top:52px;
+    gap:6px;
+}
+
+.sound{
+    width:34px;
+    height:24px;
+    font-size:13px;
+    border-radius:7px;
+}
+
+/* ---------- Buttons ---------- */
+
+.column{
+    gap:4px;
+}
+
+.group{
+    gap:4px;
+}
+
+.head,
+.btn{
+
+    width:68px;
+    height:30px;
+
+    font-size:18px;
+
+}
+
+.head{
+    font-size:21px;
+}
+
+/* ---------- Speaker Icon ---------- */
+
+.head::after{
+
+    top:50%;
+    right:5px;
+
+    transform:translateY(-50%);
+
+    font-size:9px;
+
+    opacity:.8;
+
+}
+
+/* ---------- Bottom ---------- */
+
+.page-number{
+    margin-top:8px;
+    font-size:18px;
+}
+
+.navigation{
+    margin-top:-18px;
+}
+
+.nav-btn{
+    width:42px;
+    height:42px;
+    font-size:20px;
+}
+
+.dots{
+    gap:8px;
+}
+
+.dot{
+    width:8px;
+    height:8px;
+}
+
+}
+
+
+</style>
+
+
+<body>
+
+<div class="page-wrapper">
+
+<div class="container">
+
+<div class="book">
+
+<div class="page-title">
+<h1>தமிழ் எழுத்துகள் ✏️</h1>
+</div>
+
+<div class="lesson">
+தொகுதி 1
+</div>
+
+<div class="main">
+
+<!-- Pronunciation -->
+
+<div class="sound-column">
+
+<div class="sound empty"></div>
+<div class="sound empty"></div>
+<div class="sound empty"></div>
+<div class="sound empty"></div>
+<div class="sound empty"></div>
+<div class="sound empty"></div>
+
+<div class="sound pink">a</div>
+<div class="sound pink">a</div>
+<div class="sound pink"></div>
+<div class="sound pink">o</div>
+<div class="sound pink">o</div>
+<div class="sound pink">ow</div>
+
+<div class="sound empty"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- COLUMN 1 - த -->
+<!-- ========================= -->
+
+<div class="column">
+
+    <!-- GREEN GROUP -->
+    <div class="group" data-audio="green">
+        <button class="head green">த</button>
+
+        <button class="btn green">த</button>
+        <button class="btn green">தா</button>
+        <button class="btn green">தி</button>
+        <button class="btn green">தீ</button>
+        <button class="btn green">து</button>
+        <button class="btn green">தூ</button>
+    </div>
+
+    <!-- YELLOW GROUP -->
+    <div class="group" data-audio="yellow">
+        <button class="head yellow">தெ</button>
+
+        <button class="btn yellow">தே</button>
+        <button class="btn yellow">தை</button>
+    </div>
+
+    <!-- BLUE GROUP -->
+    <div class="group" data-audio="blue">
+        <button class="head blue">தொ</button>
+
+        <button class="btn blue">தோ</button>
+        <button class="btn blue">தௌ</button>
+    </div>
+
+    <!-- ORANGE GROUP -->
+    <div class="group" data-audio="orange">
+        <button class="head orange">த்</button>
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- COLUMN 2 - ப -->
+<!-- ========================= -->
+
+<div class="column">
+
+    <!-- GREEN GROUP -->
+    <div class="group" data-audio="green">
+        <button class="head green">ப</button>
+
+        <button class="btn green">ப</button>
+        <button class="btn green">பா</button>
+        <button class="btn green">பி</button>
+        <button class="btn green">பீ</button>
+        <button class="btn green">பு</button>
+        <button class="btn green">பூ</button>
+    </div>
+
+    <!-- YELLOW GROUP -->
+    <div class="group" data-audio="yellow">
+        <button class="head yellow">பெ</button>
+
+        <button class="btn yellow">பே</button>
+        <button class="btn yellow">பை</button>
+    </div>
+
+    <!-- BLUE GROUP -->
+    <div class="group" data-audio="blue">
+        <button class="head blue">பொ</button>
+
+        <button class="btn blue">போ</button>
+        <button class="btn blue">பௌ</button>
+    </div>
+
+    <!-- ORANGE GROUP -->
+    <div class="group" data-audio="orange">
+        <button class="head orange">ப்</button>
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- COLUMN 3 - ம -->
+<!-- ========================= -->
+
+<div class="column">
+
+    <!-- GREEN GROUP -->
+    <div class="group" data-audio="green">
+        <button class="head green">ம</button>
+
+        <button class="btn green">ம</button>
+        <button class="btn green">மா</button>
+        <button class="btn green">மி</button>
+        <button class="btn green">மீ</button>
+        <button class="btn green">மு</button>
+        <button class="btn green">மூ</button>
+    </div>
+
+    <!-- YELLOW GROUP -->
+    <div class="group" data-audio="yellow">
+        <button class="head yellow">மெ</button>
+
+        <button class="btn yellow">மே</button>
+        <button class="btn yellow">மை</button>
+    </div>
+
+    <!-- BLUE GROUP -->
+    <div class="group" data-audio="blue">
+        <button class="head blue">மொ</button>
+
+        <button class="btn blue">மோ</button>
+        <button class="btn blue">மௌ</button>
+    </div>
+
+    <!-- ORANGE GROUP -->
+    <div class="group" data-audio="orange">
+        <button class="head orange">ம்</button>
+    </div>
+
+</div>
+
+</div>
+
+<div class="page-number">
+    42
+</div>
+
+
+<div class="navigation">
+
+    <button class="nav-btn"
+        onclick="nextPage('page43.html','prev')">
+        ❮
+    </button>
+
+    <div class="dots">
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+    </div>
+
+    <button class="nav-btn"
+        onclick="nextPage('page45.html','next')">
+        ❯
+    </button>
+
+</div>
+
+
+</div>
+
+</div>
+
+<!-- Audio Files -->
+<audio id="greenAudio" src="audio_green.mp3"></audio>
+<audio id="yellowAudio" src="audio_yellow.mp3"></audio>
+<audio id="blueAudio" src="audio_blue.mp3"></audio>
+<audio id="orangeAudio" src="audio_orange.mp3"></audio>
+
+<script>
+    
+
+// ===========================================
+// AUDIO OBJECTS
+// ===========================================
+
+const audios = {
+    green: document.getElementById("greenAudio"),
+    yellow: document.getElementById("yellowAudio"),
+    blue: document.getElementById("blueAudio"),
+    orange: document.getElementById("orangeAudio")
+};
+
+let currentAudio = null;
+let currentGroup = null;
+
+
+// ===========================================
+// STOP EVERYTHING
+// ===========================================
+
+function stopAll(){
+
+    // Stop every audio
+    Object.values(audios).forEach(audio=>{
+
+        audio.pause();
+        audio.currentTime = 0;
+
+    });
+
+    // Remove blinking
+    document.querySelectorAll(".playing").forEach(btn=>{
+
+        btn.classList.remove("playing");
+
+    });
+
+    currentAudio = null;
+    currentGroup = null;
+
+}
+
+
+// ===========================================
+// PLAY GROUP
+// ===========================================
+
+function playGroup(headButton){
+
+    const group = headButton.closest(".group");
+
+    const color = group.dataset.audio;
+
+    // Click same group again -> Stop
+    if(
+        currentGroup === group &&
+        currentAudio &&
+        !currentAudio.paused
+    ){
+
+        stopAll();
+        return;
+
+    }
+
+    stopAll();
+
+    currentGroup = group;
+    currentAudio = audios[color];
+
+    // Blink ONLY this group
+    group.querySelectorAll("button").forEach(btn=>{
+
+        btn.classList.add("playing");
+
+    });
+
+    currentAudio.play();
+
+    currentAudio.onended = ()=>{
+
+        group.querySelectorAll("button").forEach(btn=>{
+
+            btn.classList.remove("playing");
+
+        });
+
+        currentAudio = null;
+        currentGroup = null;
+
+    };
+
+}
+
+
+// ===========================================
+// ONLY HEAD BUTTONS ARE CLICKABLE
+// ===========================================
+
+document.querySelectorAll(".group .head").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        playGroup(button);
+
+    });
+
+});
+
+
+// ===========================================
+// PAGE FLIP
+// ===========================================
+
+function nextPage(page,direction){
+
+    const pageContainer = document.querySelector(".container");
+
+    if(direction==="next"){
+
+        pageContainer.classList.add("flip-out-next");
+
+    }else{
+
+        pageContainer.classList.add("flip-out-prev");
+
+    }
+
+    setTimeout(()=>{
+
+        window.location.href = page;
+
+    },600);
+
+}
+</script>
+
+
+
+</body>
+</html>
