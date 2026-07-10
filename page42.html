@@ -484,6 +484,30 @@ box-shadow:0 0 0 rgba(255,196,0,0);
 
 }
 
+.speaker{
+    position:relative;
+}
+
+.speaker::after{
+
+    content:"🔊";
+
+    position:absolute;
+
+    top:4px;
+
+    right:5px;
+
+    font-size:11px;
+
+    pointer-events:none;
+
+}
+
+
+
+
+
 
 
 
@@ -541,7 +565,7 @@ body{
     width:100%;
     max-width:420px;
 
-    height:98dvh;
+    height:94dvh;
 
     display:flex;
     flex-direction:column;
@@ -611,9 +635,9 @@ body{
 
 .sound-column{
 
-    margin-top:200px;
+    margin-top:195px;
 
-    gap:10px;
+    gap:5px;
 
 }
 
@@ -727,6 +751,16 @@ body{
 
 }
 
+.speaker::after{
+
+    top:2px;
+
+    right:3px;
+
+    font-size:8px;
+
+}
+
 }
 
 
@@ -778,17 +812,40 @@ body{
         <div class="column">
 
             <!-- GREEN -->
-            <div class="group" data-audio="ka_green">
 
-                <button class="head green">
+            <div class="group">
+
+                <!-- Head -->
+                <button class="head green"
+                        data-audio="ka_head">
                     <span class="highlight">க</span>
                 </button>
 
-                <button class="btn green"><span class="highlight">கா</span></button>
-                <button class="btn green"><span class="highlight">கி</span></button>
-                <button class="btn green"><span class="highlight">கீ</span></button>
-                <button class="btn green"><span class="highlight">கு</span></button>
-                <button class="btn green"><span class="highlight">கூ</span></button>
+                <!-- Light Green -->
+                <button class="btn green group-green speaker"
+                        data-audio="ka_green">
+                    <span class="highlight">க</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">கா</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">கி</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">கீ</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">கு</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">கூ</span>
+                </button>
 
             </div>
 
@@ -836,14 +893,33 @@ body{
             <!-- GREEN -->
             <div class="group" data-audio="sa_green">
 
-                <button class="head green">
+                <button class="head green" data-audio="sa_head">
                     <span class="highlight">ச</span>
                 </button>
-                <button class="btn green"><span class="highlight">சா</span></button>
-                <button class="btn green"><span class="highlight">சி</span></button>
-                <button class="btn green"><span class="highlight">சீ</span></button>
-                <button class="btn green"><span class="highlight">சு</span></button>
-                <button class="btn green"><span class="highlight">சூ</span></button>
+
+                <button class="btn green group-green speaker" data-audio="sa_green">
+                    <span class="highlight">ச</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">சா</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">சி</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">சீ</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">சு</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">சூ</span>
+                </button>
 
             </div>
 
@@ -891,15 +967,33 @@ body{
             <!-- GREEN -->
             <div class="group" data-audio="da_green">
 
-                <button class="head green">
+                <button class="head green" data-audio="da_head">
                     <span class="highlight">ட</span>
                 </button>
 
-                <button class="btn green"><span class="highlight">டா</span></button>
-                <button class="btn green"><span class="highlight">டி</span></button>
-                <button class="btn green"><span class="highlight">டீ</span></button>
-                <button class="btn green"><span class="highlight">டு</span></button>
-                <button class="btn green"><span class="highlight">டூ</span></button>
+                <button class="btn green group-green speaker" data-audio="da_green">
+                    <span class="highlight">ட</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">டா</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">டி</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">டீ</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">டு</span>
+                </button>
+
+                <button class="btn green group-green">
+                    <span class="highlight">டூ</span>
+                </button>
 
             </div>
 
@@ -973,10 +1067,12 @@ body{
 <!-- Audio Files -->
 
 <!-- GREEN -->
+<audio id="ka_head" src="ka_head.mp3"></audio>
 <audio id="ka_green" src="ka_green.mp3"></audio>
+<audio id="sa_head" src="sa_head.mp3"></audio>
 <audio id="sa_green" src="sa_green.mp3"></audio>
+<audio id="da_head" src="da_head.mp3"></audio>
 <audio id="da_green" src="da_green.mp3"></audio>
-
 <!-- YELLOW -->
 <audio id="ka_yellow" src="ka_yellow.mp3"></audio>
 <audio id="sa_yellow" src="sa_yellow.mp3"></audio>
@@ -997,20 +1093,18 @@ body{
 <script>
     
 // ===========================================
-// CURRENTLY PLAYING
+// AUDIO PLAYER
 // ===========================================
 
 let currentAudio = null;
-let currentGroup = null;
-
+let currentButtons = [];
 
 // ===========================================
-// STOP EVERYTHING
+// STOP ALL
 // ===========================================
 
 function stopAll(){
 
-    // Stop current audio
     if(currentAudio){
 
         currentAudio.pause();
@@ -1018,41 +1112,36 @@ function stopAll(){
 
     }
 
-    // Remove blinking
-    document.querySelectorAll(".playing").forEach(button=>{
+    currentButtons.forEach(btn=>{
 
-        button.classList.remove("playing");
+        btn.classList.remove("playing");
 
     });
 
-    currentAudio = null;
-    currentGroup = null;
+    currentAudio=null;
+    currentButtons=[];
 
 }
 
-
 // ===========================================
-// PLAY GROUP
+// PLAY AUDIO
 // ===========================================
 
-function playGroup(headButton){
+function playAudio(audioId,buttons){
 
-    const group = headButton.closest(".group");
-
-    const audioId = group.dataset.audio;
-
-    const audio = document.getElementById(audioId);
+    const audio=document.getElementById(audioId);
 
     if(!audio){
 
-        console.error("Audio not found:", audioId);
+        console.log("Missing audio:",audioId);
 
         return;
 
     }
 
-    // Click same button again = stop audio
-    if(currentGroup === group && currentAudio && !currentAudio.paused){
+    // Click same audio again = STOP
+
+    if(currentAudio===audio && !audio.paused){
 
         stopAll();
 
@@ -1062,50 +1151,142 @@ function playGroup(headButton){
 
     stopAll();
 
-    currentGroup = group;
-    currentAudio = audio;
+    currentAudio=audio;
+    currentButtons=buttons;
 
-    // Blink ONLY this group
-    group.querySelectorAll("button").forEach(button=>{
+    buttons.forEach(btn=>{
 
-        button.classList.add("playing");
+        btn.classList.add("playing");
 
     });
 
-    audio.currentTime = 0;
-
+    audio.currentTime=0;
     audio.play();
 
-    audio.onended = ()=>{
-
-        group.querySelectorAll("button").forEach(button=>{
-
-            button.classList.remove("playing");
-
-        });
-
-        currentAudio = null;
-        currentGroup = null;
-
-    };
+    audio.onended=stopAll;
 
 }
 
-
 // ===========================================
-// HEAD BUTTON CLICK
+// DARK GREEN HEAD BUTTONS
+// ka_head
+// sa_head
+// da_head
 // ===========================================
 
-document.querySelectorAll(".group .head").forEach(button=>{
+document.querySelectorAll(".head.green").forEach(head=>{
 
-    button.addEventListener("click",function(){
+    head.addEventListener("click",function(){
 
-        playGroup(this);
+        playAudio(
+
+            this.dataset.audio,
+
+            [this]
+
+        );
 
     });
 
 });
 
+// ===========================================
+// LIGHT GREEN GROUPS
+// ka_green
+// sa_green
+// da_green
+// ===========================================
+
+document.querySelectorAll(".btn.group-green[data-audio]").forEach(firstBtn=>{
+
+    firstBtn.addEventListener("click",function(){
+
+        const group=this.closest(".group");
+
+        const buttons=[...group.querySelectorAll(".group-green")];
+
+        playAudio(
+
+            this.dataset.audio,
+
+            buttons
+
+        );
+
+    });
+
+});
+
+// ===========================================
+// YELLOW
+// (UNCHANGED)
+// ===========================================
+
+document.querySelectorAll(".group[data-audio$='_yellow'] .head").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        const group=this.closest(".group");
+
+        const buttons=[...group.querySelectorAll("button")];
+
+        playAudio(
+
+            group.dataset.audio,
+
+            buttons
+
+        );
+
+    });
+
+});
+
+// ===========================================
+// BLUE
+// (UNCHANGED)
+// ===========================================
+
+document.querySelectorAll(".group[data-audio$='_blue'] .head").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        const group=this.closest(".group");
+
+        const buttons=[...group.querySelectorAll("button")];
+
+        playAudio(
+
+            group.dataset.audio,
+
+            buttons
+
+        );
+
+    });
+
+});
+
+// ===========================================
+// ORANGE
+// (UNCHANGED)
+// ===========================================
+
+document.querySelectorAll(".group[data-audio$='_orange'] .head").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        playAudio(
+
+            this.closest(".group").dataset.audio,
+
+            [this]
+
+        );
+
+    });
+
+});
 
 // ===========================================
 // PAGE FLIP
