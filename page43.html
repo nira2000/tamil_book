@@ -353,7 +353,7 @@ body{
 
 
 /* ===========================================
-   MOBILE - PAGE 43
+   MOBILE - PAGE 43 (LIKE PAGE 42)
 =========================================== */
 
 @media (max-width:768px){
@@ -379,224 +379,142 @@ body{
     justify-content:center;
     align-items:center;
 
-    padding:4px;
+}
+
+/* Wrapper */
+
+.page-wrapper,
+.container{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
 }
 
-/* ===========================================
-   BOOK
-=========================================== */
+/* BOOK */
 
 .page-container{
 
     position:relative;
 
-    width:100%;
-    max-width:390px;
+    width:900px;
 
-    height:calc(100dvh - 8px);
+    max-width:none;
 
-    background:#fffef8;
+    padding:30px 35px;
 
-    border:4px solid #f2d8a0;
-    border-radius:18px;
+    transform:scale(.42);
 
-    padding:10px;
-
-    display:flex;
-    flex-direction:column;
-
-    overflow:hidden;
+    transform-origin:center center;
 
 }
 
-/* RED SPINE */
+/* Spine */
 
 .page-container::before{
 
-    content:"";
+    left:10px;
 
-    position:absolute;
+    top:22px;
 
-    left:4px;
-    top:10px;
-    bottom:10px;
+    bottom:22px;
 
-    width:7px;
-
-    background:#D40C02;
-
-    border-radius:6px;
+    width:10px;
 
 }
 
-/* ===========================================
-   LESSON
-=========================================== */
+/* Title */
 
 .lesson-number{
 
-    font-size:16px;
-
-    font-weight:bold;
-
-    margin-left:14px;
-
-    margin-bottom:4px;
+    font-size:26px;
 
 }
 
-/* ===========================================
-   TITLE
-=========================================== */
-
 .title-box{
 
-    width:fit-content;
-
-    margin:0 auto 8px;
-
-    padding:4px 12px;
+    margin:0 auto 30px;
 
 }
 
 .title-box h1{
 
-    font-size:20px;
+    font-size:42px;
 
 }
 
-/* ===========================================
-   WORD GRID
-=========================================== */
+/* Grid */
 
 .word-grid{
 
-    flex:1;
-
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:220px 220px;
 
-    column-gap:8px;
+    justify-content:center;
 
-    row-gap:4px;
+    column-gap:60px;
 
-    align-content:start;
+    row-gap:8px;
 
 }
 
-/* ===========================================
-   BUTTONS
-=========================================== */
+/* Buttons */
 
 .word-btn{
 
-    width:100%;
+    width:220px;
 
-    height:34px;
+    height:62px;
 
-    border-radius:7px;
-
-    font-size:15px;
-
-    font-weight:600;
+    font-size:24px;
 
 }
 
-/* Green -> Yellow */
-
-.word-grid button:nth-child(13),
-.word-grid button:nth-child(14){
-
-    margin-top:10px;
-
-}
-
-/* Yellow -> Blue */
-
-.word-grid button:nth-child(19),
-.word-grid button:nth-child(20){
-
-    margin-top:6px;
-
-}
-
-/* Blue -> Orange */
-
-.word-grid button:nth-child(25),
-.word-grid button:nth-child(26){
-
-    margin-top:4px;
-
-}
-
-/* ===========================================
-   PAGE NUMBER
-=========================================== */
+/* Bottom */
 
 .page-number{
 
-    margin-top:4px;
+    margin-top:24px;
 
-    margin-bottom:2px;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    text-align:center;
+    font-size:24px;
 
 }
 
-/* ===========================================
-   NAVIGATION
-=========================================== */
-
 .navigation{
 
-    margin-top:2px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
+    margin-top:16px;
 
 }
 
 .nav-btn{
 
-    width:34px;
+    width:56px;
 
-    height:34px;
+    height:56px;
 
-    border:none;
-
-    border-radius:50%;
-
-    background:#fff8ea;
-
-    font-size:16px;
+    font-size:26px;
 
 }
 
 .dots{
 
-    gap:6px;
+    gap:10px;
 
 }
 
 .dot{
 
-    width:7px;
-
-    height:7px;
-
-}
+    width:10px;
+    height:10px;
 
 }
 
+}
 
 
 </style>
