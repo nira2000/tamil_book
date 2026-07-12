@@ -852,11 +852,11 @@ body{
             <!-- YELLOW -->
             <div class="group" data-audio="ka_yellow">
 
-                <button class="head yellow">
+                <button class="head yellow" data-audio="ka_yellow">
                     <span class="highlight">கெ</span>
                 </button>
 
-                <button class="btn yellow"><span class="highlight">கே</span></button>
+                <button class="btn yellow" ><span class="highlight">கே</span></button>
                 <button class="btn yellow"><span class="highlight">கை</span></button>
 
             </div>
@@ -864,7 +864,7 @@ body{
             <!-- BLUE -->
             <div class="group" data-audio="ka_blue">
 
-                <button class="head blue">
+                <button class="head blue" data-audio="ka_blue">
                     <span class="highlight">கொ</span>
                 </button>
 
@@ -926,7 +926,7 @@ body{
             <!-- YELLOW -->
             <div class="group" data-audio="sa_yellow">
 
-                <button class="head yellow">
+                <button class="head yellow" data-audio="sa_yellow">
                     <span class="highlight">செ</span>
                 </button>
 
@@ -938,7 +938,7 @@ body{
             <!-- BLUE -->
             <div class="group" data-audio="sa_blue">
 
-                <button class="head blue">
+                <button class="head blue" data-audio="sa_blue">
                     <span class="highlight">சொ</span>
                 </button>
 
@@ -1000,7 +1000,7 @@ body{
             <!-- YELLOW -->
             <div class="group" data-audio="da_yellow">
 
-                <button class="head yellow">
+                <button class="head yellow" data-audio="da_yellow">
                     <span class="highlight">டெ</span>
                 </button>
 
@@ -1012,7 +1012,7 @@ body{
             <!-- BLUE -->
             <div class="group" data-audio="da_blue">
 
-                <button class="head blue">
+                <button class="head blue" data-audio="da_blue">
                     <span class="highlight">டொ</span>
                 </button>
 
@@ -1098,6 +1098,7 @@ body{
 
 let currentAudio = null;
 let currentButtons = [];
+let highlightTimer = null;
 
 // ===========================================
 // STOP ALL
@@ -1109,6 +1110,12 @@ function stopAll(){
 
         currentAudio.pause();
         currentAudio.currentTime = 0;
+
+    }
+
+    if(highlightTimer){
+
+        clearInterval(highlightTimer);
 
     }
 
@@ -1167,6 +1174,62 @@ function playAudio(audioId,buttons){
 
 }
 
+
+
+
+// ===========================================
+// WORD BY WORD HIGHLIGHT
+// ===========================================
+
+function playSequential(audioId, buttons, speed){
+
+    const audio=document.getElementById(audioId);
+
+    if(!audio) return;
+
+    if(currentAudio===audio && !audio.paused){
+
+        stopAll();
+        return;
+
+    }
+
+    stopAll();
+
+    currentAudio=audio;
+    currentButtons=buttons;
+
+    let index=0;
+
+    function highlightNext(){
+
+        buttons.forEach(btn=>btn.classList.remove("playing"));
+
+        if(index<buttons.length){
+
+            buttons[index].classList.add("playing");
+
+            index++;
+
+        }
+
+    }
+
+    highlightNext();
+
+    highlightTimer = setInterval(highlightNext, speed);
+    audio.currentTime=0;
+    audio.play();
+
+    audio.onended=stopAll;
+
+}
+
+
+
+
+
+
 // ===========================================
 // DARK GREEN HEAD BUTTONS
 // ka_head
@@ -1190,11 +1253,12 @@ document.querySelectorAll(".head.green").forEach(head=>{
 
 });
 
+
+
+
 // ===========================================
-// LIGHT GREEN GROUPS
-// ka_green
-// sa_green
-// da_green
+// SEQUENTIAL GROUPS
+// Green
 // ===========================================
 
 document.querySelectorAll(".btn.group-green[data-audio]").forEach(firstBtn=>{
@@ -1203,13 +1267,31 @@ document.querySelectorAll(".btn.group-green[data-audio]").forEach(firstBtn=>{
 
         const group=this.closest(".group");
 
-        const buttons=[...group.querySelectorAll(".group-green")];
+        let speed = 1000;
 
-        playAudio(
+        switch(this.dataset.audio){
+
+            case "ka_green":
+                speed = 1000;
+                break;
+
+            case "sa_green":
+                speed = 1150;
+                break;
+
+            case "da_green":
+                speed = 1800;
+                break;
+
+        }
+
+        playSequential(
 
             this.dataset.audio,
 
-            buttons
+            [...group.querySelectorAll(".group-green")],
+
+            speed
 
         );
 
@@ -1219,22 +1301,21 @@ document.querySelectorAll(".btn.group-green[data-audio]").forEach(firstBtn=>{
 
 // ===========================================
 // YELLOW
-// (UNCHANGED)
 // ===========================================
 
-document.querySelectorAll(".group[data-audio$='_yellow'] .head").forEach(head=>{
+document.querySelectorAll(".head.yellow").forEach(head=>{
 
     head.addEventListener("click",function(){
 
         const group=this.closest(".group");
 
-        const buttons=[...group.querySelectorAll("button")];
+        playSequential(
 
-        playAudio(
+            this.dataset.audio,
 
-            group.dataset.audio,
+            [...group.querySelectorAll("button")],
 
-            buttons
+            1550
 
         );
 
@@ -1244,28 +1325,30 @@ document.querySelectorAll(".group[data-audio$='_yellow'] .head").forEach(head=>{
 
 // ===========================================
 // BLUE
-// (UNCHANGED)
 // ===========================================
 
-document.querySelectorAll(".group[data-audio$='_blue'] .head").forEach(head=>{
+document.querySelectorAll(".head.blue").forEach(head=>{
 
     head.addEventListener("click",function(){
 
         const group=this.closest(".group");
 
-        const buttons=[...group.querySelectorAll("button")];
+        playSequential(
 
-        playAudio(
+            this.dataset.audio,
 
-            group.dataset.audio,
+            [...group.querySelectorAll("button")],
 
-            buttons
+            1600
 
         );
 
     });
 
 });
+
+
+
 
 // ===========================================
 // ORANGE
