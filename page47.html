@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> page 44 தமிழ் எழுத்துகள்</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<style>
+    
+/* ===========================================
+   RESET
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Noto Sans Tamil',sans-serif;
+
+    background:#1b2c73;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+/* ===========================================
+   BOOK
+=========================================== */
+
+.page-wrapper{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.book{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:850px;
+
+    background:#fbf8ef;
+
+    border:8px solid #e9dcb8;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+/* RED SPINE */
+
+.book::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-10px;
+
+    top:20px;
+
+    bottom:20px;
+
+    width:18px;
+
+    background:#d40c02;
+
+    border-radius:10px;
+
+}
+
+/* ===========================================
+   TITLE
+=========================================== */
+
+.page-title{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:20px;
+
+}
+
+.page-title h1{
+
+    background:#f8c45d;
+
+    border:3px solid #b88214;
+
+    border-radius:15px;
+
+    padding:12px 40px;
+
+    font-size:42px;
+
+}
+
+.lesson{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    margin-bottom:30px;
+
+}
+
+/* ===========================================
+   MAIN
+=========================================== */
+
+.single-layout{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.single-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    align-items:center;
+
+}
+
+/* ===========================================
+   BUTTONS
+=========================================== */
+
+.btn{
+
+    width:150px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    font-family:'Noto Sans Tamil',sans-serif;
+
+    cursor:pointer;
+
+    position:relative;
+
+    transition:.25s;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.18);
+
+}
+
+.speaker::after{
+
+    content:"🔊";
+
+    position:absolute;
+
+    top:5px;
+
+    right:6px;
+
+    font-size:13px;
+
+}
+
+.green{
+
+    background:#b7ef67;
+
+    border:2px solid #709541;
+
+}
+
+.yellow{
+
+    background:#fff29a;
+
+    border:2px solid #b9a548;
+
+}
+
+.blue{
+
+    background:#66d8e8;
+
+    border:2px solid #397f89;
+
+}
+
+.orange{
+
+    background:#ff9d71;
+
+    border:2px solid #ba6c47;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================================
+   HIGHLIGHT
+=========================================== */
+
+.highlight{
+
+    color:#111;
+
+    transition:.25s;
+
+}
+
+.playing .highlight{
+
+    color:#e60000;
+
+}
+
+/* ===========================================
+   PAGE NUMBER
+=========================================== */
+
+.page-number{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#7a42d5;
+
+}
+
+/* ===========================================
+   NAVIGATION
+=========================================== */
+
+.navigation{
+
+    margin-top:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.nav-btn{
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    font-size:28px;
+
+    background:#f8f1e4;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.18);
+
+}
+
+.dots{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#aaa;
+
+}
+
+.dot.active{
+
+    background:#35ff2d;
+
+}
+
+
+/* ===========================
+   PAGE FLIP
+=========================== */
+
+.container{
+
+    transform-style:preserve-3d;
+
+}
+
+.flip-out-next{
+
+    animation:flipNext .6s ease forwards;
+
+    transform-origin:left center;
+
+}
+
+.flip-out-prev{
+
+    animation:flipPrev .6s ease forwards;
+
+    transform-origin:right center;
+
+}
+
+@keyframes flipNext{
+
+from{
+
+    transform:rotateY(0);
+
+    opacity:1;
+
+}
+
+to{
+
+    transform:rotateY(-120deg);
+
+    opacity:0;
+
+}
+
+}
+
+@keyframes flipPrev{
+
+from{
+
+    transform:rotateY(0);
+
+    opacity:1;
+
+}
+
+to{
+
+    transform:rotateY(120deg);
+
+    opacity:0;
+
+}
+
+}
+
+
+
+
+
+
+/* ===========================================
+   MOBILE
+=========================================== */
+
+@media(max-width:768px){
+
+body{
+
+    padding:6px;
+
+}
+
+.book{
+
+    max-width:390px;
+
+    padding:12px;
+
+    border-width:5px;
+
+}
+
+.book::before{
+
+    left:-5px;
+
+    top:12px;
+
+    bottom:12px;
+
+    width:10px;
+
+}
+
+.page-title h1{
+
+    font-size:22px;
+
+    padding:8px 18px;
+
+}
+
+.lesson{
+
+    font-size:20px;
+
+    margin-bottom:15px;
+
+}
+
+.single-column{
+
+    gap:8px;
+
+}
+
+.btn{
+
+    width:100px;
+
+    height:42px;
+
+    font-size:22px;
+
+}
+
+.speaker::after{
+
+    font-size:9px;
+
+    top:2px;
+
+    right:3px;
+
+}
+
+.page-number{
+
+    margin-top:14px;
+
+    font-size:18px;
+
+}
+
+.navigation{
+
+    margin-top:10px;
+
+}
+
+.nav-btn{
+
+    width:42px;
+
+    height:42px;
+
+    font-size:20px;
+
+}
+
+.dot{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+}
+
+
+</style>
+
+
+
+<body>
+
+<div class="page-wrapper">
+
+    <div class="container">
+
+        <div class="book">
+
+            <!-- TITLE -->
+
+            <div class="page-title">
+
+                <h1>தமிழ் எழுத்துகள் ✏️</h1>
+
+            </div>
+
+            <!-- LESSON -->
+
+            <div class="lesson">
+
+                தொகுதி 4
+
+            </div>
+
+            <!-- MAIN -->
+
+            <div class="single-layout">
+
+                <div class="single-column">
+
+                    <!-- GREEN -->
+
+                    <button class="btn green speaker"
+                            data-audio="a1">
+                        <span class="highlight">அ</span>
+                    </button>
+
+                    <button class="btn green speaker"
+                            data-audio="a2">
+                        <span class="highlight">ஆ</span>
+                    </button>
+
+                    <button class="btn green speaker"
+                            data-audio="i1">
+                        <span class="highlight">இ</span>
+                    </button>
+
+                    <button class="btn green speaker"
+                            data-audio="i2">
+                        <span class="highlight">ஈ</span>
+                    </button>
+
+                    <button class="btn green speaker"
+                            data-audio="u1">
+                        <span class="highlight">உ</span>
+                    </button>
+
+                    <button class="btn green speaker"
+                            data-audio="u2">
+                        <span class="highlight">ஊ</span>
+                    </button>
+
+                    <!-- YELLOW -->
+
+                    <button class="btn yellow speaker"
+                            data-audio="e1">
+                        <span class="highlight">எ</span>
+                    </button>
+
+                    <button class="btn yellow speaker"
+                            data-audio="e2">
+                        <span class="highlight">ஏ</span>
+                    </button>
+
+                    <button class="btn yellow speaker"
+                            data-audio="ai">
+                        <span class="highlight">ஐ</span>
+                    </button>
+
+                    <!-- BLUE -->
+
+                    <button class="btn blue speaker"
+                            data-audio="o1">
+                        <span class="highlight">ஒ</span>
+                    </button>
+
+                    <button class="btn blue speaker"
+                            data-audio="o2">
+                        <span class="highlight">ஓ</span>
+                    </button>
+
+                    <button class="btn blue speaker"
+                            data-audio="ow">
+                        <span class="highlight">ஔ</span>
+                    </button>
+
+                    <!-- ORANGE -->
+
+                    <button class="btn orange speaker"
+                            data-audio="ah">
+                        <span class="highlight">ஃ</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- PAGE NUMBER -->
+
+            <div class="page-number">
+
+                47
+
+            </div>
+
+            <!-- NAVIGATION -->
+
+            <div class="navigation">
+
+                <button
+                    class="nav-btn"
+                    onclick="nextPage('page46.html','prev')">
+
+                    ❮
+
+                </button>
+
+                <div class="dots">
+
+                    <div class="dot"></div>
+
+                    <div class="dot active"></div>
+
+                    <div class="dot"></div>
+
+                </div>
+
+                <button
+                    class="nav-btn"
+                    onclick="nextPage('page48.html','next')">
+
+                    ❯
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
