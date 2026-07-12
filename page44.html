@@ -18,6 +18,7 @@
 <style>
     
 
+    
 /* ===========================================
    RESET
 =========================================== */
@@ -52,31 +53,25 @@ body{
 }
 
 @keyframes flipNext{
-
     from{
         transform:rotateY(0);
         opacity:1;
     }
-
     to{
         transform:rotateY(-120deg);
         opacity:0;
     }
-
 }
 
 @keyframes flipPrev{
-
     from{
         transform:rotateY(0);
         opacity:1;
     }
-
     to{
         transform:rotateY(120deg);
         opacity:0;
     }
-
 }
 
 /* ===========================================
@@ -113,6 +108,25 @@ body{
 
     transition:.5s ease;
 
+    position: relative;
+
+}
+
+.book::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-10px;
+    top:20px;
+    bottom:20px;
+
+    width:18px;
+
+    background:#D40C02;
+
+    border-radius:10px;
 }
 
 /* ===========================================
@@ -177,7 +191,7 @@ body{
 
     gap:12px;
 
-    margin-top:85px;
+    margin-top:405px;
 
 }
 
@@ -210,10 +224,6 @@ body{
 .empty{
     visibility:hidden;
 }
-
-/* ===========================================
-   COLUMN & GROUP
-=========================================== */
 
 .column{
 
@@ -256,6 +266,8 @@ body{
 
     font-weight:bold;
 
+    cursor:pointer;
+
     transition:.25s;
 
     user-select:none;
@@ -274,14 +286,13 @@ body{
 
 }
 
-
 .head::after{
 
     content:"🔊";
 
     position:absolute;
 
-    top:4px;
+    top:5px;
 
     right:6px;
 
@@ -293,23 +304,13 @@ body{
 
 }
 
-.btn{
-
-    cursor:default;
-
-    pointer-events:none;
-
-}
-
-/* Hover only for clickable buttons */
-
-.head:hover{
+button:hover{
 
     transform:translateY(-4px) scale(1.03);
 
 }
 
-.head:active{
+button:active{
 
     transform:scale(.96);
 
@@ -320,41 +321,27 @@ body{
 =========================================== */
 
 .green{
-
     background:#b7ef67;
-
     border:2px solid #709541;
-
 }
 
 .head.green{
-
     background:#79d15d;
-
 }
 
 .yellow{
-
     background:#fff29a;
-
     border:2px solid #b9a548;
-
 }
 
 .blue{
-
     background:#66d8e8;
-
     border:2px solid #397f89;
-
 }
 
 .orange{
-
     background:#ff9d71;
-
     border:2px solid #ba6c47;
-
 }
 
 /* ===========================================
@@ -362,35 +349,26 @@ body{
 =========================================== */
 
 .playing{
-
     animation:glow 1s infinite;
-
 }
 
 @keyframes glow{
 
-    0%{
-
-        box-shadow:0 0 0 rgba(255,196,0,0);
-
-    }
-
-    50%{
-
-        box-shadow:
-        0 0 15px rgba(255,196,0,.9),
-        0 0 30px rgba(255,196,0,.5);
-
-    }
-
-    100%{
-
-        box-shadow:0 0 0 rgba(255,196,0,0);
-
-    }
-
+0%{
+box-shadow:0 0 0 rgba(255,196,0,0);
 }
 
+50%{
+box-shadow:
+0 0 15px rgba(255,196,0,.9),
+0 0 30px rgba(255,196,0,.5);
+}
+
+100%{
+box-shadow:0 0 0 rgba(255,196,0,0);
+}
+
+}
 
 /* ===========================================
    PAGE NUMBER
@@ -454,12 +432,6 @@ body{
 
 }
 
-.nav-btn:active{
-
-    transform:scale(.95);
-
-}
-
 .dots{
 
     display:flex;
@@ -486,154 +458,312 @@ body{
 
 }
 
+.highlight{
+
+    color:#111;
+
+    transition:.25s;
+
+}
+
+.playing .highlight{
+
+    color:#e60000;
+
+}
+
+.eye-box{
+
+    width:60px;
+    height:52px;
+
+}
+
+.eye-box img{
+
+    width:60px;
+    height:60px;
+
+}
+
+.speaker{
+    position:relative;
+}
+
+.speaker::after{
+
+    content:"🔊";
+
+    position:absolute;
+
+    top:4px;
+
+    right:5px;
+
+    font-size:11px;
+
+    pointer-events:none;
+
+}
+
+
+
+
+
+
+
+
+
+
 /* ===========================================
-   TABLET & MOBILE
+   MOBILE & TABLET
 =========================================== */
 
 @media (max-width:900px){
 
 html,
 body{
+
     margin:0;
     padding:0;
+
     width:100%;
-    height:100%;
+    height:100dvh;
+
     overflow:hidden;
+
 }
 
-.page-wrapper{
-    width:100vw;
-    height:100vh;
+body{
+
+    background:#1b2c73;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:6px;
+
+    padding:4px;
+
 }
 
+/* ---------- WRAPPER ---------- */
+
+.page-wrapper,
 .container{
+
     width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
 }
+
+/* ---------- BOOK ---------- */
 
 .book{
-    width:100%;
-    max-width:100%;
-    min-height:98vh;
 
-    padding:10px;
+    width:100%;
+    max-width:420px;
+
+    height:94dvh;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:8px;
 
     border:5px solid #e9dcb8;
     border-radius:16px;
 
-    display:flex;
-    flex-direction:column;
+    overflow:hidden;
+
 }
 
-/* ---------- Title ---------- */
+/* RED SPINE */
+
+.book::before{
+
+    left:-5px;
+    top:12px;
+    bottom:12px;
+
+    width:10px;
+
+}
+
+/* ---------- TITLE ---------- */
 
 .page-title{
-    margin-bottom:8px;
+
+    margin-bottom:4px;
+
 }
 
 .page-title h1{
-    font-size:22px;
-    padding:6px 18px;
+
+    font-size:19px;
+
+    padding:5px 14px;
+
 }
 
 .lesson{
-    font-size:18px;
-    margin-bottom:10px;
+
+    font-size:17px;
+
+    margin-bottom:6px;
+
 }
 
-/* ---------- Main ---------- */
+/* ---------- GRID ---------- */
 
 .main{
+
     flex:1;
+
     display:grid;
-    grid-template-columns:38px repeat(3,1fr);
-    gap:6px;
+
+    grid-template-columns:34px repeat(3,1fr);
+
+    column-gap:6px;
+
+    align-items:start;
+
 }
 
-/* ---------- Pronunciation ---------- */
+/* ---------- PINK COLUMN ---------- */
 
 .sound-column{
-    margin-top:52px;
-    gap:6px;
+
+    margin-top:227px;
+
+    gap:5px;
+
 }
 
 .sound{
-    width:34px;
-    height:24px;
+
+    width:32px;
+    height:26px;
+
     font-size:13px;
-    border-radius:7px;
+
 }
 
-/* ---------- Buttons ---------- */
+/* ---------- EYE ---------- */
+
+.eye-box{
+
+    width:32px;
+    height:32px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.eye-box img{
+
+    width:34px;
+    height:34px;
+
+    object-fit:contain;
+
+}
+
+/* ---------- BUTTONS ---------- */
 
 .column{
-    gap:4px;
+
+    gap:6px;
+
 }
 
 .group{
+
     gap:4px;
+
 }
 
 .head,
 .btn{
 
-    width:68px;
-    height:30px;
+    width:60px;
+    height:28px;
 
-    font-size:18px;
+    font-size:17px;
+
+    border-radius:8px;
 
 }
 
 .head{
-    font-size:21px;
-}
 
-/* ---------- Speaker Icon ---------- */
+    font-size:18px;
+
+}
 
 .head::after{
 
-    top:50%;
-    right:5px;
+    top:2px;
+    right:3px;
 
-    transform:translateY(-50%);
-
-    font-size:9px;
-
-    opacity:.8;
+    font-size:8px;
 
 }
 
-/* ---------- Bottom ---------- */
+/* ---------- BOTTOM ---------- */
 
 .page-number{
-    margin-top:8px;
-    font-size:18px;
+
+    margin-top:2px;
+
+    font-size:15px;
+
 }
 
 .navigation{
-    margin-top:-18px;
+
+    margin-top:2px;
+
 }
 
 .nav-btn{
-    width:42px;
-    height:42px;
-    font-size:20px;
+
+    width:38px;
+    height:38px;
+
+    font-size:18px;
+
 }
 
 .dots{
+
     gap:8px;
+
 }
 
 .dot{
-    width:8px;
-    height:8px;
-}
+
+    width:7px;
+    height:7px;
 
 }
 
+.speaker::after{
+
+    top:2px;
+
+    right:3px;
+
+    font-size:8px;
+
+}
+
+}
 
 </style>
 
@@ -660,21 +790,18 @@ body{
 
 <div class="sound-column">
 
-<div class="sound empty"></div>
-<div class="sound empty"></div>
-<div class="sound empty"></div>
-<div class="sound empty"></div>
-<div class="sound empty"></div>
-<div class="sound empty"></div>
+    <!-- Pronunciation -->
 
-<div class="sound pink">a</div>
-<div class="sound pink">a</div>
-<div class="sound pink"></div>
-<div class="sound pink">o</div>
-<div class="sound pink">o</div>
-<div class="sound pink">ow</div>
+    <div class="sound pink">a¹</div>
+    <div class="sound pink">a²</div>
 
-<div class="sound empty"></div>
+    <div class="eye-box">
+        <img src="eye.png" alt="Eye">
+    </div>
+
+    <div class="sound pink">o¹</div>
+    <div class="sound pink">o²</div>
+    <div class="sound pink">ow</div>
 
 </div>
 
@@ -684,16 +811,39 @@ body{
 
 <div class="column">
 
-    <!-- GREEN GROUP -->
-    <div class="group" data-audio="green">
-        <button class="head green">த</button>
+<!-- GREEN GROUP -->
+<div class="group">
 
-        <button class="btn green">த</button>
-        <button class="btn green">தா</button>
-        <button class="btn green">தி</button>
-        <button class="btn green">தீ</button>
-        <button class="btn green">து</button>
-        <button class="btn green">தூ</button>
+    <!-- Head -->
+    <button class="head green" data-audio="tha_head">
+        <span class="highlight">த</span>
+    </button>
+
+    <!-- Light Green -->
+    <button class="btn green group-green speaker" data-audio="tha_green">
+        <span class="highlight">த</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">தா</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">தி</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">தீ</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">து</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">தூ</span>
+    </button>
+
     </div>
 
     <!-- YELLOW GROUP -->
@@ -726,15 +876,38 @@ body{
 <div class="column">
 
     <!-- GREEN GROUP -->
-    <div class="group" data-audio="green">
-        <button class="head green">ப</button>
+<div class="group">
 
-        <button class="btn green">ப</button>
-        <button class="btn green">பா</button>
-        <button class="btn green">பி</button>
-        <button class="btn green">பீ</button>
-        <button class="btn green">பு</button>
-        <button class="btn green">பூ</button>
+    <!-- Head -->
+    <button class="head green" data-audio="pa_head">
+        <span class="highlight">ப</span>
+    </button>
+
+    <!-- Light Green -->
+    <button class="btn green group-green speaker" data-audio="pa_green">
+        <span class="highlight">ப</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">பா</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">பி</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">பீ</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">பு</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">பூ</span>
+    </button>
+
     </div>
 
     <!-- YELLOW GROUP -->
@@ -767,16 +940,39 @@ body{
 <div class="column">
 
     <!-- GREEN GROUP -->
-    <div class="group" data-audio="green">
-        <button class="head green">ம</button>
+<div class="group">
 
-        <button class="btn green">ம</button>
-        <button class="btn green">மா</button>
-        <button class="btn green">மி</button>
-        <button class="btn green">மீ</button>
-        <button class="btn green">மு</button>
-        <button class="btn green">மூ</button>
-    </div>
+    <!-- Head -->
+    <button class="head green" data-audio="ma_head">
+        <span class="highlight">ம</span>
+    </button>
+
+    <!-- Light Green -->
+    <button class="btn green group-green speaker" data-audio="ma_green">
+        <span class="highlight">ம</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">மா</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">மி</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">மீ</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">மு</span>
+    </button>
+
+    <button class="btn green group-green">
+        <span class="highlight">மூ</span>
+    </button>
+
+</div>
 
     <!-- YELLOW GROUP -->
     <div class="group" data-audio="yellow">
@@ -811,7 +1007,7 @@ body{
 <div class="navigation">
 
     <button class="nav-btn"
-        onclick="nextPage('page43.html','prev')">
+        onclick="nextPage('page42.html','prev')">
         ❮
     </button>
 
@@ -834,72 +1030,79 @@ body{
 </div>
 
 <!-- Audio Files -->
-<audio id="greenAudio" src="audio_green.mp3"></audio>
+<!-- GREEN -->
+<audio id="tha_head" src="tha_head.mp3"></audio>
+<audio id="tha_green" src="tha_green.mp3"></audio>
+
+<audio id="pa_head" src="pa_head.mp3"></audio>
+<audio id="pa_green" src="pa_green.mp3"></audio>
+
+<audio id="ma_head" src="ma_head.mp3"></audio>
+<audio id="ma_green" src="ma_green.mp3"></audio>
+
+<!-- YELLOW -->
 <audio id="yellowAudio" src="audio_yellow.mp3"></audio>
+
+<!-- BLUE -->
 <audio id="blueAudio" src="audio_blue.mp3"></audio>
+
+<!-- ORANGE -->
 <audio id="orangeAudio" src="audio_orange.mp3"></audio>
 
+
+
+
 <script>
-    
 
 // ===========================================
-// AUDIO OBJECTS
+// AUDIO PLAYER
 // ===========================================
-
-const audios = {
-    green: document.getElementById("greenAudio"),
-    yellow: document.getElementById("yellowAudio"),
-    blue: document.getElementById("blueAudio"),
-    orange: document.getElementById("orangeAudio")
-};
 
 let currentAudio = null;
-let currentGroup = null;
-
+let currentButtons = [];
 
 // ===========================================
-// STOP EVERYTHING
+// STOP ALL
 // ===========================================
 
 function stopAll(){
 
-    // Stop every audio
-    Object.values(audios).forEach(audio=>{
+    if(currentAudio){
 
-        audio.pause();
-        audio.currentTime = 0;
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
 
-    });
+    }
 
-    // Remove blinking
-    document.querySelectorAll(".playing").forEach(btn=>{
+    currentButtons.forEach(btn=>{
 
         btn.classList.remove("playing");
 
     });
 
     currentAudio = null;
-    currentGroup = null;
+    currentButtons = [];
 
 }
 
-
 // ===========================================
-// PLAY GROUP
+// PLAY AUDIO
 // ===========================================
 
-function playGroup(headButton){
+function playAudio(audioId,buttons){
 
-    const group = headButton.closest(".group");
+    const audio=document.getElementById(audioId);
 
-    const color = group.dataset.audio;
+    if(!audio){
 
-    // Click same group again -> Stop
-    if(
-        currentGroup === group &&
-        currentAudio &&
-        !currentAudio.paused
-    ){
+        console.log("Missing audio:",audioId);
+        return;
+
+    }
+
+    // Click same audio again = STOP
+
+    if(currentAudio===audio && !audio.paused){
 
         stopAll();
         return;
@@ -908,48 +1111,139 @@ function playGroup(headButton){
 
     stopAll();
 
-    currentGroup = group;
-    currentAudio = audios[color];
+    currentAudio=audio;
+    currentButtons=buttons;
 
-    // Blink ONLY this group
-    group.querySelectorAll("button").forEach(btn=>{
+    buttons.forEach(btn=>{
 
         btn.classList.add("playing");
 
     });
 
-    currentAudio.play();
+    audio.currentTime=0;
+    audio.play();
 
-    currentAudio.onended = ()=>{
-
-        group.querySelectorAll("button").forEach(btn=>{
-
-            btn.classList.remove("playing");
-
-        });
-
-        currentAudio = null;
-        currentGroup = null;
-
-    };
+    audio.onended=stopAll;
 
 }
 
-
 // ===========================================
-// ONLY HEAD BUTTONS ARE CLICKABLE
+// DARK GREEN HEAD BUTTONS
 // ===========================================
 
-document.querySelectorAll(".group .head").forEach(button=>{
+document.querySelectorAll(".head.green").forEach(head=>{
 
-    button.addEventListener("click",()=>{
+    head.addEventListener("click",function(){
 
-        playGroup(button);
+        playAudio(
+
+            this.dataset.audio,
+
+            [this]
+
+        );
 
     });
 
 });
 
+// ===========================================
+// LIGHT GREEN GROUPS
+// ===========================================
+
+document.querySelectorAll(".btn.group-green[data-audio]").forEach(firstBtn=>{
+
+    firstBtn.addEventListener("click",function(){
+
+        const group=this.closest(".group");
+
+        const buttons=[...group.querySelectorAll(".group-green")];
+
+        playAudio(
+
+            this.dataset.audio,
+
+            buttons
+
+        );
+
+    });
+
+});
+
+// ===========================================
+// YELLOW
+// ===========================================
+
+document.querySelectorAll(".group[data-audio='yellow'] .head").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        const buttons=[
+
+            this,
+            ...this.closest(".group").querySelectorAll(".btn")
+
+        ];
+
+        playAudio(
+
+            "yellowAudio",
+
+            buttons
+
+        );
+
+    });
+
+});
+
+// ===========================================
+// BLUE
+// ===========================================
+
+document.querySelectorAll(".group[data-audio='blue'] .head").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        const buttons=[
+
+            this,
+            ...this.closest(".group").querySelectorAll(".btn")
+
+        ];
+
+        playAudio(
+
+            "blueAudio",
+
+            buttons
+
+        );
+
+    });
+
+});
+
+// ===========================================
+// ORANGE
+// ===========================================
+
+document.querySelectorAll(".group[data-audio='orange'] .head").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        playAudio(
+
+            "orangeAudio",
+
+            [this]
+
+        );
+
+    });
+
+});
 
 // ===========================================
 // PAGE FLIP
@@ -957,13 +1251,15 @@ document.querySelectorAll(".group .head").forEach(button=>{
 
 function nextPage(page,direction){
 
-    const pageContainer = document.querySelector(".container");
+    const pageContainer=document.querySelector(".container");
 
     if(direction==="next"){
 
         pageContainer.classList.add("flip-out-next");
 
-    }else{
+    }
+
+    else{
 
         pageContainer.classList.add("flip-out-prev");
 
@@ -971,11 +1267,12 @@ function nextPage(page,direction){
 
     setTimeout(()=>{
 
-        window.location.href = page;
+        window.location.href=page;
 
     },600);
 
 }
+
 </script>
 
 
