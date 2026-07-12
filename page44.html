@@ -1057,12 +1057,14 @@ body{
 
 <script>
 
+    
 // ===========================================
 // AUDIO PLAYER
 // ===========================================
 
 let currentAudio = null;
 let currentButtons = [];
+let highlightTimer = null;
 
 // ===========================================
 // STOP ALL
@@ -1077,14 +1079,20 @@ function stopAll(){
 
     }
 
+    if(highlightTimer){
+
+        clearInterval(highlightTimer);
+
+    }
+
     currentButtons.forEach(btn=>{
 
         btn.classList.remove("playing");
 
     });
 
-    currentAudio = null;
-    currentButtons = [];
+    currentAudio=null;
+    currentButtons=[];
 
 }
 
@@ -1094,14 +1102,56 @@ function stopAll(){
 
 function playAudio(audioId,buttons){
 
-    const audio = document.getElementById(audioId);
+    const audio=document.getElementById(audioId);
 
     if(!audio){
+
         console.log("Missing audio:",audioId);
+
         return;
+
     }
 
-    // Click same button again = stop
+    // Click same audio again = STOP
+
+    if(currentAudio===audio && !audio.paused){
+
+        stopAll();
+
+        return;
+
+    }
+
+    stopAll();
+
+    currentAudio=audio;
+    currentButtons=buttons;
+
+    buttons.forEach(btn=>{
+
+        btn.classList.add("playing");
+
+    });
+
+    audio.currentTime=0;
+    audio.play();
+
+    audio.onended=stopAll;
+
+}
+
+
+
+
+// ===========================================
+// WORD BY WORD HIGHLIGHT
+// ===========================================
+
+function playSequential(audioId, buttons, speed){
+
+    const audio=document.getElementById(audioId);
+
+    if(!audio) return;
 
     if(currentAudio===audio && !audio.paused){
 
@@ -1115,8 +1165,25 @@ function playAudio(audioId,buttons){
     currentAudio=audio;
     currentButtons=buttons;
 
-    buttons.forEach(btn=>btn.classList.add("playing"));
+    let index=0;
 
+    function highlightNext(){
+
+        buttons.forEach(btn=>btn.classList.remove("playing"));
+
+        if(index<buttons.length){
+
+            buttons[index].classList.add("playing");
+
+            index++;
+
+        }
+
+    }
+
+    highlightNext();
+
+    highlightTimer = setInterval(highlightNext, speed);
     audio.currentTime=0;
     audio.play();
 
@@ -1124,8 +1191,16 @@ function playAudio(audioId,buttons){
 
 }
 
+
+
+
+
+
 // ===========================================
-// GREEN HEAD
+// DARK GREEN HEAD BUTTONS
+// ka_head
+// sa_head
+// da_head
 // ===========================================
 
 document.querySelectorAll(".head.green").forEach(head=>{
@@ -1144,8 +1219,12 @@ document.querySelectorAll(".head.green").forEach(head=>{
 
 });
 
+
+
+
 // ===========================================
-// GREEN GROUP
+// SEQUENTIAL GROUPS
+// Green
 // ===========================================
 
 document.querySelectorAll(".btn.group-green[data-audio]").forEach(firstBtn=>{
@@ -1154,13 +1233,31 @@ document.querySelectorAll(".btn.group-green[data-audio]").forEach(firstBtn=>{
 
         const group=this.closest(".group");
 
-        const buttons=[...group.querySelectorAll(".group-green")];
+        let speed = 1000;
 
-        playAudio(
+        switch(this.dataset.audio){
+
+            case "ka_green":
+                speed = 1000;
+                break;
+
+            case "sa_green":
+                speed = 1000;
+                break;
+
+            case "da_green":
+                speed = 1000;
+                break;
+
+        }
+
+        playSequential(
 
             this.dataset.audio,
 
-            buttons
+            [...group.querySelectorAll(".group-green")],
+
+            speed
 
         );
 
@@ -1178,19 +1275,13 @@ document.querySelectorAll(".head.yellow").forEach(head=>{
 
         const group=this.closest(".group");
 
-        const buttons=[
-
-            this,
-
-            ...group.querySelectorAll(".btn")
-
-        ];
-
-        playAudio(
+        playSequential(
 
             this.dataset.audio,
 
-            buttons
+            [...group.querySelectorAll("button")],
+
+            1300
 
         );
 
@@ -1208,19 +1299,13 @@ document.querySelectorAll(".head.blue").forEach(head=>{
 
         const group=this.closest(".group");
 
-        const buttons=[
-
-            this,
-
-            ...group.querySelectorAll(".btn")
-
-        ];
-
-        playAudio(
+        playSequential(
 
             this.dataset.audio,
 
-            buttons
+            [...group.querySelectorAll("button")],
+
+            1300
 
         );
 
@@ -1228,17 +1313,21 @@ document.querySelectorAll(".head.blue").forEach(head=>{
 
 });
 
+
+
+
 // ===========================================
 // ORANGE
+// (UNCHANGED)
 // ===========================================
 
-document.querySelectorAll(".head.orange").forEach(head=>{
+document.querySelectorAll(".group[data-audio$='_orange'] .head").forEach(head=>{
 
     head.addEventListener("click",function(){
 
         playAudio(
 
-            this.dataset.audio,
+            this.closest(".group").dataset.audio,
 
             [this]
 
@@ -1275,6 +1364,7 @@ function nextPage(page,direction){
     },600);
 
 }
+
 </script>
 
 
