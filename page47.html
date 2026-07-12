@@ -760,5 +760,318 @@ body{
 
 
 
+<script>
+
+    
+// ===========================================
+// AUDIO PLAYER
+// ===========================================
+
+let currentAudio = null;
+let currentButtons = [];
+let highlightTimer = null;
+
+// ===========================================
+// STOP ALL
+// ===========================================
+
+function stopAll(){
+
+    if(currentAudio){
+
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+
+    }
+
+    if(highlightTimer){
+
+        clearInterval(highlightTimer);
+
+    }
+
+    currentButtons.forEach(btn=>{
+
+        btn.classList.remove("playing");
+
+    });
+
+    currentAudio=null;
+    currentButtons=[];
+
+}
+
+// ===========================================
+// PLAY AUDIO
+// ===========================================
+
+function playAudio(audioId,buttons){
+
+    const audio=document.getElementById(audioId);
+
+    if(!audio){
+
+        console.log("Missing audio:",audioId);
+
+        return;
+
+    }
+
+    // Click same audio again = STOP
+
+    if(currentAudio===audio && !audio.paused){
+
+        stopAll();
+
+        return;
+
+    }
+
+    stopAll();
+
+    currentAudio=audio;
+    currentButtons=buttons;
+
+    buttons.forEach(btn=>{
+
+        btn.classList.add("playing");
+
+    });
+
+    audio.currentTime=0;
+    audio.play();
+
+    audio.onended=stopAll;
+
+}
+
+
+
+
+// ===========================================
+// WORD BY WORD HIGHLIGHT
+// ===========================================
+
+function playSequential(audioId, buttons, speed){
+
+    const audio=document.getElementById(audioId);
+
+    if(!audio) return;
+
+    if(currentAudio===audio && !audio.paused){
+
+        stopAll();
+        return;
+
+    }
+
+    stopAll();
+
+    currentAudio=audio;
+    currentButtons=buttons;
+
+    let index=0;
+
+    function highlightNext(){
+
+        buttons.forEach(btn=>btn.classList.remove("playing"));
+
+        if(index<buttons.length){
+
+            buttons[index].classList.add("playing");
+
+            index++;
+
+        }
+
+    }
+
+    highlightNext();
+
+    highlightTimer = setInterval(highlightNext, speed);
+    audio.currentTime=0;
+    audio.play();
+
+    audio.onended=stopAll;
+
+}
+
+
+
+
+
+
+// ===========================================
+// DARK GREEN HEAD BUTTONS
+// ka_head
+// sa_head
+// da_head
+// ===========================================
+
+document.querySelectorAll(".head.green").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        playAudio(
+
+            this.dataset.audio,
+
+            [this]
+
+        );
+
+    });
+
+});
+
+
+
+
+// ===========================================
+// SEQUENTIAL GROUPS
+// Green
+// ===========================================
+
+document.querySelectorAll(".btn.group-green[data-audio]").forEach(firstBtn=>{
+
+    firstBtn.addEventListener("click",function(){
+
+        const group=this.closest(".group");
+
+        let speed = 1000;
+
+        switch(this.dataset.audio){
+
+            case "ka_green":
+                speed = 1000;
+                break;
+
+            case "sa_green":
+                speed = 1000;
+                break;
+
+            case "da_green":
+                speed = 1000;
+                break;
+
+        }
+
+        playSequential(
+
+            this.dataset.audio,
+
+            [...group.querySelectorAll(".group-green")],
+
+            speed
+
+        );
+
+    });
+
+});
+
+// ===========================================
+// YELLOW
+// ===========================================
+
+document.querySelectorAll(".head.yellow").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        const group=this.closest(".group");
+
+        playSequential(
+
+            this.dataset.audio,
+
+            [...group.querySelectorAll("button")],
+
+            1300
+
+        );
+
+    });
+
+});
+
+// ===========================================
+// BLUE
+// ===========================================
+
+document.querySelectorAll(".head.blue").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        const group=this.closest(".group");
+
+        playSequential(
+
+            this.dataset.audio,
+
+            [...group.querySelectorAll("button")],
+
+            1300
+
+        );
+
+    });
+
+});
+
+
+
+
+// ===========================================
+// ORANGE
+// (UNCHANGED)
+// ===========================================
+
+document.querySelectorAll(".group[data-audio$='_orange'] .head").forEach(head=>{
+
+    head.addEventListener("click",function(){
+
+        playAudio(
+
+            this.closest(".group").dataset.audio,
+
+            [this]
+
+        );
+
+    });
+
+});
+
+// ===========================================
+// PAGE FLIP
+// ===========================================
+
+function nextPage(page,direction){
+
+    const pageContainer=document.querySelector(".container");
+
+    if(direction==="next"){
+
+        pageContainer.classList.add("flip-out-next");
+
+    }
+
+    else{
+
+        pageContainer.classList.add("flip-out-prev");
+
+    }
+
+    setTimeout(()=>{
+
+        window.location.href=page;
+
+    },600);
+
+}
+
+</script>
+
+
 </body>
 </html>
