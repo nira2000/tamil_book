@@ -814,7 +814,7 @@ body{
     <!-- GREEN -->
     <div class="group">
 
-        <button class="head green" data-audio="ka.mp3">
+        <button class="head green" data-audio="kafamily.mpeg ">
             <span class="highlight">க</span>
         </button>
 
@@ -1093,60 +1093,149 @@ body{
 
 <script>
     
-
 // ===========================================
-// SIMPLE AUDIO PLAYER
+// AUDIO PLAYER
 // ===========================================
 
 let currentAudio = null;
 let currentButton = null;
 
-// Stop current audio
-function stopAudio() {
+let highlightTimer = null;
+let highlightedButtons = [];
 
-    if (currentAudio) {
+
+// Stop everything
+function stopAudio(){
+
+    // Stop audio
+    if(currentAudio){
         currentAudio.pause();
         currentAudio.currentTime = 0;
     }
 
-    if (currentButton) {
+    // Stop timer
+    if(highlightTimer){
+        clearInterval(highlightTimer);
+        highlightTimer = null;
+    }
+
+    // Remove highlights
+    highlightedButtons.forEach(btn=>{
+        btn.classList.remove("playing");
+    });
+
+    highlightedButtons = [];
+
+    // Remove current button highlight
+    if(currentButton){
         currentButton.classList.remove("playing");
     }
 
     currentAudio = null;
     currentButton = null;
+
 }
 
-// Play audio
-function playAudio(button) {
+
+
+// ===========================================
+// PLAY AUDIO
+// ===========================================
+
+function playAudio(button){
 
     const file = button.dataset.audio;
 
-    if (!file) return;
+    if(!file) return;
 
-    // Click same button = stop
-    if (currentButton === button && currentAudio && !currentAudio.paused) {
+    // Click same button again = STOP
+    if(currentButton === button && currentAudio && !currentAudio.paused){
+
         stopAudio();
         return;
+
     }
 
+    // Stop anything already playing
     stopAudio();
 
     currentAudio = new Audio(file);
     currentButton = button;
 
-    button.classList.add("playing");
+    // ===================================
+    // DARK GREEN BUTTON
+    // ===================================
 
-    currentAudio.play();
+    if(button.classList.contains("head") &&
+       button.classList.contains("green")){
+
+        const column = button.closest(".column");
+
+        const buttons = [
+
+            ...column.querySelectorAll(".group:nth-child(1) .btn.green"),
+            ...column.querySelectorAll(".group:nth-child(2) .head.yellow"),
+            ...column.querySelectorAll(".group:nth-child(2) .btn.yellow"),
+            ...column.querySelectorAll(".group:nth-child(3) .head.blue"),
+            ...column.querySelectorAll(".group:nth-child(3) .btn.blue"),
+            ...column.querySelectorAll(".group:nth-child(4) .head.orange")
+
+        ];
+
+        highlightedButtons = buttons;
+
+        let index = 0;
+
+        buttons[index].classList.add("playing");
+
+        highlightTimer = setInterval(()=>{
+
+            buttons[index].classList.remove("playing");
+
+            index++;
+
+            if(index < buttons.length){
+
+                buttons[index].classList.add("playing");
+
+            }
+            else{
+
+                clearInterval(highlightTimer);
+                highlightTimer = null;
+
+            }
+
+        },9800/buttons.length);
+
+    }
+
+    // ===================================
+    // NORMAL BUTTON
+    // ===================================
+
+    else{
+
+        button.classList.add("playing");
+        highlightedButtons = [button];
+
+    }
 
     currentAudio.onended = stopAudio;
 
+    currentAudio.play();
+
 }
 
-// Every button with data-audio
-document.querySelectorAll("[data-audio]").forEach(button => {
 
-    button.addEventListener("click", () => {
+
+// ===========================================
+// CLICK EVENTS
+// ===========================================
+
+document.querySelectorAll("[data-audio]").forEach(button=>{
+
+    button.addEventListener("click",()=>{
 
         playAudio(button);
 
@@ -1155,33 +1244,34 @@ document.querySelectorAll("[data-audio]").forEach(button => {
 });
 
 
+
 // ===========================================
 // PAGE FLIP
 // ===========================================
 
-function nextPage(page, direction) {
+function nextPage(page,direction){
 
-    const pageContainer = document.querySelector(".container");
+    const pageContainer=document.querySelector(".container");
 
-    pageContainer.classList.remove("flip-out-next", "flip-out-prev");
+    pageContainer.classList.remove("flip-out-next","flip-out-prev");
 
     void pageContainer.offsetWidth;
 
-    if (direction === "next") {
+    if(direction==="next"){
 
         pageContainer.classList.add("flip-out-next");
 
-    } else {
+    }else{
 
         pageContainer.classList.add("flip-out-prev");
 
     }
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
-        window.location.href = page;
+        window.location.href=page;
 
-    }, 600);
+    },600);
 
 }
 
