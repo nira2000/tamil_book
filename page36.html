@@ -325,6 +325,19 @@ body{
 }
 
 
+.title-highlight{
+
+    background:#FFD54F;
+    color:#d32f2f;
+    border-radius:5px;
+    padding:2px 6px;
+    transition:.3s;
+
+}
+
+
+
+
 /* MOBILE */
 
 @media (max-width: 768px) {
@@ -381,7 +394,7 @@ body{
         display: flex;
         flex-direction: column;
         justify-content: center;   /* centers content vertically */
-        transform: translateY(-20px);
+        
     }
 
 
@@ -497,7 +510,9 @@ body{
             <div class="audio-card" onclick="toggleAudio1()">
 
                 <div class="card-header">
-                    <div class="card-title">பழங்கள்</div>
+                    <div class="card-title">
+                    <span id="fruitTitle">பழங்கள்</span>
+                </div>
                     <img src="page36pic1.png" class="card-image" alt="">
                 </div>
 
@@ -542,7 +557,12 @@ body{
         <div class="audio-card" onclick="toggleAudio2()">
 
             <div class="card-header">
-                <div class="card-title">தமிழ் மொழி</div>
+                <div class="card-title">
+
+                    <span id="titleTamil">தமிழ்</span>
+                    <span id="titleMozhi">மொழி</span>
+
+                </div>
                 <img src="page36pic2.png" class="card-image" alt="">
             </div>
 
@@ -626,40 +646,82 @@ body{
 
 <script>
 
+// ===========================================
+// VARIABLES
+// ===========================================
+
 let highlightTimers = [];
+let titleTimer = null;
 
 const audio1 = document.getElementById("audioPlayer1");
 const audio2 = document.getElementById("audioPlayer2");
 
+const fruitTitle = document.getElementById("fruitTitle");
+const tamilTitle = document.getElementById("titleTamil");
+const mozhiTitle = document.getElementById("titleMozhi");
+
+
+// ===========================================
+// CLEAR PARAGRAPH HIGHLIGHTS
+// ===========================================
+
 function clearHighlights(container){
-    container.querySelectorAll(".word")
-    .forEach(word => word.classList.remove("highlight"));
+
+    container.querySelectorAll(".word").forEach(word=>{
+
+        word.classList.remove("highlight");
+
+    });
+
 }
 
 
-function animateWords(container, speed, startDelay){
+// ===========================================
+// CLEAR TITLE HIGHLIGHTS
+// ===========================================
 
-    highlightTimers.forEach(timer =>
-        clearTimeout(timer)
-    );
+function clearTitleHighlights(){
 
-    highlightTimers = [];
+    fruitTitle.classList.remove("title-highlight");
 
-    const words = container.querySelectorAll(".word");
+    tamilTitle.classList.remove("title-highlight");
+
+    mozhiTitle.classList.remove("title-highlight");
+
+    if(titleTimer){
+
+        clearTimeout(titleTimer);
+
+        titleTimer=null;
+
+    }
+
+}
+
+
+// ===========================================
+// ANIMATE PARAGRAPH
+// ===========================================
+
+function animateWords(container,speed,startDelay){
+
+    highlightTimers.forEach(timer=>clearTimeout(timer));
+
+    highlightTimers=[];
+
+    const words=container.querySelectorAll(".word");
 
     clearHighlights(container);
 
-    words.forEach((word, index) => {
+    words.forEach((word,index)=>{
 
-        const timer = setTimeout(() => {
+        const timer=setTimeout(()=>{
 
-            words.forEach(w =>
-                w.classList.remove("highlight")
-            );
+            words.forEach(w=>w.classList.remove("highlight"));
 
             word.classList.add("highlight");
 
-        }, startDelay + (index * speed));
+        },startDelay+(index*speed));
 
         highlightTimers.push(timer);
 
@@ -669,89 +731,116 @@ function animateWords(container, speed, startDelay){
 
 
 
+// ===========================================
+// STOP PARAGRAPH
+// ===========================================
+
 function stopHighlights(){
 
-    highlightTimers.forEach(timer =>
-        clearTimeout(timer)
-    );
+    highlightTimers.forEach(timer=>clearTimeout(timer));
 
-    highlightTimers = [];
+    highlightTimers=[];
 
-    clearHighlights(
-        document.getElementById("fruitText")
-    );
+    clearHighlights(document.getElementById("fruitText"));
 
-    clearHighlights(
-        document.getElementById("tamilText")
-    );
+    clearHighlights(document.getElementById("tamilText"));
+
 }
 
 
+
+// ===========================================
+// STOP EVERYTHING
+// ===========================================
 
 function stopAllAudio(){
 
     audio1.pause();
     audio2.pause();
 
-    audio1.currentTime = 0;
-    audio2.currentTime = 0;
+    audio1.currentTime=0;
+    audio2.currentTime=0;
 
     stopHighlights();
+
+    clearTitleHighlights();
+
 }
 
-/* =========================
-   CARD 1
-========================= */
+
+
+// ===========================================
+// CARD 1
+// ===========================================
 
 function toggleAudio1(){
 
     if(!audio1.paused){
 
-        audio1.pause();
-        audio1.currentTime = 0;
-
-        stopHighlights();
+        stopAllAudio();
 
         return;
+
     }
 
     stopAllAudio();
 
+    fruitTitle.classList.add("title-highlight");
+
     audio1.play();
 
     animateWords(
+
         document.getElementById("fruitText"),
+
         1500,
+
         2000
+
     );
+
 }
 
 
-/* =========================
-   CARD 2
-========================= */
+
+// ===========================================
+// CARD 2
+// ===========================================
 
 function toggleAudio2(){
 
     if(!audio2.paused){
 
-        audio2.pause();
-        audio2.currentTime = 0;
-
-        stopHighlights();
+        stopAllAudio();
 
         return;
+
     }
 
     stopAllAudio();
 
+    tamilTitle.classList.add("title-highlight");
+
+    titleTimer=setTimeout(()=>{
+
+        tamilTitle.classList.remove("title-highlight");
+
+        mozhiTitle.classList.add("title-highlight");
+
+    },900);
+
     audio2.play();
 
     animateWords(
+
         document.getElementById("tamilText"),
+
         1300,
+
         2200
+
     );
+
 }
 
 
@@ -770,62 +859,73 @@ function toggleMute(icon){
 
     if(!soundEnabled){
 
-        audio1.pause();
-        audio2.pause();
+        stopAllAudio();
 
-        audio1.currentTime = 0;
-        audio2.currentTime = 0;
-
-        stopHighlights();
     }
 
-    document.querySelectorAll(".audio-badge")
-    .forEach(badge => {
-        badge.textContent =
-        soundEnabled ? "🔊" : "🔇";
+    document.querySelectorAll(".audio-badge").forEach(badge=>{
+
+        badge.textContent = soundEnabled ? "🔊" : "🔇";
+
     });
 
 }
 
 
 
-
 /* =========================
-   RESET WHEN AUDIO ENDS
+   AUDIO ENDED
 ========================= */
 
-audio1.addEventListener("ended", () => {
+audio1.addEventListener("ended",()=>{
 
-    clearHighlights(
-        document.getElementById("fruitText")
-    );
+    stopHighlights();
 
-});
-
-audio2.addEventListener("ended", () => {
-
-    clearHighlights(
-        document.getElementById("tamilText")
-    );
+    clearTitleHighlights();
 
 });
 
 
+audio2.addEventListener("ended",()=>{
+
+    stopHighlights();
+
+    clearTitleHighlights();
+
+});
+
+
+
+/* =========================
+   PAGE FLIP
+========================= */
 
 function nextPage(page,direction){
 
+    const app=document.querySelector(".app");
+
+    app.classList.remove("flip-out-next","flip-out-prev");
+
+    void app.offsetWidth;
+
     if(direction==="next"){
-        document.querySelector(".app").classList.add("flip-out-next");
+
+        app.classList.add("flip-out-next");
+
     }
     else{
-        document.querySelector(".app").classList.add("flip-out-prev");
+
+        app.classList.add("flip-out-prev");
+
     }
 
     setTimeout(()=>{
-        window.location.href=page;
-    },600);
-}
 
+        window.location.href=page;
+
+    },600);
+
+}
 
 
 </script>
