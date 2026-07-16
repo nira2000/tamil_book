@@ -258,289 +258,6 @@
 
 
 
-/* ==========================================
-   MOBILE VERSION
-========================================== */
-
-@media screen and (max-width:768px){
-
-html,
-body{
-
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-
-    overflow-x:hidden;
-    overflow-y:auto;
-
-}
-
-body{
-
-    background:#111D66;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-/* ---------------- APP ---------------- */
-
-.app{
-
-
-    width:100vw;
-
-    min-height:90dvh;
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-}
-
-/* ---------------- HEADER ---------------- */
-
-.header{
-
-    font-size:12px;
-    margin-bottom:4px;
-
-}
-
-/* ---------------- BOOK ---------------- */
-
-.book{
-
-    width:96vw;
-
-    height:85vh;
-
-    padding:10px 10px 6px 10px;
-
-    border-radius:20px;
-
-    display:flex;
-    flex-direction:column;
-
-}
-
-.book::before{
-
-    width:8px;
-
-    left:-4px;
-
-    top:15px;
-
-    bottom:15px;
-
-}
-
-/* ---------------- CONTENT ---------------- */
-
-.book-content{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:0;
-
-}
-
-/* ---------------- PAGE ---------------- */
-
-.page{
-
-    width:100%;
-
-    max-width:300px;
-
-    margin:0 auto;
-
-}
-
-/* ---------------- TITLE ---------------- */
-
-.title{
-
-    width:180px;
-
-    height:48px;
-
-    margin:0 auto 12px;
-
-    font-size:28px;
-
-    border-width:6px;
-
-}
-
-/* ---------------- CORNER ---------------- */
-
-.corner{
-
-    width:70px;
-
-    left:-5px;
-
-    top:-5px;
-
-}
-
-/* ---------------- STARS ---------------- */
-
-.star1,
-.star2,
-.star3,
-.star4{
-
-    font-size:14px;
-
-}
-
-/* ---------------- GRID ---------------- */
-
-.grid{
-
-    width:100%;
-
-    border-width:2px;
-
-}
-
-/* ---------------- CARD ---------------- */
-
-.card{
-
-    height:100px;
-
-    padding:1px;
-
-    border-right:2px solid #222;
-
-    border-bottom:2px solid #222;
-
-}
-
-/* ---------------- IMAGES ---------------- */
-
-.card img{
-
-    width:55px;
-
-    height:55px;
-
-    max-width:none;
-
-    max-height:none;
-
-    object-fit:contain;
-
-}
-
-/* ---------------- WORD BOX ---------------- */
-
-.word{
-
-    width:82px;
-
-    height:26px;
-
-    font-size:13px;
-
-    border-width:1.5px;
-
-    border-radius:4px;
-
-}
-
-
-/* ---------------- PAGE NUMBER ---------------- */
-
-.page-number{
-
-    margin-top:-8px;
-
-    margin-bottom:0px;
-
-    font-size:15px !important;
-
-    font-weight:bold;
-
-    line-height:1;
-
-}
-
-/* ---------------- NAVIGATION ---------------- */
-
-.navigation{
-
-    transform:translateY(-32px);
-
-    width:96%;
-
-    margin-top:0;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-  
-    padding-top:0;
-
-    padding-bottom:0;
-
-}
-/* ---------------- BUTTONS ---------------- */
-
-.nav-btn{
-
-    width:40px;
-
-    height:40px;
-
-    font-size:18 px !important;
-
-    border-radius:50%;
-
-}
-/* ---------------- DOTS ---------------- */
-
-.dot{
-
-    width:6px !important;
-
-    height:6px !important;
-
-}
-
-.dots{
-
-    gap:6px;
-
-}
-
-}
-
-
-
-
-
-
-
-
 /* ==========================
    BOOK LAYOUT
 ========================== */
@@ -739,6 +456,261 @@ body{
 }
 
 
+
+
+
+/* ==========================================
+   MOBILE VERSION
+========================================== */
+
+@media screen and (max-width:768px){
+
+html,
+body{
+
+    width:100%;
+    height:100dvh;
+
+    margin:0;
+    padding:0;
+
+    overflow:hidden;
+}
+
+body{
+
+    background:#111D66;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+/* ================= APP ================= */
+
+.app{
+
+    width:100vw;
+    height:100dvh;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+
+    flex-shrink:0;
+
+    font-size:12px;
+
+    padding:6px 0;
+
+    margin:0;
+}
+
+/* ================= BOOK ================= */
+
+.book{
+
+    flex:1;
+
+    width:96vw;
+
+    margin:0 auto;
+
+    padding:10px;
+
+    border-radius:20px;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+.book::before{
+
+    width:7px;
+
+    left:-4px;
+
+    top:12px;
+
+    bottom:12px;
+}
+
+/* ================= CONTENT ================= */
+
+.book-content{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    overflow:hidden;
+}
+
+/* ================= PAGE ================= */
+
+.page{
+
+    width:100%;
+
+    max-width:310px;
+
+    transform:scale(.92);
+
+    transform-origin:top center;
+}
+
+/* ================= TITLE ================= */
+
+.title{
+
+    width:170px;
+
+    height:44px;
+
+    margin:0 auto 10px;
+
+    font-size:25px;
+
+    border-width:6px;
+}
+
+/* ================= DECOR ================= */
+
+.corner{
+
+    width:70px;
+
+    left:-5px;
+
+    top:-5px;
+}
+
+.star1,
+.star2,
+.star3,
+.star4{
+
+    font-size:14px;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+
+    border-width:2px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+
+    height:92px;
+
+    padding:2px;
+
+    border-right:2px solid #222;
+
+    border-bottom:2px solid #222;
+}
+
+/* ================= IMAGE ================= */
+
+.card img{
+
+    width:48px;
+
+    height:48px;
+
+    object-fit:contain;
+}
+
+/* ================= WORD ================= */
+
+.word{
+
+    width:80px;
+
+    height:25px;
+
+    font-size:13px;
+
+    border-width:1.5px;
+
+    border-radius:4px;
+}
+
+/* ================= PAGE NUMBER ================= */
+
+.page-number{
+
+    flex-shrink:0;
+
+    margin-top:-18px;
+
+    margin-bottom:2px;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+/* ================= NAV ================= */
+
+.navigation{
+
+    flex-shrink:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 10px 8px;
+
+    margin:0;
+}
+
+.nav-btn{
+
+    width:42px;
+
+    height:42px;
+
+    font-size:20px;
+
+    border-radius:50%;
+}
+
+.dots{
+
+    gap:6px;
+}
+
+.dot{
+
+    width:7px;
+
+    height:7px;
+}
+
+}
 </style>
 
 </head>
