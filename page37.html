@@ -8,11 +8,13 @@
 
 <style>
 
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+
 
 body{
     font-family:Arial,sans-serif;
@@ -24,8 +26,6 @@ body{
     padding:20px;
     perspective:1500px;
 }
-
-
 
 .flip-out-next{
     animation:flipNext .6s ease forwards;
@@ -83,6 +83,41 @@ body{
     font-size:40px;
     font-weight:bold;
     margin-bottom:15px;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,0.7),
+        0 0 12px #4FC3F7,
+        0 0 24px #4FC3F7,
+        0 0 36px #4FC3F7;
+
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+
+@keyframes glowPulse{
+
+    0%{
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #4FC3F7,
+            0 0 20px #4FC3F7;
+    }
+
+    50%{
+        text-shadow:
+            0 0 10px #fff,
+            0 0 25px #4FC3F7,
+            0 0 50px #4FC3F7,
+            0 0 70px #4FC3F7;
+    }
+
+    100%{
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #4FC3F7,
+            0 0 20px #4FC3F7;
+    }
+
 }
 
 /* BOOK */
@@ -218,7 +253,6 @@ body{
     background:#1CFF00;
 }
 
-
 .word{
     transition:0.3s;
     padding:2px 4px;
@@ -292,62 +326,97 @@ body{
 }
 
 
+.title-highlight{
+
+    background:#FFD54F;
+    color:#d32f2f;
+    border-radius:5px;
+    padding:2px 6px;
+    transition:.3s;
+
+}
+
+
+
 
 /* MOBILE */
+
 @media (max-width: 768px) {
 
     html, body {
         width: 100%;
         height: 100%;
-        overflow: hidden; /* Prevent scrolling */
+        margin: 0;
+        overflow: hidden;
     }
 
     body {
-        padding: 0;
-        margin: 0;
         min-height: 100dvh;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0;
     }
 
     .app {
         width: 100%;
+        max-width: 380px;
         height: 100dvh;
-        max-width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 8px;
+        padding: 10px;
     }
 
     .header {
-        font-size: clamp(18px, 4vw, 24px);
+        font-size: 18px;
         margin-bottom: 8px;
     }
 
     .book {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         padding: 12px;
         border-radius: 18px;
         overflow: hidden;
     }
 
     .book::before {
-        width: 10px;
-        left: -5px;
+        width: 8px;
+        left: -4px;
         top: 12px;
         bottom: 12px;
     }
 
+    .book-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;   /* centers content vertically */
+        
+    }
+
+
+    .audio-card:nth-of-type(2){
+        transform: translateY(-30px);
+    }
+
     .page-title {
-        font-size: clamp(18px, 4vw, 24px);
-        margin-bottom: 12px;
+        font-size: 20px;
+        margin-bottom: 10px;
+        text-align: center;
     }
 
     .audio-card {
+        width: 100%;
         padding: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+    }
+
+    .audio-card:nth-of-type(2){
+        transform:translateY(-20px);
     }
 
     .card-header {
@@ -355,37 +424,40 @@ body{
     }
 
     .card-title {
-        font-size: clamp(18px, 4vw, 24px);
+        font-size: 18px;
     }
 
     .card-content {
-        font-size: clamp(11px, 2.5vw, 15px);
+        font-size: 11px;
         line-height: 1.4;
     }
 
     .card-image {
-        width: min(20vw, 80px);
+        width: 60px;
         height: auto;
     }
 
     .audio-badge {
-        font-size: 16px;
-        margin-top: 4px;
+        font-size: 14px;
     }
 
     .page-number {
+        text-align: center;
         font-size: 14px;
-        margin-top: 6px;
-    }
-
-    .navigation {
-        margin-top: 10px;
+        margin-top: auto;   /* pushes page number down */
         padding-bottom: 5px;
     }
 
+    .navigation {
+        margin-top: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .nav-btn {
-        width: 45px;
-        height: 45px;
+        width: 35px;
+        height: 35px;
         font-size: 18px;
     }
 
@@ -394,9 +466,10 @@ body{
         height: 8px;
     }
 
-        .board{
-        font-size:20px;
-        padding:8px 18px;
+
+    .board{
+    font-size:20px;
+    padding:8px 18px;
     }
 
     .board::before,
@@ -406,10 +479,13 @@ body{
     }
 
     .title-board{
-        margin-top: -30px;
-        margin-bottom: 60px;
+        margin-top: 5px;
+        margin-bottom: 25px;
     }
 }
+
+
+
 
 </style>
 </head>
@@ -549,120 +625,303 @@ body{
 
 <script>
 
+// ===========================================
+// VARIABLES
+// ===========================================
+
+let highlightTimers = [];
+let titleTimer = null;
+
 const audio1 = document.getElementById("audioPlayer1");
 const audio2 = document.getElementById("audioPlayer2");
 
+const fruitTitle = document.getElementById("fruitTitle");
+const tamilTitle = document.getElementById("titleTamil");
+const mozhiTitle = document.getElementById("titleMozhi");
+
+
+// ===========================================
+// CLEAR PARAGRAPH HIGHLIGHTS
+// ===========================================
+
 function clearHighlights(container){
-    container.querySelectorAll(".word")
-    .forEach(word => word.classList.remove("highlight"));
-}
 
-function animateWords(container, speed, startDelay){
+    container.querySelectorAll(".word").forEach(word=>{
 
-    const words = container.querySelectorAll(".word");
-
-    clearHighlights(container);
-
-    words.forEach((word, index) => {
-
-        setTimeout(() => {
-
-            words.forEach(w =>
-                w.classList.remove("highlight")
-            );
-
-            word.classList.add("highlight");
-
-        }, startDelay + (index * speed));
+        word.classList.remove("highlight");
 
     });
 
 }
 
-/* =========================
-   TEACHER AUDIO
-========================= */
 
-function playAudio1(){
+// ===========================================
+// CLEAR TITLE HIGHLIGHTS
+// ===========================================
 
+function clearTitleHighlights(){
+
+    fruitTitle.classList.remove("title-highlight");
+
+    tamilTitle.classList.remove("title-highlight");
+
+    mozhiTitle.classList.remove("title-highlight");
+
+    if(titleTimer){
+
+        clearTimeout(titleTimer);
+
+        titleTimer=null;
+
+    }
+
+}
+
+
+// ===========================================
+// ANIMATE PARAGRAPH
+// ===========================================
+
+function animateWords(container,speed,startDelay){
+
+    highlightTimers.forEach(timer=>clearTimeout(timer));
+
+    highlightTimers=[];
+
+    const words=container.querySelectorAll(".word");
+
+    clearHighlights(container);
+
+    words.forEach((word,index)=>{
+
+        const timer=setTimeout(()=>{
+
+            words.forEach(w=>w.classList.remove("highlight"));
+
+            word.classList.add("highlight");
+
+        },startDelay+(index*speed));
+
+        highlightTimers.push(timer);
+
+    });
+
+}
+
+
+
+// ===========================================
+// STOP PARAGRAPH
+// ===========================================
+
+function stopHighlights(){
+
+    highlightTimers.forEach(timer=>clearTimeout(timer));
+
+    highlightTimers=[];
+
+    clearHighlights(document.getElementById("fruitText"));
+
+    clearHighlights(document.getElementById("tamilText"));
+
+}
+
+
+
+// ===========================================
+// STOP EVERYTHING
+// ===========================================
+
+function stopAllAudio(){
+
+    audio1.pause();
     audio2.pause();
-    audio2.currentTime = 0;
 
-    clearHighlights(
-        document.getElementById("elephantText")
-    );
+    audio1.currentTime=0;
+    audio2.currentTime=0;
 
-    audio1.currentTime = 0;
+    stopHighlights();
+
+    clearTitleHighlights();
+
+}
+
+
+
+// ===========================================
+// CARD 1
+// ===========================================
+
+function toggleAudio1(){
+
+    if(!audio1.paused){
+
+        stopAllAudio();
+
+        return;
+
+    }
+
+    stopAllAudio();
+
+    fruitTitle.classList.add("title-highlight");
+
+    titleTimer = setTimeout(() => {
+
+        fruitTitle.classList.remove("title-highlight");
+
+    }, 1700);    // change this timing if needed
+
+
+
     audio1.play();
 
     animateWords(
-        document.getElementById("teacherText"),
 
-        1600,   // gap between words
-        2000    // wait before first word
+        document.getElementById("fruitText"),
+
+        1500,
+
+        2000
+
     );
+
 }
 
-/* =========================
-   ELEPHANT AUDIO
-========================= */
 
-function playAudio2(){
 
-    audio1.pause();
-    audio1.currentTime = 0;
+// ===========================================
+// CARD 2
+// ===========================================
 
-    clearHighlights(
-        document.getElementById("teacherText")
-    );
+function toggleAudio2(){
 
-    audio2.currentTime = 0;
+    if(!audio2.paused){
+
+        stopAllAudio();
+
+        return;
+
+    }
+
+    stopAllAudio();
+
+    tamilTitle.classList.add("title-highlight");
+
+    titleTimer = setTimeout(() => {
+
+        tamilTitle.classList.remove("title-highlight");
+
+        mozhiTitle.classList.add("title-highlight");
+
+        setTimeout(() => {
+
+            mozhiTitle.classList.remove("title-highlight");
+
+        }, 1200);      // highlight "மொழி" for 0.9 sec
+
+    }, 1000);          // after "தமிழ்"
+
+
+
     audio2.play();
 
     animateWords(
-        document.getElementById("elephantText"),
 
-        1300,   // gap between words
-        2200    // wait before first word
+        document.getElementById("tamilText"),
+
+        1300,
+
+        2200
+
     );
+
 }
 
+
 /* =========================
-   RESET WHEN AUDIO ENDS
+   SPEAKER ON/OFF
 ========================= */
 
-audio1.addEventListener("ended", () => {
+let soundEnabled = true;
 
-    clearHighlights(
-        document.getElementById("teacherText")
-    );
+function toggleMute(icon){
+
+    soundEnabled = !soundEnabled;
+
+    audio1.muted = !soundEnabled;
+    audio2.muted = !soundEnabled;
+
+    if(!soundEnabled){
+
+        stopAllAudio();
+
+    }
+
+    document.querySelectorAll(".audio-badge").forEach(badge=>{
+
+        badge.textContent = soundEnabled ? "🔊" : "🔇";
+
+    });
+
+}
+
+
+
+/* =========================
+   AUDIO ENDED
+========================= */
+
+audio1.addEventListener("ended",()=>{
+
+    stopHighlights();
+
+    clearTitleHighlights();
 
 });
 
-audio2.addEventListener("ended", () => {
 
-    clearHighlights(
-        document.getElementById("elephantText")
-    );
+audio2.addEventListener("ended",()=>{
+
+    stopHighlights();
+
+    clearTitleHighlights();
 
 });
 
+
+
+/* =========================
+   PAGE FLIP
+========================= */
 
 function nextPage(page,direction){
 
-    const app = document.querySelector(".app");
+    const app=document.querySelector(".app");
+
+    app.classList.remove("flip-out-next","flip-out-prev");
+
+    void app.offsetWidth;
 
     if(direction==="next"){
+
         app.classList.add("flip-out-next");
+
     }
     else{
+
         app.classList.add("flip-out-prev");
+
     }
 
     setTimeout(()=>{
-        window.location.href = page;
+
+        window.location.href=page;
+
     },600);
+
 }
+
 
 </script>
 

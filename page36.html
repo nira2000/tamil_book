@@ -619,7 +619,7 @@ body{
     <div class="navigation">
 
         <button class="nav-btn"
-            onclick="nextPage('page35.html','prev')">
+            onclick="nextPage('page51.html','prev')">
             ❮
         </button>
 
@@ -791,6 +791,14 @@ function toggleAudio1(){
 
     fruitTitle.classList.add("title-highlight");
 
+    titleTimer = setTimeout(() => {
+
+        fruitTitle.classList.remove("title-highlight");
+
+    }, 1700);    // change this timing if needed
+
+
+
     audio1.play();
 
     animateWords(
@@ -825,13 +833,21 @@ function toggleAudio2(){
 
     tamilTitle.classList.add("title-highlight");
 
-    titleTimer=setTimeout(()=>{
+    titleTimer = setTimeout(() => {
 
         tamilTitle.classList.remove("title-highlight");
 
         mozhiTitle.classList.add("title-highlight");
 
-    },900);
+        setTimeout(() => {
+
+            mozhiTitle.classList.remove("title-highlight");
+
+        }, 1200);      // highlight "மொழி" for 0.9 sec
+
+    }, 1000);          // after "தமிழ்"
+
+
 
     audio2.play();
 
