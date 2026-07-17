@@ -513,7 +513,7 @@ body{
         <div class="audio-card" onclick="toggleAudio1()">
 
             <div class="card-header">
-                <div class="card-title">ஆசிரியை</div>
+                <div class="card-title" id="teacherTitle">ஆசிரியை</div>
                 <img src="page37pic1.png" class="card-image" alt="">
             </div>
 
@@ -552,7 +552,7 @@ body{
         <div class="audio-card" onclick="toggleAudio2()">
 
             <div class="card-header">
-                <div class="card-title">யானை</div>
+                <div class="card-title" id="elephantTitle">யானை</div>
                 <img src="page37pic2.png" class="card-image" alt="">
             </div>
 
@@ -565,7 +565,7 @@ body{
         <span class="word">இந்த</span>
         <span class="word">யானைக்கு</span>
         <span class="word">ஒரு</span>
-        <span class="word">நீண்ட</span>
+        <span class="word">நீண்ட</span><br>
         <span class="word">தும்பிக்கை</span>
         <span class="word">உண்டு.</span><br>
 
@@ -616,11 +616,11 @@ body{
 </div>
 
 <audio id="audioPlayer1">
-    <source src="audio37_1.mpeg" type="audio/mpeg">
+    <source src="audio37_1.mp3" type="audio/mpeg">
 </audio>
 
 <audio id="audioPlayer2">
-    <source src="audio37_2.mpeg" type="audio/mpeg">
+    <source src="audio37_2.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -635,9 +635,8 @@ let titleTimer = null;
 const audio1 = document.getElementById("audioPlayer1");
 const audio2 = document.getElementById("audioPlayer2");
 
-const fruitTitle = document.getElementById("fruitTitle");
-const tamilTitle = document.getElementById("titleTamil");
-const mozhiTitle = document.getElementById("titleMozhi");
+const teacherTitle = document.getElementById("teacherTitle");
+const elephantTitle = document.getElementById("elephantTitle");
 
 
 // ===========================================
@@ -645,6 +644,8 @@ const mozhiTitle = document.getElementById("titleMozhi");
 // ===========================================
 
 function clearHighlights(container){
+
+    if(!container) return;
 
     container.querySelectorAll(".word").forEach(word=>{
 
@@ -661,17 +662,13 @@ function clearHighlights(container){
 
 function clearTitleHighlights(){
 
-    fruitTitle.classList.remove("title-highlight");
-
-    tamilTitle.classList.remove("title-highlight");
-
-    mozhiTitle.classList.remove("title-highlight");
+    teacherTitle.classList.remove("title-highlight");
+    elephantTitle.classList.remove("title-highlight");
 
     if(titleTimer){
 
         clearTimeout(titleTimer);
-
-        titleTimer=null;
+        titleTimer = null;
 
     }
 
@@ -679,25 +676,23 @@ function clearTitleHighlights(){
 
 
 // ===========================================
-// ANIMATE PARAGRAPH
+// ANIMATE WORDS
 // ===========================================
 
 function animateWords(container,speed,startDelay){
 
     highlightTimers.forEach(timer=>clearTimeout(timer));
-
     highlightTimers=[];
 
-    const words=container.querySelectorAll(".word");
-
     clearHighlights(container);
+
+    const words=container.querySelectorAll(".word");
 
     words.forEach((word,index)=>{
 
         const timer=setTimeout(()=>{
 
             words.forEach(w=>w.classList.remove("highlight"));
-
             word.classList.add("highlight");
 
         },startDelay+(index*speed));
@@ -709,23 +704,19 @@ function animateWords(container,speed,startDelay){
 }
 
 
-
 // ===========================================
-// STOP PARAGRAPH
+// STOP HIGHLIGHTS
 // ===========================================
 
 function stopHighlights(){
 
     highlightTimers.forEach(timer=>clearTimeout(timer));
-
     highlightTimers=[];
 
-    clearHighlights(document.getElementById("fruitText"));
-
-    clearHighlights(document.getElementById("tamilText"));
+    clearHighlights(document.getElementById("teacherText"));
+    clearHighlights(document.getElementById("elephantText"));
 
 }
-
 
 
 // ===========================================
@@ -741,11 +732,9 @@ function stopAllAudio(){
     audio2.currentTime=0;
 
     stopHighlights();
-
     clearTitleHighlights();
 
 }
-
 
 
 // ===========================================
@@ -757,37 +746,33 @@ function toggleAudio1(){
     if(!audio1.paused){
 
         stopAllAudio();
-
         return;
 
     }
 
     stopAllAudio();
 
-    fruitTitle.classList.add("title-highlight");
+    teacherTitle.classList.add("title-highlight");
 
-    titleTimer = setTimeout(() => {
+    titleTimer=setTimeout(()=>{
 
-        fruitTitle.classList.remove("title-highlight");
+        teacherTitle.classList.remove("title-highlight");
 
-    }, 1700);    // change this timing if needed
-
-
+    },1700);
 
     audio1.play();
 
     animateWords(
 
-        document.getElementById("fruitText"),
+        document.getElementById("teacherText"),
 
-        1500,
+        1300,
 
         2000
 
     );
 
 }
-
 
 
 // ===========================================
@@ -799,38 +784,27 @@ function toggleAudio2(){
     if(!audio2.paused){
 
         stopAllAudio();
-
         return;
 
     }
 
     stopAllAudio();
 
-    tamilTitle.classList.add("title-highlight");
+    elephantTitle.classList.add("title-highlight");
 
-    titleTimer = setTimeout(() => {
+    titleTimer=setTimeout(()=>{
 
-        tamilTitle.classList.remove("title-highlight");
+        elephantTitle.classList.remove("title-highlight");
 
-        mozhiTitle.classList.add("title-highlight");
-
-        setTimeout(() => {
-
-            mozhiTitle.classList.remove("title-highlight");
-
-        }, 1200);      // highlight "மொழி" for 0.9 sec
-
-    }, 1000);          // after "தமிழ்"
-
-
+    },1700);
 
     audio2.play();
 
     animateWords(
 
-        document.getElementById("tamilText"),
+        document.getElementById("elephantText"),
 
-        1300,
+        1400,
 
         2200
 
@@ -843,14 +817,14 @@ function toggleAudio2(){
    SPEAKER ON/OFF
 ========================= */
 
-let soundEnabled = true;
+let soundEnabled=true;
 
-function toggleMute(icon){
+function toggleMute(){
 
-    soundEnabled = !soundEnabled;
+    soundEnabled=!soundEnabled;
 
-    audio1.muted = !soundEnabled;
-    audio2.muted = !soundEnabled;
+    audio1.muted=!soundEnabled;
+    audio2.muted=!soundEnabled;
 
     if(!soundEnabled){
 
@@ -860,12 +834,11 @@ function toggleMute(icon){
 
     document.querySelectorAll(".audio-badge").forEach(badge=>{
 
-        badge.textContent = soundEnabled ? "🔊" : "🔇";
+        badge.textContent=soundEnabled ? "🔊" : "🔇";
 
     });
 
 }
-
 
 
 /* =========================
@@ -875,20 +848,16 @@ function toggleMute(icon){
 audio1.addEventListener("ended",()=>{
 
     stopHighlights();
-
     clearTitleHighlights();
 
 });
-
 
 audio2.addEventListener("ended",()=>{
 
     stopHighlights();
-
     clearTitleHighlights();
 
 });
-
 
 
 /* =========================
@@ -907,8 +876,7 @@ function nextPage(page,direction){
 
         app.classList.add("flip-out-next");
 
-    }
-    else{
+    }else{
 
         app.classList.add("flip-out-prev");
 
