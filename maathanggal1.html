@@ -18,7 +18,6 @@
 
 <style>
 
-
 /* ===================================
    RESET
 =================================== */
@@ -29,22 +28,28 @@
     box-sizing:border-box;
 }
 
+html,
+body{
+    width:100%;
+    min-height:100vh;
+}
+
 body{
 
     font-family:'Noto Sans Tamil',sans-serif;
 
-    background:#f7f1df;
+    background:#F8F0DD;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    min-height:100vh;
+    padding:18px;
 
     overflow-x:hidden;
 
-    padding:30px;
 }
+
 
 
 /* ===================================
@@ -55,18 +60,18 @@ body{
 
     position:relative;
 
-    width:900px;
+    width:min(900px,100%);
 
-    background:#f8f2df;
+    background:#F9F3E4;
 
-    border-radius:35px;
+    border-radius:32px;
 
-    padding:45px 55px 40px;
+    padding:34px 38px 26px;
 
     overflow:hidden;
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,.12);
+        0 10px 25px rgba(0,0,0,.08);
 
 }
 
@@ -76,26 +81,28 @@ body{
    DECORATIONS
 =================================== */
 
+/* Top Left Spiral */
+
 .swirl{
 
     position:absolute;
 
-    width:110px;
-    height:110px;
+    left:22px;
+    top:18px;
 
-    border:10px solid #f3c84d;
+    width:85px;
+    height:85px;
 
-    border-radius:50%;
+    border:7px solid #F0C64A;
 
     border-right-color:transparent;
     border-bottom-color:transparent;
 
-    top:18px;
-    left:25px;
+    border-radius:50%;
 
-    transform:rotate(-20deg);
+    transform:rotate(-25deg);
 
-    opacity:.85;
+    opacity:.9;
 
 }
 
@@ -105,34 +112,38 @@ body{
 
     position:absolute;
 
-    width:55px;
-    height:55px;
+    left:15px;
+    top:15px;
 
-    border:8px solid #f3c84d;
+    width:42px;
+    height:42px;
 
-    border-radius:50%;
+    border:6px solid #F0C64A;
 
     border-right-color:transparent;
     border-bottom-color:transparent;
 
-    top:18px;
-    left:18px;
+    border-radius:50%;
+
 }
 
+
+
+/* Top Right Curve */
 
 .curve-top{
 
     position:absolute;
 
-    width:120px;
-    height:40px;
+    right:30px;
+    top:22px;
 
-    border-top:8px solid #ef9a9a;
+    width:95px;
+    height:28px;
 
-    border-radius:100px;
+    border-top:6px solid #F09B9B;
 
-    top:25px;
-    right:40px;
+    border-radius:60px;
 
     transform:rotate(8deg);
 
@@ -140,16 +151,18 @@ body{
 
 
 
+/* Right Sparkle */
+
 .sparkle{
 
     position:absolute;
 
-    right:60px;
+    right:36px;
 
-    top:255px;
+    top:200px;
 
-    width:55px;
-    height:55px;
+    width:42px;
+    height:42px;
 
 }
 
@@ -160,7 +173,7 @@ body{
 
     position:absolute;
 
-    background:#ff7c74;
+    background:#FF8A7A;
 
     border-radius:20px;
 
@@ -168,7 +181,7 @@ body{
 
 .sparkle::before{
 
-    width:10px;
+    width:6px;
     height:100%;
 
     left:50%;
@@ -179,7 +192,7 @@ body{
 
 .sparkle::after{
 
-    height:10px;
+    height:6px;
     width:100%;
 
     top:50%;
@@ -198,17 +211,27 @@ body{
 
     text-align:center;
 
-    color:#7d140d;
+    color:#73160E;
 
-    font-size:58px;
+    font-size:52px;
 
     font-weight:800;
 
-    margin-bottom:45px;
+    line-height:1.1;
 
-    letter-spacing:1px;
+    margin-bottom:26px;
+
+    letter-spacing:.5px;
+
+    text-shadow:
+
+        0 1px 0 #ffffff,
+
+        0 2px 5px rgba(0,0,0,.08);
 
 }
+
+
 
 
 
@@ -219,42 +242,36 @@ body{
 .months-wrapper{
 
     display:flex;
+    justify-content:space-between;
+    gap:20px;
 
-    justify-content:center;
-
-    gap:30px;
-
-    margin-bottom:45px;
+    margin-bottom:28px;
 
 }
-
-
 
 .card{
 
     flex:1;
 
-    border-radius:35px;
+    border-radius:28px;
 
-    padding:25px;
+    padding:18px 16px;
 
     display:flex;
-
     flex-direction:column;
-
-    gap:18px;
+    gap:10px;
 
 }
 
 .pink{
 
-    background:#f3ccd4;
+    background:#F4CFD8;
 
 }
 
 .yellow{
 
-    background:#f8e5a8;
+    background:#F8E4A5;
 
 }
 
@@ -270,33 +287,35 @@ body{
 
     border:none;
 
-    font-size:36px;
-
-    cursor:pointer;
-
-    transition:.25s;
+    width:100%;
 
     font-family:inherit;
 
+    font-size:29px;
+
+    color:#111;
+
+    cursor:pointer;
+
     padding:6px;
 
-    border-radius:15px;
+    border-radius:12px;
+
+    transition:.25s;
 
 }
 
 .month-btn:hover{
 
-    background:white;
+    background:#ffffff;
 
-    transform:scale(1.05);
-
-    box-shadow:0 6px 18px rgba(0,0,0,.15);
+    transform:translateY(-2px);
 
 }
 
 .month-btn.active{
 
-    background:#ffeb7a;
+    background:#FFF59A;
 
 }
 
@@ -314,46 +333,40 @@ body{
 
     align-items:center;
 
-    gap:25px;
+    gap:18px;
 
-    margin-bottom:22px;
+    margin-bottom:18px;
 
 }
-
-
 
 .heading{
 
-    background:#ffb6c8;
+    background:#F8B8C7;
 
-    color:#cf1b17;
+    color:#CF1F1A;
 
-    font-size:44px;
+    font-size:34px;
 
     font-weight:800;
 
-    padding:8px 34px;
+    padding:6px 28px;
 
-    border-radius:40px;
+    border-radius:35px;
 
-    border:3px solid #ff8ca5;
+    border:2px solid #F193A8;
 
-    text-shadow:
-    2px 2px white;
+    text-shadow:1px 1px #fff;
 
 }
 
-
-
 .line{
 
-    width:90px;
+    width:55px;
+    height:5px;
 
-    height:8px;
+    background:#000;
 
-    background:black;
-
-    border-radius:20px;
+    border-radius:10px;
 
     position:relative;
 
@@ -366,48 +379,48 @@ body{
 
     position:absolute;
 
-    width:70px;
-    height:8px;
+    width:42px;
+    height:5px;
 
-    background:black;
+    background:#000;
 
-    border-radius:20px;
+    border-radius:10px;
 
 }
 
 .left::before{
 
-    transform:rotate(25deg);
-
-    top:-16px;
     left:0;
+    top:-12px;
+
+    transform:rotate(24deg);
 
 }
 
 .left::after{
 
-    transform:rotate(-25deg);
-
-    top:16px;
     left:0;
+    top:12px;
+
+    transform:rotate(-24deg);
 
 }
 
 .right::before{
 
-    transform:rotate(-25deg);
-
-    top:-16px;
     right:0;
+    top:-12px;
+
+    transform:rotate(-24deg);
 
 }
 
 .right::after{
 
-    transform:rotate(25deg);
-
-    top:16px;
     right:0;
+    top:12px;
+
+    transform:rotate(24deg);
 
 }
 
@@ -419,19 +432,17 @@ body{
 
 .aathichudi-card{
 
-    background:#f6e2a8;
+    background:#F7E3A8;
 
-    border-radius:35px;
+    border-radius:30px;
 
-    padding:35px;
+    padding:22px;
 
     display:flex;
 
-    gap:40px;
+    gap:24px;
 
 }
-
-
 
 .column{
 
@@ -441,7 +452,7 @@ body{
 
     flex-direction:column;
 
-    gap:16px;
+    gap:8px;
 
 }
 
@@ -459,33 +470,33 @@ body{
 
     text-align:left;
 
-    font-size:28px;
+    font-family:inherit;
+
+    font-size:22px;
+
+    line-height:1.35;
+
+    padding:6px 8px;
+
+    border-radius:10px;
 
     cursor:pointer;
 
     transition:.25s;
 
-    padding:8px 12px;
-
-    border-radius:14px;
-
-    font-family:inherit;
-
 }
 
 .rule-btn:hover{
 
-    background:white;
+    background:#fff;
 
-    transform:translateX(8px);
-
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transform:translateX(5px);
 
 }
 
 .rule-btn.active{
 
-    background:#fff09c;
+    background:#FFF59A;
 
 }
 
@@ -497,15 +508,15 @@ body{
 
 .page-number{
 
-    margin-top:28px;
+    margin-top:18px;
 
     text-align:center;
 
-    font-size:42px;
+    font-size:34px;
 
     font-weight:800;
 
-    color:#8b55ff;
+    color:#7E58FF;
 
 }
 
@@ -515,109 +526,209 @@ body{
    TABLET
 =================================== */
 
-@media(max-width:900px){
+@media (max-width:900px){
 
 .page{
 
-    width:100%;
-
-    padding:35px;
+    padding:24px;
 
 }
 
 .title{
 
-    font-size:46px;
+    font-size:42px;
 
 }
 
 .month-btn{
 
-    font-size:30px;
+    font-size:24px;
 
 }
 
 .heading{
 
-    font-size:34px;
+    font-size:28px;
 
 }
 
 .rule-btn{
 
-    font-size:24px;
+    font-size:18px;
 
 }
 
 }
-
-
 
 
 
 /* ===================================
-   MOBILE - FIT WHOLE PAGE
+   MOBILE
 =================================== */
 
 @media (max-width:600px){
 
-html,
 body{
 
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-    overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:#f7f1df;
+    padding:8px;
 
 }
 
 .page{
 
-    width:900px;
-    height:auto;
+    width:100%;
 
-    transform:scale(0.42);
-    transform-origin:center center;
+    max-width:390px;
 
-    margin:0;
+    padding:16px;
 
-}
-
-/* Smaller tablets / larger phones */
-
-@media (min-width:400px){
-
-    .page{
-
-        transform:scale(0.48);
-
-    }
+    border-radius:20px;
 
 }
 
-/* Very small phones */
+/* Keep side by side */
 
-@media (max-width:360px){
+.months-wrapper{
 
-    .page{
+    gap:8px;
 
-        transform:scale(0.38);
+    margin-bottom:18px;
 
-    }
+}
+
+.card{
+
+    padding:10px;
+
+    gap:6px;
+
+    border-radius:18px;
+
+}
+
+.month-btn{
+
+    font-size:17px;
+
+    padding:2px;
+
+}
+
+.title{
+
+    font-size:28px;
+
+    margin-bottom:16px;
+
+}
+
+.heading{
+
+    font-size:20px;
+
+    padding:4px 16px;
+
+}
+
+.line{
+
+    width:26px;
+    height:4px;
+
+}
+
+.line::before,
+.line::after{
+
+    width:20px;
+    height:4px;
+
+    top:auto;
+
+}
+
+.left::before{
+
+    top:-7px;
+
+}
+
+.left::after{
+
+    top:7px;
+
+}
+
+.right::before{
+
+    top:-7px;
+
+}
+
+.right::after{
+
+    top:7px;
+
+}
+
+.aathichudi-card{
+
+    padding:12px;
+
+    gap:10px;
+
+    border-radius:20px;
+
+}
+
+.rule-btn{
+
+    font-size:13px;
+
+    line-height:1.25;
+
+    padding:2px;
+
+}
+
+.page-number{
+
+    font-size:22px;
+
+    margin-top:12px;
+
+}
+
+/* Decorations */
+
+.swirl{
+
+    transform:scale(.45);
+
+    left:-8px;
+    top:-8px;
+
+}
+
+.curve-top{
+
+    transform:scale(.55);
+
+    right:-4px;
+    top:6px;
+
+}
+
+.sparkle{
+
+    transform:scale(.45);
+
+    right:12px;
+    top:130px;
 
 }
 
 }
-
-
-
 
 </style>
 
