@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>தமிழ் மாதங்கள்</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="page33.css">
+
+</head>
+
+<style>
+
+
+/* ===================================
+   RESET
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Noto Sans Tamil',sans-serif;
+
+    background:#f7f1df;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    padding:30px;
+}
+
+
+/* ===================================
+   PAGE
+=================================== */
+
+.page{
+
+    position:relative;
+
+    width:900px;
+
+    background:#f8f2df;
+
+    border-radius:35px;
+
+    padding:45px 55px 40px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.12);
+
+}
+
+
+
+/* ===================================
+   DECORATIONS
+=================================== */
+
+.swirl{
+
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    border:10px solid #f3c84d;
+
+    border-radius:50%;
+
+    border-right-color:transparent;
+    border-bottom-color:transparent;
+
+    top:18px;
+    left:25px;
+
+    transform:rotate(-20deg);
+
+    opacity:.85;
+
+}
+
+.swirl::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:55px;
+    height:55px;
+
+    border:8px solid #f3c84d;
+
+    border-radius:50%;
+
+    border-right-color:transparent;
+    border-bottom-color:transparent;
+
+    top:18px;
+    left:18px;
+}
+
+
+.curve-top{
+
+    position:absolute;
+
+    width:120px;
+    height:40px;
+
+    border-top:8px solid #ef9a9a;
+
+    border-radius:100px;
+
+    top:25px;
+    right:40px;
+
+    transform:rotate(8deg);
+
+}
+
+
+
+.sparkle{
+
+    position:absolute;
+
+    right:60px;
+
+    top:255px;
+
+    width:55px;
+    height:55px;
+
+}
+
+.sparkle::before,
+.sparkle::after{
+
+    content:"";
+
+    position:absolute;
+
+    background:#ff7c74;
+
+    border-radius:20px;
+
+}
+
+.sparkle::before{
+
+    width:10px;
+    height:100%;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+}
+
+.sparkle::after{
+
+    height:10px;
+    width:100%;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+}
+
+
+
+/* ===================================
+   TITLE
+=================================== */
+
+.title{
+
+    text-align:center;
+
+    color:#7d140d;
+
+    font-size:58px;
+
+    font-weight:800;
+
+    margin-bottom:45px;
+
+    letter-spacing:1px;
+
+}
+
+
+
+/* ===================================
+   MONTHS
+=================================== */
+
+.months-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-bottom:45px;
+
+}
+
+
+
+.card{
+
+    flex:1;
+
+    border-radius:35px;
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.pink{
+
+    background:#f3ccd4;
+
+}
+
+.yellow{
+
+    background:#f8e5a8;
+
+}
+
+
+
+/* ===================================
+   MONTH BUTTONS
+=================================== */
+
+.month-btn{
+
+    background:transparent;
+
+    border:none;
+
+    font-size:36px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-family:inherit;
+
+    padding:6px;
+
+    border-radius:15px;
+
+}
+
+.month-btn:hover{
+
+    background:white;
+
+    transform:scale(1.05);
+
+    box-shadow:0 6px 18px rgba(0,0,0,.15);
+
+}
+
+.month-btn.active{
+
+    background:#ffeb7a;
+
+}
+
+
+
+/* ===================================
+   AATHICHUDI HEADER
+=================================== */
+
+.aathichudi-header{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-bottom:22px;
+
+}
+
+
+
+.heading{
+
+    background:#ffb6c8;
+
+    color:#cf1b17;
+
+    font-size:44px;
+
+    font-weight:800;
+
+    padding:8px 34px;
+
+    border-radius:40px;
+
+    border:3px solid #ff8ca5;
+
+    text-shadow:
+    2px 2px white;
+
+}
+
+
+
+.line{
+
+    width:90px;
+
+    height:8px;
+
+    background:black;
+
+    border-radius:20px;
+
+    position:relative;
+
+}
+
+.line::before,
+.line::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:8px;
+
+    background:black;
+
+    border-radius:20px;
+
+}
+
+.left::before{
+
+    transform:rotate(25deg);
+
+    top:-16px;
+    left:0;
+
+}
+
+.left::after{
+
+    transform:rotate(-25deg);
+
+    top:16px;
+    left:0;
+
+}
+
+.right::before{
+
+    transform:rotate(-25deg);
+
+    top:-16px;
+    right:0;
+
+}
+
+.right::after{
+
+    transform:rotate(25deg);
+
+    top:16px;
+    right:0;
+
+}
+
+
+
+/* ===================================
+   AATHICHUDI CARD
+=================================== */
+
+.aathichudi-card{
+
+    background:#f6e2a8;
+
+    border-radius:35px;
+
+    padding:35px;
+
+    display:flex;
+
+    gap:40px;
+
+}
+
+
+
+.column{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+
+
+/* ===================================
+   RULE BUTTONS
+=================================== */
+
+.rule-btn{
+
+    background:none;
+
+    border:none;
+
+    text-align:left;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    padding:8px 12px;
+
+    border-radius:14px;
+
+    font-family:inherit;
+
+}
+
+.rule-btn:hover{
+
+    background:white;
+
+    transform:translateX(8px);
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.rule-btn.active{
+
+    background:#fff09c;
+
+}
+
+
+
+/* ===================================
+   PAGE NUMBER
+=================================== */
+
+.page-number{
+
+    margin-top:28px;
+
+    text-align:center;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:#8b55ff;
+
+}
+
+
+
+/* ===================================
+   TABLET
+=================================== */
+
+@media(max-width:900px){
+
+.page{
+
+    width:100%;
+
+    padding:35px;
+
+}
+
+.title{
+
+    font-size:46px;
+
+}
+
+.month-btn{
+
+    font-size:30px;
+
+}
+
+.heading{
+
+    font-size:34px;
+
+}
+
+.rule-btn{
+
+    font-size:24px;
+
+}
+
+}
+
+
+
+
+
+/* ===================================
+   MOBILE - FIT WHOLE PAGE
+=================================== */
+
+@media (max-width:600px){
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#f7f1df;
+
+}
+
+.page{
+
+    width:900px;
+    height:auto;
+
+    transform:scale(0.42);
+    transform-origin:center center;
+
+    margin:0;
+
+}
+
+/* Smaller tablets / larger phones */
+
+@media (min-width:400px){
+
+    .page{
+
+        transform:scale(0.48);
+
+    }
+
+}
+
+/* Very small phones */
+
+@media (max-width:360px){
+
+    .page{
+
+        transform:scale(0.38);
+
+    }
+
+}
+
+}
+
+
+
+
+</style>
+
+<body>
+
+<div class="page">
+
+    <!-- ==========================
+         DECORATIONS
+    =========================== -->
+
+    <div class="swirl"></div>
+
+    <div class="curve-top"></div>
+
+    <div class="sparkle"></div>
+
+
+    <!-- ==========================
+            TITLE
+    =========================== -->
+
+    <h1 class="title">
+        தமிழ் மாதங்கள்
+    </h1>
+
+
+
+    <!-- ==========================
+        MONTHS SECTION
+    =========================== -->
+
+    <div class="months-wrapper">
+
+        <!-- LEFT CARD -->
+
+        <div class="card pink">
+
+            <button class="month-btn" data-audio="chithirai">
+                சித்திரை
+            </button>
+
+            <button class="month-btn" data-audio="vaikasi">
+                வைகாசி
+            </button>
+
+            <button class="month-btn" data-audio="aani">
+                ஆனி
+            </button>
+
+            <button class="month-btn" data-audio="aadi">
+                ஆடி
+            </button>
+
+            <button class="month-btn" data-audio="aavani">
+                ஆவணி
+            </button>
+
+            <button class="month-btn" data-audio="purattasi">
+                புரட்டாசி
+            </button>
+
+        </div>
+
+
+
+        <!-- RIGHT CARD -->
+
+        <div class="card yellow">
+
+            <button class="month-btn" data-audio="aippasi">
+                ஐப்பசி
+            </button>
+
+            <button class="month-btn" data-audio="karthigai">
+                கார்த்திகை
+            </button>
+
+            <button class="month-btn" data-audio="margazhi">
+                மார்கழி
+            </button>
+
+            <button class="month-btn" data-audio="thai">
+                தை
+            </button>
+
+            <button class="month-btn" data-audio="maasi">
+                மாசி
+            </button>
+
+            <button class="month-btn" data-audio="panguni">
+                பங்குனி
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================
+        AATHICHUDI TITLE
+    =========================== -->
+
+    <div class="aathichudi-header">
+
+        <div class="line left"></div>
+
+        <div class="heading">
+
+            ஆத்திசூடி
+
+        </div>
+
+        <div class="line right"></div>
+
+    </div>
+
+
+
+
+    <!-- ==========================
+        AATHICHUDI CARD
+    =========================== -->
+
+    <div class="aathichudi-card">
+
+        <!-- LEFT COLUMN -->
+
+        <div class="column">
+
+            <button class="rule-btn" data-audio="aram">
+                • அறம் செய விரும்பு
+            </button>
+
+            <button class="rule-btn" data-audio="aaruvathu">
+                • ஆறுவது சினம்
+            </button>
+
+            <button class="rule-btn" data-audio="iyalvathu">
+                • இயல்வது கரவேல்
+            </button>
+
+            <button class="rule-btn" data-audio="eevathu">
+                • ஈவது விலக்கேல்
+            </button>
+
+            <button class="rule-btn" data-audio="udaiyathu">
+                • உடையது விளம்பேல்
+            </button>
+
+            <button class="rule-btn" data-audio="ookkamathu">
+                • ஊக்கமது கைவிடேல்
+            </button>
+
+        </div>
+
+
+
+        <!-- RIGHT COLUMN -->
+
+        <div class="column">
+
+            <button class="rule-btn" data-audio="en_ezhuthu">
+                • எண் எழுத்து இகழேல்
+            </button>
+
+            <button class="rule-btn" data-audio="erpathu">
+                • ஏற்பது இகழ்ச்சி
+            </button>
+
+            <button class="rule-btn" data-audio="aiyam">
+                • ஐயம் இட்டு உண்
+            </button>
+
+            <button class="rule-btn" data-audio="oppura">
+                • ஒப்புர ஒழுகு
+            </button>
+
+            <button class="rule-btn" data-audio="othuvathu">
+                • ஓதுவது ஒழியேல்
+            </button>
+
+            <button class="rule-btn" data-audio="auviyam">
+                • ஔவியம் பேசேல்
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- ==========================
+        PAGE NUMBER
+    =========================== -->
+
+    <div class="page-number">
+        33
+    </div>
+
+</div>
+
+
+
+
+<!-- ==========================
+      AUDIO FILES
+=========================== -->
+
+<audio id="chithirai" src="audio/chithirai.mp3"></audio>
+<audio id="vaikasi" src="audio/vaikasi.mp3"></audio>
+<audio id="aani" src="audio/aani.mp3"></audio>
+<audio id="aadi" src="audio/aadi.mp3"></audio>
+<audio id="aavani" src="audio/aavani.mp3"></audio>
+<audio id="purattasi" src="audio/purattasi.mp3"></audio>
+
+<audio id="aippasi" src="audio/aippasi.mp3"></audio>
+<audio id="karthigai" src="audio/karthigai.mp3"></audio>
+<audio id="margazhi" src="audio/margazhi.mp3"></audio>
+<audio id="thai" src="audio/thai.mp3"></audio>
+<audio id="maasi" src="audio/maasi.mp3"></audio>
+<audio id="panguni" src="audio/panguni.mp3"></audio>
+
+
+<audio id="aram" src="audio/aram.mp3"></audio>
+<audio id="aaruvathu" src="audio/aaruvathu.mp3"></audio>
+<audio id="iyalvathu" src="audio/iyalvathu.mp3"></audio>
+<audio id="eevathu" src="audio/eevathu.mp3"></audio>
+<audio id="udaiyathu" src="audio/udaiyathu.mp3"></audio>
+<audio id="ookkamathu" src="audio/ookkamathu.mp3"></audio>
+
+<audio id="en_ezhuthu" src="audio/en_ezhuthu.mp3"></audio>
+<audio id="erpathu" src="audio/erpathu.mp3"></audio>
+<audio id="aiyam" src="audio/aiyam.mp3"></audio>
+<audio id="oppura" src="audio/oppura.mp3"></audio>
+<audio id="othuvathu" src="audio/othuvathu.mp3"></audio>
+<audio id="auviyam" src="audio/auviyam.mp3"></audio>
+
+
+
+<script>
+
+
+/* ===================================
+   PAGE 33
+   TAMIL MONTHS + AATHICHUDI
+=================================== */
+
+let currentAudio = null;
+let currentButton = null;
+
+/* ==========================
+   PLAY / STOP AUDIO
+========================== */
+
+function stopCurrent(){
+
+    if(currentAudio){
+
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+
+        currentAudio = null;
+    }
+
+    if(currentButton){
+
+        currentButton.classList.remove("active");
+
+        currentButton = null;
+    }
+
+}
+
+
+document.querySelectorAll("[data-audio]").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        const audio=document.getElementById(button.dataset.audio);
+
+        if(!audio) return;
+
+        /* CLICK SAME BUTTON AGAIN */
+
+        if(currentAudio===audio){
+
+            stopCurrent();
+
+            return;
+        }
+
+        /* STOP PREVIOUS */
+
+        stopCurrent();
+
+        /* PLAY NEW */
+
+        currentAudio=audio;
+        currentButton=button;
+
+        button.classList.add("active");
+
+        audio.currentTime=0;
+
+        audio.play();
+
+        /* WHEN AUDIO ENDS */
+
+        audio.onended=()=>{
+
+            button.classList.remove("active");
+
+            currentAudio=null;
+            currentButton=null;
+
+        };
+
+    });
+
+});
+
+
+
+/* ==========================
+   SPACEBAR
+   Pause / Resume
+========================== */
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.code!=="Space") return;
+
+    e.preventDefault();
+
+    if(!currentAudio) return;
+
+    if(currentAudio.paused){
+
+        currentAudio.play();
+
+    }else{
+
+        currentAudio.pause();
+
+    }
+
+});
+
+
+
+/* ==========================
+   ESC
+   Stop Audio
+========================== */
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Escape"){
+
+        stopCurrent();
+
+    }
+
+});
+
+
+
+/* ==========================
+   Stop Audio When
+   Leaving Page
+========================== */
+
+window.addEventListener("beforeunload",()=>{
+
+    stopCurrent();
+
+});
+
+
+
+/* ==========================
+   Prevent Double Tap Zoom
+   On Mobile
+========================== */
+
+let lastTouchEnd=0;
+
+document.addEventListener("touchend",(event)=>{
+
+    const now=(new Date()).getTime();
+
+    if(now-lastTouchEnd<=300){
+
+        event.preventDefault();
+
+    }
+
+    lastTouchEnd=now;
+
+},{passive:false});
+
+
+
+/* ==========================
+   Keyboard Navigation
+========================== */
+
+const buttons=[...document.querySelectorAll("[data-audio]")];
+
+buttons.forEach((btn,index)=>{
+
+    btn.setAttribute("tabindex","0");
+
+    btn.addEventListener("keydown",(e)=>{
+
+        if(e.key==="ArrowDown"){
+
+            e.preventDefault();
+
+            if(buttons[index+1]){
+
+                buttons[index+1].focus();
+
+            }
+
+        }
+
+        if(e.key==="ArrowUp"){
+
+            e.preventDefault();
+
+            if(buttons[index-1]){
+
+                buttons[index-1].focus();
+
+            }
+
+        }
+
+        if(e.key==="Enter"){
+
+            btn.click();
+
+        }
+
+    });
+
+});
+
+
+
+/* ==========================
+   Small Click Animation
+========================== */
+
+document.querySelectorAll(".month-btn,.rule-btn").forEach(btn=>{
+
+    btn.addEventListener("mousedown",()=>{
+
+        btn.style.transform="scale(.95)";
+
+    });
+
+    btn.addEventListener("mouseup",()=>{
+
+        btn.style.transform="";
+
+    });
+
+    btn.addEventListener("mouseleave",()=>{
+
+        btn.style.transform="";
+
+    });
+
+});
+
+
+
+/* ==========================
+   Console Message
+========================== */
+
+console.log("Page 33 Loaded Successfully");    
+
+</script>
+
+</body>
+</html>
