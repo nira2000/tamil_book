@@ -457,8 +457,14 @@ body{
 
 
 
+
+
+
+
+
+
 /* ==========================================
-   MOBILE VERSION
+   MOBILE
 ========================================== */
 
 @media (max-width:768px){
@@ -470,7 +476,7 @@ body{
     padding:0;
 
     width:100%;
-    height:100%;
+    height:100dvh;
 
     overflow:hidden;
 
@@ -482,50 +488,48 @@ body{
 
 }
 
-/* ================= APP ================= */
+/* APP */
 
 .app{
 
     width:100vw;
-    height:100vh;
-    overflow:hidden;
+    height:100dvh;
+
     display:flex;
     flex-direction:column;
 
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .header{
-
-    flex-shrink:0;
 
     font-size:13px;
 
     padding:6px 0;
 
-    margin-bottom:4px;
+    flex-shrink:0;
 
 }
 
-/* ================= BOOK ================= */
+/* BOOK */
 
 .book{
 
     flex:1;
 
-    width:96vw;
+    width:98vw;
 
-    margin:auto;
+    margin:0 auto;
 
     padding:10px;
 
-    overflow:hidden;
+    border-radius:18px;
 
     display:flex;
     flex-direction:column;
 
-    border-radius:18px;
+    overflow:hidden;
 
 }
 
@@ -541,7 +545,7 @@ body{
 
 }
 
-/* ================= CONTENT ================= */
+/* CONTENT */
 
 .book-content{
 
@@ -553,62 +557,69 @@ body{
 
     align-items:flex-start;
 
+    overflow:hidden;
+
 }
 
-/* ================= PAGE ================= */
+/* PAGE */
 
 .page{
 
     width:900px;
-    position:relative;
 
     transform-origin:top center;
 
-    transform:scale(calc(min((100vw - 30px)/900, (100vh - 170px)/1180)));
-
 }
 
-/* ================= PAGE NUMBER ================= */
+/* PAGE NUMBER */
 
 .page-number{
 
-    flex-shrink:0;
+    margin:8px 0;
 
-    margin-top:-140px;
+    font-size:20px;
 
-    margin-bottom:2px;
+    font-weight:bold;
 
-    font-size:18px;
+    color:#9d68d3;
 
 }
 
-/* ================= NAVIGATION ================= */
+/* NAVIGATION */
 
 .navigation{
 
-    flex-shrink:0;
+    margin-top:auto;
 
-    margin-top:0;
+    display:flex;
 
-    padding:0 10px 8px;
+    justify-content:space-between;
+
+    align-items:center;
 
 }
 
 .nav-btn{
 
-    width:42px;
+    width:44px;
 
-    height:42px;
+    height:44px;
 
-    font-size:20px;
+    font-size:22px;
+
+}
+
+.dots{
+
+    gap:6px;
 
 }
 
 .dot{
 
-    width:7px;
+    width:8px;
 
-    height:7px;
+    height:8px;
 
 }
 
@@ -952,6 +963,51 @@ words.forEach(button => {
     });
 
 });
+
+
+
+
+
+
+
+
+function fitPage(){
+
+    if(window.innerWidth > 768){
+
+        document.querySelector(".page").style.transform="";
+
+        return;
+
+    }
+
+    const page=document.querySelector(".page");
+
+    const book=document.querySelector(".book-content");
+
+    const pageWidth=900;
+
+    const pageHeight=1360;   // adjust once if needed
+
+    const availableWidth=book.clientWidth;
+
+    const availableHeight=book.clientHeight;
+
+    const scale=Math.min(
+
+        availableWidth/pageWidth,
+
+        availableHeight/pageHeight
+
+    );
+
+    page.style.transform=`scale(${scale})`;
+
+}
+
+window.addEventListener("load",fitPage);
+
+window.addEventListener("resize",fitPage);
 
 
 
