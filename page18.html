@@ -488,7 +488,7 @@ body{
 
     width:100vw;
     height:100vh;
-
+    overflow:hidden;
     display:flex;
     flex-direction:column;
 
@@ -560,10 +560,11 @@ body{
 .page{
 
     width:900px;
-
-    transform:scale(.34);
+    position:relative;
 
     transform-origin:top center;
+
+    transform:scale(calc(min((100vw - 30px)/900, (100vh - 170px)/1180)));
 
 }
 
