@@ -418,6 +418,14 @@ body{
 
     text-shadow:1px 1px #fff;
 
+    cursor:pointer;
+
+    position:relative;
+
+    font-family:inherit;
+
+    transition:.25s;
+
 }
 
 
@@ -580,6 +588,76 @@ body{
 }
 
 
+.speaker-btn{
+
+    position:relative;
+
+    border:2px solid rgba(0,0,0,.18);
+
+    box-shadow:0 3px 8px rgba(0,0,0,.12);
+
+}
+
+.speaker-btn:hover{
+
+    border-color:#D12020;
+
+}
+
+.speaker-icon{
+
+    position:absolute;
+
+    top:4px;
+
+    right:6px;
+
+    font-size:11px;
+
+    opacity:.8;
+
+    pointer-events:none;
+
+}
+
+.month-btn,
+.rule-btn{
+
+    transition:.25s;
+
+}
+
+.month-btn.active,
+.rule-btn.active{
+
+    background:#FFF59A;
+
+    border-color:#E53935;
+
+    color:#C62828;
+
+    box-shadow:
+        0 0 10px rgba(255,215,0,.8),
+        0 0 18px rgba(255,215,0,.4);
+
+}
+
+
+.word{
+    display:inline-block;
+    padding:2px 4px;
+    border-radius:6px;
+    transition:.25s;
+}
+
+.word.active{
+    background:#FFF59A;
+    color:#D50000;
+    font-weight:700;
+    box-shadow:0 0 8px rgba(255,215,0,.8);
+}
+
+
 
 /* =====================================================
    PAGE NUMBER
@@ -676,6 +754,10 @@ body{
 
 
 
+
+
+
+
 /* =====================================================
    MOBILE
 ===================================================== */
@@ -760,8 +842,23 @@ body{
 }
 
 .heading{
+
     font-size:20px;
-    padding:4px 12px;
+
+    padding:4px 16px;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
 }
 
 .line{
@@ -843,7 +940,45 @@ body{
     top:105px;
 }
 
+/* SPEAKER ICON */
+
+.speaker-icon{
+
+    position:absolute;
+
+    top:2px;
+
+    right:5px;
+
+    font-size:9px;
+
+    opacity:.8;
+
 }
+
+/* BUTTON TEXT */
+
+.text{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+/* WORD HIGHLIGHT */
+
+.word{
+
+    padding:1px 2px;
+
+    border-radius:4px;
+
+}
+
+}
+
+
 
 </style>
 
@@ -873,10 +1008,9 @@ body{
     </h1>
 
 
-
     <!-- ==========================
-        MONTHS SECTION
-    =========================== -->
+         MONTHS SECTION
+    ========================== -->
 
     <div class="months-wrapper">
 
@@ -884,28 +1018,34 @@ body{
 
         <div class="card pink">
 
-            <button class="month-btn" data-audio="chithirai">
-                சித்திரை
+            <button class="month-btn speaker-btn" data-audio="chithirai">
+                <span class="text">சித்திரை</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="vaikasi">
-                வைகாசி
+            <button class="month-btn speaker-btn" data-audio="vaikasi">
+                <span class="text">வைகாசி</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="aani">
-                ஆனி
+            <button class="month-btn speaker-btn" data-audio="aani">
+                <span class="text">ஆனி</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="aadi">
-                ஆடி
+            <button class="month-btn speaker-btn" data-audio="aadi">
+                <span class="text">ஆடி</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="aavani">
-                ஆவணி
+            <button class="month-btn speaker-btn" data-audio="aavani">
+                <span class="text">ஆவணி</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="purattasi">
-                புரட்டாசி
+            <button class="month-btn speaker-btn" data-audio="purattasi">
+                <span class="text">புரட்டாசி</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
         </div>
@@ -916,28 +1056,34 @@ body{
 
         <div class="card yellow">
 
-            <button class="month-btn" data-audio="aippasi">
-                ஐப்பசி
+            <button class="month-btn speaker-btn" data-audio="aippasi">
+                <span class="text">ஐப்பசி</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="karthigai">
-                கார்த்திகை
+            <button class="month-btn speaker-btn" data-audio="karthigai">
+                <span class="text">கார்த்திகை</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="margazhi">
-                மார்கழி
+            <button class="month-btn speaker-btn" data-audio="margazhi">
+                <span class="text">மார்கழி</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="thai">
-                தை
+            <button class="month-btn speaker-btn" data-audio="thai">
+                <span class="text">தை</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="maasi">
-                மாசி
+            <button class="month-btn speaker-btn" data-audio="maasi">
+                <span class="text">மாசி</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
-            <button class="month-btn" data-audio="panguni">
-                பங்குனி
+            <button class="month-btn speaker-btn" data-audio="panguni">
+                <span class="text">பங்குனி</span>
+                <span class="speaker-icon">🔊</span>
             </button>
 
         </div>
@@ -948,28 +1094,28 @@ body{
 
     <!-- ==========================
         AATHICHUDI TITLE
-    =========================== -->
+    ========================== -->
 
     <div class="aathichudi-header">
 
         <div class="line left"></div>
 
-        <div class="heading">
+        <button class="heading speaker-btn" data-audio="aathichudi_title">
 
-            ஆத்திசூடி
+            <span class="text">ஆத்திசூடி</span>
 
-        </div>
+            <span class="speaker-icon">🔊</span>
+
+        </button>
 
         <div class="line right"></div>
 
     </div>
 
 
-
-
     <!-- ==========================
         AATHICHUDI CARD
-    =========================== -->
+    ========================== -->
 
     <div class="aathichudi-card">
 
@@ -977,28 +1123,41 @@ body{
 
         <div class="column">
 
-            <button class="rule-btn" data-audio="aram">
-                • அறம் செய விரும்பு
+            <button class="rule-btn speaker-btn" data-audio="aram">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• அறம்</span>
+                <span class="word">செய</span>
+                <span class="word">விரும்பு</span>
             </button>
 
-            <button class="rule-btn" data-audio="aaruvathu">
-                • ஆறுவது சினம்
+            <button class="rule-btn speaker-btn" data-audio="aaruvathu">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• ஆறுவது</span>
+                <span class="word">சினம்</span>
             </button>
 
-            <button class="rule-btn" data-audio="iyalvathu">
-                • இயல்வது கரவேல்
+            <button class="rule-btn speaker-btn" data-audio="iyalvathu">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• இயல்வது</span>
+                <span class="word">கரவேல்</span>
             </button>
 
-            <button class="rule-btn" data-audio="eevathu">
-                • ஈவது விலக்கேல்
+            <button class="rule-btn speaker-btn" data-audio="eevathu">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• ஈவது</span>
+                <span class="word">விலக்கேல்</span>
             </button>
 
-            <button class="rule-btn" data-audio="udaiyathu">
-                • உடையது விளம்பேல்
+            <button class="rule-btn speaker-btn" data-audio="udaiyathu">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• உடையது</span>
+                <span class="word">விளம்பேல்</span>
             </button>
 
-            <button class="rule-btn" data-audio="ookkamathu">
-                • ஊக்கமது கைவிடேல்
+            <button class="rule-btn speaker-btn" data-audio="ookkamathu">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• ஊக்கமது</span>
+                <span class="word">கைவிடேல்</span>
             </button>
 
         </div>
@@ -1009,33 +1168,47 @@ body{
 
         <div class="column">
 
-            <button class="rule-btn" data-audio="en_ezhuthu">
-                • எண் எழுத்து இகழேல்
+            <button class="rule-btn speaker-btn" data-audio="en_ezhuthu">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• எண்</span>
+                <span class="word">எழுத்து</span>
+                <span class="word">இகழேல்</span>
             </button>
 
-            <button class="rule-btn" data-audio="erpathu">
-                • ஏற்பது இகழ்ச்சி
+            <button class="rule-btn speaker-btn" data-audio="erpathu">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• ஏற்பது</span>
+                <span class="word">இகழ்ச்சி</span>
             </button>
 
-            <button class="rule-btn" data-audio="aiyam">
-                • ஐயம் இட்டு உண்
+            <button class="rule-btn speaker-btn" data-audio="aiyam">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• ஐயம்</span>
+                <span class="word">இட்டு</span>
+                <span class="word">உண்</span>
             </button>
 
-            <button class="rule-btn" data-audio="oppura">
-                • ஒப்புர ஒழுகு
+            <button class="rule-btn speaker-btn" data-audio="oppura">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• ஒப்புர</span>
+                <span class="word">ஒழுகு</span>
             </button>
 
-            <button class="rule-btn" data-audio="othuvathu">
-                • ஓதுவது ஒழியேல்
+            <button class="rule-btn speaker-btn" data-audio="othuvathu">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• ஓதுவது</span>
+                <span class="word">ஒழியேல்</span>
             </button>
 
-            <button class="rule-btn" data-audio="auviyam">
-                • ஔவியம் பேசேல்
+            <button class="rule-btn speaker-btn" data-audio="auviyam">
+                <span class="speaker-icon">🔊</span>
+                <span class="word">• ஔவியம்</span>
+                <span class="word">பேசேல்</span>
             </button>
 
         </div>
 
-    </div>
+</div>
 
 
 
@@ -1093,7 +1266,7 @@ body{
 <audio id="maasi" src="audio/maasi.mp3"></audio>
 <audio id="panguni" src="audio/panguni.mp3"></audio>
 
-
+<audio id="aathichudi_title" src="audio/aathichudi_title.mp3"></audio>
 <audio id="aram" src="audio/aram.mp3"></audio>
 <audio id="aaruvathu" src="audio/aaruvathu.mp3"></audio>
 <audio id="iyalvathu" src="audio/iyalvathu.mp3"></audio>
@@ -1108,10 +1281,7 @@ body{
 <audio id="othuvathu" src="audio/othuvathu.mp3"></audio>
 <audio id="auviyam" src="audio/auviyam.mp3"></audio>
 
-
-
 <script>
-
 
 /* ===================================
    PAGE 33
@@ -1122,7 +1292,89 @@ let currentAudio = null;
 let currentButton = null;
 
 /* ==========================
-   PLAY / STOP AUDIO
+   WORD TIMINGS
+========================== */
+
+const wordTimings = {
+
+    aram:[0,0.9,1.8],
+
+    aaruvathu:[0,1.0],
+
+    iyalvathu:[0,1.0],
+
+    eevathu:[0,0.9],
+
+    udaiyathu:[0,1.0],
+
+    ookkamathu:[0,1.2],
+
+    en_ezhuthu:[0,0.7,1.4],
+
+    erpathu:[0,1.0],
+
+    aiyam:[0,0.7,1.4],
+
+    oppura:[0,1.0],
+
+    othuvathu:[0,1.0],
+
+    auviyam:[0,1.0]
+
+};
+
+/* ==========================
+   WORD HIGHLIGHT
+========================== */
+
+function clearWordHighlight(button){
+
+    if(!button) return;
+
+    button.querySelectorAll(".word").forEach(word=>{
+
+        word.classList.remove("active");
+
+    });
+
+}
+
+function animateWords(button,audioId){
+
+    clearWordHighlight(button);
+
+    const words = button.querySelectorAll(".word");
+
+    const timings = wordTimings[audioId];
+
+    if(!timings) return;
+
+    timings.forEach((time,index)=>{
+
+        setTimeout(()=>{
+
+            if(currentButton!==button) return;
+
+            words.forEach(word=>{
+
+                word.classList.remove("active");
+
+            });
+
+            if(words[index]){
+
+                words[index].classList.add("active");
+
+            }
+
+        },time*1000);
+
+    });
+
+}
+
+/* ==========================
+   STOP AUDIO
 ========================== */
 
 function stopCurrent(){
@@ -1130,20 +1382,27 @@ function stopCurrent(){
     if(currentAudio){
 
         currentAudio.pause();
-        currentAudio.currentTime = 0;
+        currentAudio.currentTime=0;
 
-        currentAudio = null;
+        currentAudio=null;
+
     }
 
     if(currentButton){
 
         currentButton.classList.remove("active");
 
-        currentButton = null;
+        clearWordHighlight(currentButton);
+
+        currentButton=null;
+
     }
 
 }
 
+/* ==========================
+   PLAY AUDIO
+========================== */
 
 document.querySelectorAll("[data-audio]").forEach(button=>{
 
@@ -1153,20 +1412,15 @@ document.querySelectorAll("[data-audio]").forEach(button=>{
 
         if(!audio) return;
 
-        /* CLICK SAME BUTTON AGAIN */
-
         if(currentAudio===audio){
 
             stopCurrent();
 
             return;
+
         }
 
-        /* STOP PREVIOUS */
-
         stopCurrent();
-
-        /* PLAY NEW */
 
         currentAudio=audio;
         currentButton=button;
@@ -1177,11 +1431,13 @@ document.querySelectorAll("[data-audio]").forEach(button=>{
 
         audio.play();
 
-        /* WHEN AUDIO ENDS */
+        animateWords(button,button.dataset.audio);
 
         audio.onended=()=>{
 
             button.classList.remove("active");
+
+            clearWordHighlight(button);
 
             currentAudio=null;
             currentButton=null;
@@ -1192,11 +1448,8 @@ document.querySelectorAll("[data-audio]").forEach(button=>{
 
 });
 
-
-
 /* ==========================
    SPACEBAR
-   Pause / Resume
 ========================== */
 
 document.addEventListener("keydown",(e)=>{
@@ -1219,11 +1472,8 @@ document.addEventListener("keydown",(e)=>{
 
 });
 
-
-
 /* ==========================
    ESC
-   Stop Audio
 ========================== */
 
 document.addEventListener("keydown",(e)=>{
@@ -1236,11 +1486,8 @@ document.addEventListener("keydown",(e)=>{
 
 });
 
-
-
 /* ==========================
-   Stop Audio When
-   Leaving Page
+   BEFORE UNLOAD
 ========================== */
 
 window.addEventListener("beforeunload",()=>{
@@ -1249,11 +1496,8 @@ window.addEventListener("beforeunload",()=>{
 
 });
 
-
-
 /* ==========================
-   Prevent Double Tap Zoom
-   On Mobile
+   DOUBLE TAP ZOOM
 ========================== */
 
 let lastTouchEnd=0;
@@ -1272,10 +1516,8 @@ document.addEventListener("touchend",(event)=>{
 
 },{passive:false});
 
-
-
 /* ==========================
-   Keyboard Navigation
+   KEYBOARD NAVIGATION
 ========================== */
 
 const buttons=[...document.querySelectorAll("[data-audio]")];
@@ -1320,10 +1562,8 @@ buttons.forEach((btn,index)=>{
 
 });
 
-
-
 /* ==========================
-   Small Click Animation
+   CLICK ANIMATION
 ========================== */
 
 document.querySelectorAll(".month-btn,.rule-btn").forEach(btn=>{
@@ -1348,10 +1588,9 @@ document.querySelectorAll(".month-btn,.rule-btn").forEach(btn=>{
 
 });
 
-
-/* =========================
+/* ==========================
    PAGE FLIP
-========================= */
+========================== */
 
 function nextPage(page,direction){
 
@@ -1365,8 +1604,7 @@ function nextPage(page,direction){
 
         app.classList.add("flip-out-next");
 
-    }
-    else{
+    }else{
 
         app.classList.add("flip-out-prev");
 
