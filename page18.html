@@ -461,8 +461,6 @@ body{
 
 
 
-
-
 /* ==========================================
    MOBILE
 ========================================== */
@@ -493,12 +491,12 @@ body{
 .app{
 
     width:100vw;
-    height:94dvh;   /* try 94 first */
+    height:95dvh;
 
     display:flex;
     flex-direction:column;
 
-    margin-top:-8px;   /* moves whole book upward */
+    margin-top:-6px;
 
 }
 
@@ -524,7 +522,7 @@ body{
 
     margin:0 auto;
 
-    padding:5px;
+    padding:6px;
 
     border-radius:18px;
 
@@ -551,7 +549,7 @@ body{
 
 .book-content{
 
-    flex:0.96;
+    flex:0.93;
 
     display:flex;
 
@@ -577,7 +575,7 @@ body{
 
 .page-number{
 
-    margin-top:-10px;
+    margin-top:-16px;
 
     font-size:12px;
 
@@ -591,7 +589,7 @@ body{
 
 .navigation{
 
-    margin-top:6px;
+    margin-top:10px;
 
     display:flex;
 
@@ -626,6 +624,9 @@ body{
 }
 
 }
+
+
+
 
 
 </style>
@@ -989,7 +990,7 @@ function fitPage(){
 
     const pageWidth=900;
 
-    const pageHeight=1450;   // adjust once if needed
+    const pageHeight=1400;   // adjust once if needed
 
     const availableWidth=book.clientWidth;
 
