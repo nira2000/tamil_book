@@ -65,6 +65,10 @@ body{
 
     align-items:center;
 
+    max-width:800px;
+
+    transform-style:preserve-3d;
+
 }
 
 
@@ -72,7 +76,7 @@ body{
    MAIN PAGE
 ===================================================== */
 
-.page{
+.book{
 
     position:relative;
 
@@ -82,12 +86,12 @@ body{
 
     border-radius:30px;
 
-    padding:28px 32px 18px;
+    padding:40px;
 
     overflow:visible;
 
     box-shadow:
-        0 10px 28px rgba(0,0,0,.18);
+        0 10px 30px rgba(0,0,0,.25);
 
 }
 
@@ -97,7 +101,7 @@ body{
    RED BOOK SPINE
 ===================================================== */
 
-.page::before{
+.book::before{
 
     content:"";
 
@@ -671,302 +675,172 @@ body{
 
 
 
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width:900px){
-
-.page{
-
-    padding:22px;
-
-}
-
-.title{
-
-    font-size:40px;
-
-}
-
-.month-btn{
-
-    font-size:23px;
-
-}
-
-.heading{
-
-    font-size:26px;
-
-}
-
-.rule-btn{
-
-    font-size:18px;
-
-}
-
-}
-
-
 
 /* =====================================================
    MOBILE
 ===================================================== */
 
-@media (max-width:600px){
+@media (max-width:768px){
 
 html,
 body{
-
-    overflow-y:auto;
-
-    overflow-x:hidden;
-
+    width:100%;
+    height:100%;
+    margin:0;
+    overflow:hidden;
 }
 
 body{
-
+    min-height:100dvh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     padding:0;
-
 }
 
-
-
-/* PAGE */
-
-.page{
-
+.app{
     width:100%;
-
-    max-width:390px;
-
+    max-width:380px;
+    height:100dvh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
     padding:10px;
+}
 
+/* BOOK */
+
+.book{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:12px;
     border-radius:18px;
-
+    overflow:hidden;
 }
 
-
-
-/* RED SPINE */
-
-.page::before{
-
+.book::before{
     width:8px;
-
     left:-4px;
-
-    top:10px;
-
-    bottom:10px;
-
+    top:12px;
+    bottom:12px;
 }
-
-
 
 /* TITLE */
 
 .title{
-
-    font-size:25px;
-
-    margin-bottom:8px;
-
+    font-size:22px;
+    margin-bottom:10px;
 }
-
-
 
 /* MONTHS */
 
 .months-wrapper{
-
-    gap:6px;
-
+    gap:8px;
     margin-bottom:10px;
-
 }
 
 .card{
-
     padding:8px;
-
     gap:4px;
-
     border-radius:16px;
-
 }
 
 .month-btn{
-
-    font-size:16px;
-
+    font-size:15px;
     padding:2px;
-
 }
 
-
-
-/* HEADER */
+/* AATHICHUDI */
 
 .aathichudi-header{
-
     gap:8px;
-
     margin-bottom:8px;
-
 }
 
 .heading{
-
     font-size:18px;
-
     padding:4px 12px;
-
 }
 
 .line{
-
     width:22px;
-
     height:4px;
-
 }
 
 .line::before,
 .line::after{
-
     width:16px;
-
     height:4px;
-
 }
 
-.left::before{
-
-    top:-6px;
-
-}
-
-.left::after{
-
-    top:6px;
-
-}
-
-.right::before{
-
-    top:-6px;
-
-}
-
-.right::after{
-
-    top:6px;
-
-}
-
-
+.left::before{top:-6px;}
+.left::after{top:6px;}
+.right::before{top:-6px;}
+.right::after{top:6px;}
 
 /* CARD */
 
 .aathichudi-card{
-
     padding:8px;
-
     gap:8px;
-
     border-radius:16px;
-
 }
-
-
-
-/* RULES */
 
 .rule-btn{
-
     font-size:12px;
-
-    line-height:1.15;
-
-    padding:1px;
-
+    line-height:1.2;
+    padding:2px;
 }
-
-
 
 /* PAGE NUMBER */
 
 .page-number{
-
-    font-size:16px;
-
-    margin-top:4px;
-
+    text-align:center;
+    font-size:14px;
+    margin-top:auto;
+    padding-bottom:5px;
 }
-
-
 
 /* NAVIGATION */
 
 .navigation{
-
     margin-top:8px;
-
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .nav-btn{
-
-    width:36px;
-
-    height:36px;
-
+    width:35px;
+    height:35px;
     font-size:18px;
-
 }
 
 .dot{
-
     width:8px;
-
     height:8px;
-
 }
-
-
 
 /* DECORATIONS */
 
 .swirl{
-
     transform:scale(.42);
-
     left:-8px;
-
     top:-8px;
-
 }
 
 .curve-top{
-
     transform:scale(.55);
-
     right:-6px;
-
     top:2px;
-
 }
 
 .sparkle{
-
     transform:scale(.42);
-
     right:10px;
-
     top:105px;
-
 }
 
 }
@@ -977,7 +851,7 @@ body{
 
 <div class="app">
 
-<div class="page">
+<div class="book">
 
     <!-- ==========================
          DECORATIONS
@@ -1174,9 +1048,8 @@ body{
         33
     </div>
 
-</div>
 
-    <div class="navigation">
+        <div class="navigation">
 
         <button class="nav-btn"
             onclick="nextPage('page35.html','prev')">
@@ -1197,6 +1070,9 @@ body{
         </button>
 
     </div>
+
+</div>
+
 </div>
 
 <!-- ==========================
