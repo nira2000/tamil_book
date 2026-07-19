@@ -778,27 +778,34 @@ body{
     justify-content:center;
     align-items:center;
     padding:0;
+    background:#111D66;
 }
+
+/* APP */
 
 .app{
     width:100%;
     max-width:380px;
     height:100dvh;
+
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
-    padding:10px;
+
+    padding:8px;
 }
 
 /* BOOK */
 
 .book{
     flex:1;
+
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
-    padding:12px;
+
+    padding:10px;
+
     border-radius:18px;
+
     overflow:hidden;
 }
 
@@ -842,23 +849,14 @@ body{
 }
 
 .heading{
-
     font-size:20px;
-
     padding:4px 16px;
-
     font-family:inherit;
-
     cursor:pointer;
-
     position:relative;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
 }
 
 .line{
@@ -894,25 +892,33 @@ body{
 /* PAGE NUMBER */
 
 .page-number{
+    margin-top:8px;
     text-align:center;
     font-size:14px;
-    margin-top:auto;
-    padding-bottom:5px;
+    font-weight:700;
+    color:#8D64D8;
 }
 
 /* NAVIGATION */
 
 .navigation{
-    margin-top:8px;
+    margin-top:6px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
+    flex-shrink:0;
 }
 
 .nav-btn{
     width:35px;
     height:35px;
     font-size:18px;
+}
+
+.dots{
+    gap:6px;
 }
 
 .dot{
@@ -943,40 +949,30 @@ body{
 /* SPEAKER ICON */
 
 .speaker-icon{
-
     position:absolute;
-
     top:2px;
-
     right:5px;
-
     font-size:9px;
-
     opacity:.8;
-
 }
 
 /* BUTTON TEXT */
 
 .text{
-
     width:100%;
-
     text-align:center;
-
 }
 
 /* WORD HIGHLIGHT */
 
 .word{
-
     padding:1px 2px;
-
     border-radius:4px;
-
 }
 
 }
+
+
 
 
 
