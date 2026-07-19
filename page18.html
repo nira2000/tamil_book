@@ -459,8 +459,10 @@ body{
 
 
 
+
+
 /* ==========================================
-   MOBILE (ALL PHONES)
+   MOBILE
 ========================================== */
 
 @media (max-width:768px){
@@ -487,9 +489,9 @@ body{
 
 }
 
-/* ======================
+/* ==========================
    APP
-====================== */
+========================== */
 
 .app{
 
@@ -499,19 +501,15 @@ body{
     display:flex;
     flex-direction:column;
 
-    padding:
-        env(safe-area-inset-top)
-        10px
-        calc(10px + env(safe-area-inset-bottom))
-        10px;
+    padding:8px 10px;
 
     box-sizing:border-box;
 
 }
 
-/* ======================
+/* ==========================
    HEADER
-====================== */
+========================== */
 
 .header{
 
@@ -521,13 +519,13 @@ body{
 
     text-align:center;
 
-    margin-bottom:8px;
+    margin-bottom:5px;
 
 }
 
-/* ======================
+/* ==========================
    BOOK
-====================== */
+========================== */
 
 .book{
 
@@ -537,7 +535,7 @@ body{
 
     max-width:410px;
 
-    margin:auto;
+    margin:0 auto;
 
     display:flex;
 
@@ -547,13 +545,11 @@ body{
 
     border-radius:22px;
 
-    padding:10px;
+    padding:8px;
 
     overflow:hidden;
 
 }
-
-/* Spine */
 
 .book::before{
 
@@ -561,15 +557,15 @@ body{
 
     left:-4px;
 
-    top:12px;
+    top:10px;
 
-    bottom:12px;
+    bottom:10px;
 
 }
 
-/* ======================
-   PAGE AREA
-====================== */
+/* ==========================
+   PAGE
+========================== */
 
 .book-content{
 
@@ -585,10 +581,6 @@ body{
 
 }
 
-/* ======================
-   PAGE
-====================== */
-
 .page{
 
     width:900px;
@@ -597,19 +589,21 @@ body{
 
 }
 
-/* ======================
+/* ==========================
    PAGE NUMBER
-====================== */
+========================== */
 
 .page-number{
 
     flex-shrink:0;
 
-    margin-top:8px;
+    margin-top:-25px;
+
+    margin-bottom:2px;
 
     text-align:center;
 
-    font-size:15px;
+    font-size:16px;
 
     font-weight:bold;
 
@@ -617,9 +611,9 @@ body{
 
 }
 
-/* ======================
+/* ==========================
    NAVIGATION
-====================== */
+========================== */
 
 .navigation{
 
@@ -631,33 +625,37 @@ body{
 
     align-items:center;
 
-    margin-top:12px;
+    margin-top:0;
 
-    padding:0 6px;
+    padding:0 8px;
 
 }
-
-/* Buttons */
 
 .nav-btn{
 
-    width:50px;
+    width:46px;
 
-    height:50px;
+    height:46px;
+
+    border:none;
 
     border-radius:50%;
 
+    background:#F8F1E4;
+
     font-size:22px;
 
-}
+    cursor:pointer;
 
-/* Dots */
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+
+}
 
 .dots{
 
     display:flex;
 
-    gap:8px;
+    gap:7px;
 
 }
 
@@ -667,50 +665,11 @@ body{
 
     height:8px;
 
-}
-
-/* ======================
-   SMALL PHONES
-====================== */
-
-@media (max-height:720px){
-
-    .header{
-
-        font-size:12px;
-
-        margin-bottom:5px;
-
-    }
-
-    .page-number{
-
-        font-size:13px;
-
-        margin-top:5px;
-
-    }
-
-    .navigation{
-
-        margin-top:8px;
-
-    }
-
-    .nav-btn{
-
-        width:44px;
-
-        height:44px;
-
-        font-size:20px;
-
-    }
+    border-radius:50%;
 
 }
 
 }
-
 
 
 
