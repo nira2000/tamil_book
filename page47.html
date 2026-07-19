@@ -667,73 +667,73 @@ body{
                     <!-- GREEN -->
 
                     <button class="btn green speaker"
-                            data-audio="a1">
+                            data-audio="a.mp3">
                         <span class="highlight">அ</span>
                     </button>
 
                     <button class="btn green speaker"
-                            data-audio="a2">
+                            data-audio="aa.mp3">
                         <span class="highlight">ஆ</span>
                     </button>
 
                     <button class="btn green speaker"
-                            data-audio="i1">
+                            data-audio="i.mp3">
                         <span class="highlight">இ</span>
                     </button>
 
                     <button class="btn green speaker"
-                            data-audio="i2">
+                            data-audio="ii.mp3">
                         <span class="highlight">ஈ</span>
                     </button>
 
                     <button class="btn green speaker"
-                            data-audio="u1">
+                            data-audio="u.mp3">
                         <span class="highlight">உ</span>
                     </button>
 
                     <button class="btn green speaker"
-                            data-audio="u2">
+                            data-audio="uu.mp3">
                         <span class="highlight">ஊ</span>
                     </button>
 
                     <!-- YELLOW -->
 
                     <button class="btn yellow speaker"
-                            data-audio="e1">
+                            data-audio="e.mp3">
                         <span class="highlight">எ</span>
                     </button>
 
                     <button class="btn yellow speaker"
-                            data-audio="e2">
+                            data-audio="ee.mp3">
                         <span class="highlight">ஏ</span>
                     </button>
 
                     <button class="btn yellow speaker"
-                            data-audio="ai">
+                            data-audio="ai.mp3">
                         <span class="highlight">ஐ</span>
                     </button>
 
                     <!-- BLUE -->
 
                     <button class="btn blue speaker"
-                            data-audio="o1">
+                            data-audio="o.mp3">
                         <span class="highlight">ஒ</span>
                     </button>
 
                     <button class="btn blue speaker"
-                            data-audio="o2">
+                            data-audio="oo.mp3">
                         <span class="highlight">ஓ</span>
                     </button>
 
                     <button class="btn blue speaker"
-                            data-audio="ow">
+                            data-audio="ow.mp3">
                         <span class="highlight">ஔ</span>
                     </button>
 
                      <!-- ORANGE -->
 
                     <button class="btn orange speaker"
-                            data-audio="ah">
+                            data-audio="ak.mp3">
                         <span class="highlight">ஃ</span>
                     </button>
 
@@ -792,20 +792,53 @@ body{
 
 <script>
 
-    
-// ===========================================
-// AUDIO PLAYER
-// ===========================================
+
+/* ===========================================
+   AUDIO PLAYER
+=========================================== */
 
 let currentAudio = null;
-let currentButtons = [];
-let highlightTimer = null;
+let currentButton = null;
 
-// ===========================================
-// STOP ALL
-// ===========================================
+const buttons = document.querySelectorAll(".btn");
 
-function stopAll(){
+buttons.forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        const audioFile = this.dataset.audio;
+
+        if(!audioFile) return;
+
+        // Click same button again = stop
+        if(
+            currentAudio &&
+            currentButton === this &&
+            !currentAudio.paused
+        ){
+
+            stopAudio();
+            return;
+
+        }
+
+        stopAudio();
+
+        currentAudio = new Audio(audioFile);
+
+        currentButton = this;
+
+        this.classList.add("playing");
+
+        currentAudio.play();
+
+        currentAudio.onended = stopAudio;
+
+    });
+
+});
+
+function stopAudio(){
 
     if(currentAudio){
 
@@ -814,279 +847,31 @@ function stopAll(){
 
     }
 
-    if(highlightTimer){
-
-        clearInterval(highlightTimer);
-
-    }
-
-    currentButtons.forEach(btn=>{
+    buttons.forEach(btn=>{
 
         btn.classList.remove("playing");
 
     });
 
-    currentAudio=null;
-    currentButtons=[];
-
-}
-
-// ===========================================
-// PLAY AUDIO
-// ===========================================
-
-function playAudio(audioId,buttons){
-
-    const audio=document.getElementById(audioId);
-
-    if(!audio){
-
-        console.log("Missing audio:",audioId);
-
-        return;
-
-    }
-
-    // Click same audio again = STOP
-
-    if(currentAudio===audio && !audio.paused){
-
-        stopAll();
-
-        return;
-
-    }
-
-    stopAll();
-
-    currentAudio=audio;
-    currentButtons=buttons;
-
-    buttons.forEach(btn=>{
-
-        btn.classList.add("playing");
-
-    });
-
-    audio.currentTime=0;
-    audio.play();
-
-    audio.onended=stopAll;
+    currentAudio = null;
+    currentButton = null;
 
 }
 
 
-
-
-// ===========================================
-// WORD BY WORD HIGHLIGHT
-// ===========================================
-
-function playSequential(audioId, buttons, speed){
-
-    const audio=document.getElementById(audioId);
-
-    if(!audio) return;
-
-    if(currentAudio===audio && !audio.paused){
-
-        stopAll();
-        return;
-
-    }
-
-    stopAll();
-
-    currentAudio=audio;
-    currentButtons=buttons;
-
-    let index=0;
-
-    function highlightNext(){
-
-        buttons.forEach(btn=>btn.classList.remove("playing"));
-
-        if(index<buttons.length){
-
-            buttons[index].classList.add("playing");
-
-            index++;
-
-        }
-
-    }
-
-    highlightNext();
-
-    highlightTimer = setInterval(highlightNext, speed);
-    audio.currentTime=0;
-    audio.play();
-
-    audio.onended=stopAll;
-
-}
-
-
-
-
-
-
-// ===========================================
-// DARK GREEN HEAD BUTTONS
-// ka_head
-// sa_head
-// da_head
-// ===========================================
-
-document.querySelectorAll(".head.green").forEach(head=>{
-
-    head.addEventListener("click",function(){
-
-        playAudio(
-
-            this.dataset.audio,
-
-            [this]
-
-        );
-
-    });
-
-});
-
-
-
-
-// ===========================================
-// SEQUENTIAL GROUPS
-// Green
-// ===========================================
-
-document.querySelectorAll(".btn.group-green[data-audio]").forEach(firstBtn=>{
-
-    firstBtn.addEventListener("click",function(){
-
-        const group=this.closest(".group");
-
-        let speed = 1000;
-
-        switch(this.dataset.audio){
-
-            case "ka_green":
-                speed = 1000;
-                break;
-
-            case "sa_green":
-                speed = 1000;
-                break;
-
-            case "da_green":
-                speed = 1000;
-                break;
-
-        }
-
-        playSequential(
-
-            this.dataset.audio,
-
-            [...group.querySelectorAll(".group-green")],
-
-            speed
-
-        );
-
-    });
-
-});
-
-// ===========================================
-// YELLOW
-// ===========================================
-
-document.querySelectorAll(".head.yellow").forEach(head=>{
-
-    head.addEventListener("click",function(){
-
-        const group=this.closest(".group");
-
-        playSequential(
-
-            this.dataset.audio,
-
-            [...group.querySelectorAll("button")],
-
-            1300
-
-        );
-
-    });
-
-});
-
-// ===========================================
-// BLUE
-// ===========================================
-
-document.querySelectorAll(".head.blue").forEach(head=>{
-
-    head.addEventListener("click",function(){
-
-        const group=this.closest(".group");
-
-        playSequential(
-
-            this.dataset.audio,
-
-            [...group.querySelectorAll("button")],
-
-            1300
-
-        );
-
-    });
-
-});
-
-
-
-
-// ===========================================
-// ORANGE
-// (UNCHANGED)
-// ===========================================
-
-document.querySelectorAll(".group[data-audio$='_orange'] .head").forEach(head=>{
-
-    head.addEventListener("click",function(){
-
-        playAudio(
-
-            this.closest(".group").dataset.audio,
-
-            [this]
-
-        );
-
-    });
-
-});
-
-// ===========================================
-// PAGE FLIP
-// ===========================================
+/* ===========================================
+   PAGE FLIP
+=========================================== */
 
 function nextPage(page,direction){
 
-    const pageContainer=document.querySelector(".container");
+    const pageContainer = document.querySelector(".container");
 
     if(direction==="next"){
 
         pageContainer.classList.add("flip-out-next");
 
-    }
-
-    else{
+    }else{
 
         pageContainer.classList.add("flip-out-prev");
 
@@ -1094,13 +879,11 @@ function nextPage(page,direction){
 
     setTimeout(()=>{
 
-        window.location.href=page;
+        window.location.href = page;
 
     },600);
 
 }
-
-
 
 </script>
 
