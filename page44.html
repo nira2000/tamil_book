@@ -828,7 +828,7 @@ body{
     <!-- GREEN -->
     <div class="group">
 
-        <button class="head green" data-audio="thafamily.mp3">
+        <button class="head green" data-audio="thafamily.mpeg">
             <span class="highlight">த</span>
         </button>
 
@@ -1127,35 +1127,47 @@ body{
 let currentAudio = null;
 let currentButton = null;
 
-let highlightTimer = null;
+// Separate timers
+let thaTimer = null;
+let paTimer = null;
+let maTimer = null;
+
 let highlightedButtons = [];
 
 
-// Stop everything
+// ===========================================
+// STOP EVERYTHING
+// ===========================================
+
 function stopAudio(){
 
-    // Stop audio
     if(currentAudio){
+
         currentAudio.pause();
         currentAudio.currentTime = 0;
+
     }
 
-    // Stop timer
-    if(highlightTimer){
-        clearInterval(highlightTimer);
-        highlightTimer = null;
-    }
+    clearInterval(thaTimer);
+    clearInterval(paTimer);
+    clearInterval(maTimer);
 
-    // Remove highlights
+    thaTimer = null;
+    paTimer = null;
+    maTimer = null;
+
     highlightedButtons.forEach(btn=>{
+
         btn.classList.remove("playing");
+
     });
 
     highlightedButtons = [];
 
-    // Remove current button highlight
     if(currentButton){
+
         currentButton.classList.remove("playing");
+
     }
 
     currentAudio = null;
@@ -1175,22 +1187,23 @@ function playAudio(button){
 
     if(!file) return;
 
-    // Click same button again = STOP
-    if(currentButton === button && currentAudio && !currentAudio.paused){
+    if(currentButton===button && currentAudio && !currentAudio.paused){
 
         stopAudio();
         return;
 
     }
 
-    // Stop anything already playing
     stopAudio();
 
     currentAudio = new Audio(file);
+
     currentButton = button;
 
+
+
     // ===================================
-    // DARK GREEN BUTTON
+    // FAMILY BUTTONS
     // ===================================
 
     if(button.classList.contains("head") &&
@@ -1198,7 +1211,7 @@ function playAudio(button){
 
         const column = button.closest(".column");
 
-        const buttons = [
+        const buttons=[
 
             ...column.querySelectorAll(".group:nth-child(1) .btn.green"),
             ...column.querySelectorAll(".group:nth-child(2) .head.yellow"),
@@ -1215,36 +1228,103 @@ function playAudio(button){
 
         buttons[index].classList.add("playing");
 
-        highlightTimer = setInterval(()=>{
 
-            buttons[index].classList.remove("playing");
 
-            index++;
+        // -----------------------------------
+        // THA FAMILY
+        // -----------------------------------
 
-            if(index < buttons.length){
+        if(file==="thafamily.mpeg"){
 
-                buttons[index].classList.add("playing");
+            thaTimer = setInterval(()=>{
 
-            }
-            else{
+                buttons[index].classList.remove("playing");
 
-                clearInterval(highlightTimer);
-                highlightTimer = null;
+                index++;
 
-            }
+                if(index<buttons.length){
 
-        },11000/buttons.length);
+                    buttons[index].classList.add("playing");
+
+                }else{
+
+                    clearInterval(thaTimer);
+
+                }
+
+            },9500/buttons.length);
+
+        }
+
+
+
+        // -----------------------------------
+        // PA FAMILY
+        // -----------------------------------
+
+        else if(file==="pafamily.mpeg"){
+
+            paTimer = setInterval(()=>{
+
+                buttons[index].classList.remove("playing");
+
+                index++;
+
+                if(index<buttons.length){
+
+                    buttons[index].classList.add("playing");
+
+                }else{
+
+                    clearInterval(paTimer);
+
+                }
+
+            },8500/buttons.length);
+
+        }
+
+
+
+        // -----------------------------------
+        // MA FAMILY
+        // -----------------------------------
+
+        else if(file==="mafamily.mpeg"){
+
+            maTimer = setInterval(()=>{
+
+                buttons[index].classList.remove("playing");
+
+                index++;
+
+                if(index<buttons.length){
+
+                    buttons[index].classList.add("playing");
+
+                }else{
+
+                    clearInterval(maTimer);
+
+                }
+
+            },9000/buttons.length);
+
+        }
 
     }
 
+
+
     // ===================================
-    // NORMAL BUTTON
+    // NORMAL BUTTONS
     // ===================================
 
     else{
 
         button.classList.add("playing");
-        highlightedButtons = [button];
+
+        highlightedButtons=[button];
 
     }
 
