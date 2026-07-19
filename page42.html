@@ -77,9 +77,15 @@ body{
 =========================================== */
 
 .page-wrapper{
+
     width:100%;
+
     display:flex;
-    justify-content:center;
+
+    flex-direction:column;
+
+    align-items:center;
+
 }
 
 .container{
@@ -374,7 +380,7 @@ box-shadow:0 0 0 rgba(255,196,0,0);
 
 .page-number{
 
-    margin-top:28px;
+    margin-top:18px;
 
     text-align:center;
 
@@ -392,7 +398,11 @@ box-shadow:0 0 0 rgba(255,196,0,0);
 
 .navigation{
 
-    margin-top:22px;
+    width:980px;
+
+    max-width:100%;
+
+    margin-top:18px;
 
     display:flex;
 
@@ -717,7 +727,7 @@ body{
 
 .page-number{
 
-    margin-top:2px;
+    margin-top:4px;
 
     font-size:15px;
 
@@ -725,7 +735,11 @@ body{
 
 .navigation{
 
-    margin-top:2px;
+    width:100%;
+
+    max-width:420px;
+
+    margin-top:6px;
 
 }
 
@@ -1056,14 +1070,21 @@ body{
 
 </div>
 
+<!-- END OF GRID -->
 </div>
 
+<!-- END OF BOOK -->
+</div>
 
+<!-- END OF CONTAINER -->
+</div>
+
+<!-- PAGE NUMBER OUTSIDE BOOK -->
 <div class="page-number">
     42
 </div>
 
-
+<!-- NAVIGATION OUTSIDE BOOK -->
 <div class="navigation">
 
     <button class="nav-btn"
@@ -1084,11 +1105,8 @@ body{
 
 </div>
 
-
+<!-- END OF PAGE WRAPPER -->
 </div>
-
-</div>
-
 
 
 <script>
