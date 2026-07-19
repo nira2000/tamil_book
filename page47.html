@@ -51,7 +51,9 @@ body{
 
     display:flex;
 
-    justify-content:center;
+    flex-direction:column;
+
+    align-items:center;
 
 }
 
@@ -59,9 +61,13 @@ body{
 
     width:100%;
 
+    max-width:850px;
+
     display:flex;
 
     justify-content:center;
+
+    transform-style:preserve-3d;
 
 }
 
@@ -275,9 +281,11 @@ body{
 
 .page-number{
 
+    width:100%;
+
     text-align:center;
 
-    margin-top:25px;
+    margin-top:18px;
 
     font-size:28px;
 
@@ -293,7 +301,11 @@ body{
 
 .navigation{
 
-    margin-top:20px;
+    width:100%;
+
+    max-width:850px;
+
+    margin-top:18px;
 
     display:flex;
 
@@ -448,17 +460,29 @@ body{
 
 }
 
-.page-wrapper,
-.container{
+
+.page-wrapper{
 
     width:100%;
     height:100%;
 
     display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.container{
+
+    width:100%;
+    display:flex;
     justify-content:center;
     align-items:center;
 
 }
+
+
+
 
 .book{
 
@@ -562,7 +586,11 @@ body{
 
 .page-number{
 
+    width:100%;
+
     margin-top:4px;
+
+    text-align:center;
 
     font-size:15px;
 
@@ -570,7 +598,17 @@ body{
 
 .navigation{
 
-    margin-top:4px;
+    width:100%;
+
+    max-width:390px;
+
+    margin-top:6px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
 
 }
 
@@ -701,7 +739,7 @@ body{
                         <span class="highlight">ஔ</span>
                     </button>
 
-                    <!-- ORANGE -->
+                     <!-- ORANGE -->
 
                     <button class="btn orange speaker"
                             data-audio="ah">
@@ -712,51 +750,52 @@ body{
 
             </div>
 
-            <!-- PAGE NUMBER -->
-
             <div class="page-number">
 
                 47
 
             </div>
 
-            <!-- NAVIGATION -->
+        </div>
+        <!-- END BOOK -->
 
-            <div class="navigation">
+    </div>
+    <!-- END CONTAINER -->
 
-                <button
-                    class="nav-btn"
-                    onclick="nextPage('page46.html','prev')">
+    <!-- NAVIGATION OUTSIDE BOOK -->
 
-                    ❮
+    <div class="navigation">
 
-                </button>
+        <button
+            class="nav-btn"
+            onclick="nextPage('page46.html','prev')">
 
-                <div class="dots">
+            ❮
 
-                    <div class="dot"></div>
+        </button>
 
-                    <div class="dot active"></div>
+        <div class="dots">
 
-                    <div class="dot"></div>
+            <div class="dot"></div>
 
-                </div>
+            <div class="dot active"></div>
 
-                <button
-                    class="nav-btn"
-                    onclick="nextPage('page48.html','next')">
-
-                    ❯
-
-                </button>
-
-            </div>
+            <div class="dot"></div>
 
         </div>
+
+        <button
+            class="nav-btn"
+            onclick="nextPage('page48.html','next')">
+
+            ❯
+
+        </button>
 
     </div>
 
 </div>
+<!-- END PAGE WRAPPER -->
 
 
 
