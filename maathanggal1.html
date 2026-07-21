@@ -788,6 +788,7 @@ body{
 
     display:flex;
     flex-direction:column;
+    align-items:center;
 
     padding:8px;
 }
@@ -795,7 +796,7 @@ body{
 /* BOOK */
 
 .book{
-    flex:1;
+    width:100%;
 
     display:flex;
     flex-direction:column;
@@ -805,6 +806,8 @@ body{
     border-radius:18px;
 
     overflow:hidden;
+
+    margin-bottom:14px;
 }
 
 .book::before{
@@ -900,13 +903,21 @@ body{
 /* NAVIGATION */
 
 .navigation{
-    margin-top:6px;
+
+    width:100%;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
+    margin-top:0;
+
+    padding:0 8px;
+
     flex-shrink:0;
+
 }
 
 .nav-btn{
@@ -1235,7 +1246,6 @@ body{
             onclick="nextPage('page37.html','next')">
             ❯
         </button>
-    </div>
 
     </div>
 
