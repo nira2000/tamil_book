@@ -352,8 +352,13 @@ body{
 
 
 
+
+
+
+
+
 /* ===========================================
-   MOBILE - PAGE 43 (LIKE PAGE 42)
+   MOBILE - PAGE 43
 =========================================== */
 
 @media (max-width:768px){
@@ -361,11 +366,11 @@ body{
 html,
 body{
 
-    margin:0;
-    padding:0;
-
     width:100%;
     height:100dvh;
+
+    margin:0;
+    padding:0;
 
     overflow:hidden;
 
@@ -377,140 +382,207 @@ body{
 
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
+
+    padding:8px;
 
 }
 
-/* Wrapper */
+/* ===========================
+   WRAPPER
+=========================== */
 
-.page-wrapper,
-.container{
+.page-wrapper{
 
     width:100%;
     height:100%;
 
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
 
 }
 
-/* BOOK */
+.container{
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+
+}
+
+/* ===========================
+   BOOK
+=========================== */
 
 .page-container{
 
     position:relative;
 
-    width:900px;
+    width:100%;
+    max-width:410px;
 
-    max-width:none;
+    height:90dvh;
 
-    padding:30px 35px;
+    padding:12px;
 
-    transform:scale(.45);
+    border:5px solid #f2d8a0;
+    border-radius:18px;
 
-    transform-origin:center center;
+    overflow:hidden;
+
+    transform:none;
 
 }
 
-/* Spine */
+/* ===========================
+   RED SPINE
+=========================== */
 
 .page-container::before{
 
-    left:10px;
+    left:6px;
 
-    top:22px;
+    top:12px;
+    bottom:12px;
 
-    bottom:22px;
-
-    width:10px;
+    width:8px;
 
 }
 
-/* Title */
+/* ===========================
+   TITLE
+=========================== */
 
 .lesson-number{
 
-    font-size:26px;
+    font-size:17px;
+
+    margin-bottom:4px;
 
 }
 
 .title-box{
 
-    margin:0 auto 30px;
+    margin:0 auto 10px;
+
+    padding:6px 14px;
 
 }
 
 .title-box h1{
 
-    font-size:42px;
+    font-size:20px;
 
 }
 
-/* Grid */
+/* ===========================
+   GRID
+=========================== */
 
 .word-grid{
 
     display:grid;
 
-    grid-template-columns:220px 220px;
+    grid-template-columns:repeat(2,1fr);
 
-    justify-content:center;
+    column-gap:10px;
 
-    column-gap:60px;
-
-    row-gap:8px;
+    row-gap:6px;
 
 }
 
-/* Buttons */
+/* ===========================
+   BUTTONS
+=========================== */
 
 .word-btn{
 
-    width:220px;
+    width:100%;
 
-    height:62px;
+    height:40px;
 
-    font-size:24px;
+    font-size:18px;
+
+    border-radius:8px;
 
 }
 
-/* Bottom */
+/* Keep colour spacing */
+
+.word-grid button:nth-child(13),
+.word-grid button:nth-child(14){
+
+    margin-top:14px;
+
+}
+
+.word-grid button:nth-child(19),
+.word-grid button:nth-child(20){
+
+    margin-top:8px;
+
+}
+
+.word-grid button:nth-child(25),
+.word-grid button:nth-child(26){
+
+    margin-top:8px;
+
+}
+
+/* ===========================
+   PAGE NUMBER
+=========================== */
 
 .page-number{
 
-    margin-top:24px;
+    margin-top:8px;
 
-    font-size:24px;
+    font-size:16px;
 
 }
 
+/* ===========================
+   NAVIGATION
+=========================== */
+
 .navigation{
 
-    margin-top:16px;
+    width:100%;
+
+    margin-top:6px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
 
 }
 
 .nav-btn{
 
-    width:56px;
+    width:38px;
 
-    height:56px;
+    height:38px;
 
-    font-size:26px;
+    font-size:18px;
 
 }
 
 .dots{
 
-    gap:10px;
+    gap:8px;
 
 }
 
 .dot{
 
-    width:10px;
-    height:10px;
+    width:7px;
+
+    height:7px;
 
 }
 
