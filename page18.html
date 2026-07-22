@@ -461,6 +461,8 @@ body{
 
 
 
+
+
 /* ==========================================
    MOBILE
 ========================================== */
@@ -474,7 +476,6 @@ body{
     height:100%;
     margin:0;
     padding:0;
-
     overflow:hidden;
 
 }
@@ -501,11 +502,11 @@ body{
     display:flex;
     flex-direction:column;
 
-    padding:4px 10px 8px;
-
-    margin-top:-10px;
-
     box-sizing:border-box;
+
+    padding:4px 8px 6px;
+
+    margin-top:-18px;
 
 }
 
@@ -523,7 +524,7 @@ body{
 
     margin-top:-2px;
 
-    margin-bottom:3px;
+    margin-bottom:2px;
 
 }
 
@@ -581,7 +582,9 @@ body{
 
     align-items:flex-start;
 
-    overflow:hidden;
+    overflow:visible;
+
+    padding-top:2px;
 
 }
 
@@ -601,17 +604,19 @@ body{
 
     flex-shrink:0;
 
-    margin-top:-50px;
+    margin-top:-36px;
 
-    margin-bottom:3px;
+    margin-bottom:0;
 
     text-align:center;
 
-    font-size:16px;
+    font-size:15px;
 
     font-weight:bold;
 
     color:#9d68d3;
+
+    line-height:1;
 
 }
 
@@ -629,17 +634,17 @@ body{
 
     align-items:center;
 
-    margin-top:0;
+    margin-top:-2px;
 
-    padding:0 8px;
+    padding:0 5px;
 
 }
 
 .nav-btn{
 
-    width:30px;
+    width:28px;
 
-    height:30px;
+    height:28px;
 
     border:none;
 
@@ -647,7 +652,7 @@ body{
 
     background:#F8F1E4;
 
-    font-size:12px;
+    font-size:11px;
 
     cursor:pointer;
 
@@ -659,23 +664,21 @@ body{
 
     display:flex;
 
-    gap:7px;
+    gap:5px;
 
 }
 
 .dot{
 
-    width:8px;
+    width:7px;
 
-    height:8px;
+    height:7px;
 
     border-radius:50%;
 
 }
 
 }
-
-
 
 </style>
 
@@ -930,6 +933,7 @@ body{
 
 <script>
 
+
 function nextPage(page,direction){
 
     const app=document.querySelector(".app");
@@ -945,7 +949,7 @@ function nextPage(page,direction){
 
 }
 
-  
+
 // ===========================
 // AUDIO PLAYER
 // ===========================
@@ -953,63 +957,58 @@ function nextPage(page,direction){
 let currentAudio = null;
 let currentButton = null;
 
-// Get all word buttons
 const words = document.querySelectorAll(".word");
 
-// Loop through every button
 words.forEach(button => {
 
     button.addEventListener("click", function () {
 
         const audioFile = this.dataset.audio;
 
-        // If same button is clicked again, stop audio
-        if (
+        if(
             currentAudio &&
-            currentButton === this &&
+            currentButton===this &&
             !currentAudio.paused
-        ) {
+        ){
 
             currentAudio.pause();
-            currentAudio.currentTime = 0;
+            currentAudio.currentTime=0;
 
             this.classList.remove("playing");
 
-            currentAudio = null;
-            currentButton = null;
+            currentAudio=null;
+            currentButton=null;
 
             return;
         }
 
-        // Stop previous audio
-        if (currentAudio) {
+        if(currentAudio){
 
             currentAudio.pause();
-            currentAudio.currentTime = 0;
+            currentAudio.currentTime=0;
 
         }
 
-        // Remove previous highlight
-        words.forEach(btn => btn.classList.remove("playing"));
+        words.forEach(btn=>btn.classList.remove("playing"));
 
-        // Create new audio
-        currentAudio = new Audio(audioFile);
+        currentAudio=new Audio(audioFile);
 
-        currentButton = this;
+        currentButton=this;
 
-        // Highlight current button
         this.classList.add("playing");
 
-        // Play
         currentAudio.play();
 
-        // Remove highlight when finished
-        currentAudio.onended = function () {
+        currentAudio.onended=function(){
 
-            currentButton.classList.remove("playing");
+            if(currentButton){
 
-            currentAudio = null;
-            currentButton = null;
+                currentButton.classList.remove("playing");
+
+            }
+
+            currentAudio=null;
+            currentButton=null;
 
         };
 
@@ -1020,33 +1019,35 @@ words.forEach(button => {
 
 
 
-
-
-
+// ===========================
+// AUTO FIT PAGE
+// ===========================
 
 function fitPage(){
 
-    if(window.innerWidth > 768){
+    const page=document.querySelector(".page");
 
-        document.querySelector(".page").style.transform="";
+    if(!page) return;
 
+    // Desktop = original size
+    if(window.innerWidth>768){
+
+        page.style.transform="";
         return;
 
     }
 
-    const page=document.querySelector(".page");
-
-    const book=document.querySelector(".book-content");
+    const container=document.querySelector(".book-content");
 
     const pageWidth=900;
 
-    const pageHeight = page.offsetHeight;
+    const pageHeight=page.offsetHeight;
 
-    const availableWidth=book.clientWidth;
+    const availableWidth=container.clientWidth;
 
-    const availableHeight=book.clientHeight;
+    const availableHeight=container.clientHeight;
 
-    const scale=Math.min(
+    let scale=Math.min(
 
         availableWidth/pageWidth,
 
@@ -1054,14 +1055,36 @@ function fitPage(){
 
     );
 
+    // Make the page slightly larger on mobile
+    scale*=1.05;
+
+    // Prevent overflowing on smaller phones
+    scale=Math.min(scale,1);
+
     page.style.transform=`scale(${scale})`;
 
 }
 
-window.addEventListener("load",fitPage);
 
+
+// Run after everything loads
+window.addEventListener("load",()=>{
+
+    setTimeout(fitPage,50);
+
+});
+
+
+// Recalculate when screen size changes
 window.addEventListener("resize",fitPage);
 
+
+// Recalculate when phone rotates
+window.addEventListener("orientationchange",()=>{
+
+    setTimeout(fitPage,150);
+
+});
 
 
 </script>
