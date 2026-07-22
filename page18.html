@@ -461,8 +461,6 @@ body{
 
 
 
-
-
 /* ==========================================
    MOBILE
 ========================================== */
@@ -476,6 +474,7 @@ body{
     height:100%;
     margin:0;
     padding:0;
+
     overflow:hidden;
 
 }
@@ -502,11 +501,11 @@ body{
     display:flex;
     flex-direction:column;
 
+    padding:4px 10px 8px;
+
+    margin-top:-10px;
+
     box-sizing:border-box;
-
-    padding:4px 8px 6px;
-
-    margin-top:-22px;
 
 }
 
@@ -524,17 +523,17 @@ body{
 
     margin-top:-2px;
 
-    margin-bottom:2px;
+    margin-bottom:3px;
 
 }
 
-/* ==========================
+/* ========================== 
    BOOK
 ========================== */
 
 .book{
 
-    flex:none;
+    flex:1;
 
     width:100%;
 
@@ -574,7 +573,7 @@ body{
 
 .book-content{
 
-    flex:0 1 auto;
+    flex:1;
 
     display:flex;
 
@@ -582,9 +581,7 @@ body{
 
     align-items:flex-start;
 
-    overflow:visible;
-
-    padding-top:2px;
+    overflow:hidden;
 
 }
 
@@ -604,19 +601,17 @@ body{
 
     flex-shrink:0;
 
-    margin-top:-36px;
+    margin-top:-50px;
 
-    margin-bottom:0;
+    margin-bottom:3px;
 
     text-align:center;
 
-    font-size:15px;
+    font-size:16px;
 
     font-weight:bold;
 
     color:#9d68d3;
-
-    line-height:1;
 
 }
 
@@ -634,17 +629,17 @@ body{
 
     align-items:center;
 
-    margin-top:-2px;
+    margin-top:0;
 
-    padding:0 5px;
+    padding:0 8px;
 
 }
 
 .nav-btn{
 
-    width:28px;
+    width:30px;
 
-    height:28px;
+    height:30px;
 
     border:none;
 
@@ -652,7 +647,7 @@ body{
 
     background:#F8F1E4;
 
-    font-size:11px;
+    font-size:12px;
 
     cursor:pointer;
 
@@ -664,21 +659,23 @@ body{
 
     display:flex;
 
-    gap:5px;
+    gap:7px;
 
 }
 
 .dot{
 
-    width:7px;
+    width:8px;
 
-    height:7px;
+    height:8px;
 
     border-radius:50%;
 
 }
 
 }
+
+
 
 </style>
 
@@ -933,7 +930,6 @@ body{
 
 <script>
 
-
 function nextPage(page,direction){
 
     const app=document.querySelector(".app");
@@ -949,7 +945,7 @@ function nextPage(page,direction){
 
 }
 
-
+  
 // ===========================
 // AUDIO PLAYER
 // ===========================
@@ -957,58 +953,63 @@ function nextPage(page,direction){
 let currentAudio = null;
 let currentButton = null;
 
+// Get all word buttons
 const words = document.querySelectorAll(".word");
 
+// Loop through every button
 words.forEach(button => {
 
     button.addEventListener("click", function () {
 
         const audioFile = this.dataset.audio;
 
-        if(
+        // If same button is clicked again, stop audio
+        if (
             currentAudio &&
-            currentButton===this &&
+            currentButton === this &&
             !currentAudio.paused
-        ){
+        ) {
 
             currentAudio.pause();
-            currentAudio.currentTime=0;
+            currentAudio.currentTime = 0;
 
             this.classList.remove("playing");
 
-            currentAudio=null;
-            currentButton=null;
+            currentAudio = null;
+            currentButton = null;
 
             return;
         }
 
-        if(currentAudio){
+        // Stop previous audio
+        if (currentAudio) {
 
             currentAudio.pause();
-            currentAudio.currentTime=0;
+            currentAudio.currentTime = 0;
 
         }
 
-        words.forEach(btn=>btn.classList.remove("playing"));
+        // Remove previous highlight
+        words.forEach(btn => btn.classList.remove("playing"));
 
-        currentAudio=new Audio(audioFile);
+        // Create new audio
+        currentAudio = new Audio(audioFile);
 
-        currentButton=this;
+        currentButton = this;
 
+        // Highlight current button
         this.classList.add("playing");
 
+        // Play
         currentAudio.play();
 
-        currentAudio.onended=function(){
+        // Remove highlight when finished
+        currentAudio.onended = function () {
 
-            if(currentButton){
+            currentButton.classList.remove("playing");
 
-                currentButton.classList.remove("playing");
-
-            }
-
-            currentAudio=null;
-            currentButton=null;
+            currentAudio = null;
+            currentButton = null;
 
         };
 
@@ -1019,35 +1020,33 @@ words.forEach(button => {
 
 
 
-// ===========================
-// AUTO FIT PAGE
-// ===========================
+
+
+
 
 function fitPage(){
 
-    const page=document.querySelector(".page");
+    if(window.innerWidth > 768){
 
-    if(!page) return;
+        document.querySelector(".page").style.transform="";
 
-    // Desktop = original size
-    if(window.innerWidth>768){
-
-        page.style.transform="";
         return;
 
     }
 
-    const container=document.querySelector(".book-content");
+    const page=document.querySelector(".page");
+
+    const book=document.querySelector(".book-content");
 
     const pageWidth=900;
 
-    const pageHeight=page.offsetHeight;
+    const pageHeight = page.offsetHeight;
 
-    const availableWidth=container.clientWidth;
+    const availableWidth=book.clientWidth;
 
-    const availableHeight=container.clientHeight;
+    const availableHeight=book.clientHeight;
 
-    let scale=Math.min(
+    const scale=Math.min(
 
         availableWidth/pageWidth,
 
@@ -1055,36 +1054,14 @@ function fitPage(){
 
     );
 
-    // Make the page slightly larger on mobile
-    scale*=1.05;
-
-    // Prevent overflowing on smaller phones
-    scale=Math.min(scale,1);
-
     page.style.transform=`scale(${scale})`;
 
 }
 
+window.addEventListener("load",fitPage);
 
-
-// Run after everything loads
-window.addEventListener("load",()=>{
-
-    setTimeout(fitPage,50);
-
-});
-
-
-// Recalculate when screen size changes
 window.addEventListener("resize",fitPage);
 
-
-// Recalculate when phone rotates
-window.addEventListener("orientationchange",()=>{
-
-    setTimeout(fitPage,150);
-
-});
 
 
 </script>
