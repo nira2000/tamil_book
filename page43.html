@@ -329,21 +329,30 @@ body{
 
 }
 
+
 /* ===========================================
-   HIGHLIGHT
+   LETTER HIGHLIGHT
 =========================================== */
 
-.highlight{
+.word-btn span{
 
-    transition:.25s;
+    display:inline-block;
+
+    color:#111;
+
+    transition:all .25s ease;
 
 }
 
-.word-btn.playing .highlight{
+.word-btn span.active{
 
-    color:red;
+    color:#ff0000;
 
-    font-weight:bold;
+    font-weight:700;
+
+    transform:scale(1.12);
+
+    text-shadow:0 0 5px rgba(255,0,0,.35);
 
 }
 
@@ -641,128 +650,124 @@ body{
     </div>
 
 
-    <!-- ===========================
-            WORD GRID
-    ============================ -->
-
     <div class="word-grid">
 
-
-        <!-- ================= GREEN ================= -->
+        <!-- GREEN -->
 
         <button class="word-btn green" data-audio="audiogreen1.mp3">
-            <span class="highlight">க</span>ட்டி
+            <span>க</span><span>ட்</span><span>டி</span>
         </button>
 
         <button class="word-btn green" data-audio="audiogreen2.mp3">
-            <span class="highlight">ச</span>ட்டை
+            <span>ச</span><span>ட்</span><span>டை</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen3.mp3">
-            <span class="highlight">கா</span>டை
+            <span>கா</span><span>டை</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen4.mp3">
-            <span class="highlight">சா</span>ட்டை
+            <span>சா</span><span>ட்</span><span>டை</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen5.mp3">
-            <span class="highlight">கி</span>ட்டு
+            <span>கி</span><span>ட்</span><span>டு</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen6.mp3">
-            <span class="highlight">சி</span>ட்டு
+            <span>சி</span><span>ட்</span><span>டு</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen7.mp3">
-            <span class="highlight">கீ</span>ச் கீச்
+            <span>கீச்</span><span>கீச்</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen8.mp3">
-            <span class="highlight">சீ</span>ட்டு
+            <span>சீ</span><span>ட்</span><span>டு</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen9.mp3">
-            <span class="highlight">கு</span>ட்டி
+            <span>கு</span><span>ட்</span><span>டி</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen10.mp3">
-            <span class="highlight">சு</span>ட்டி
+            <span>சு</span><span>ட்</span><span>டி</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen11.mp3">
-            <span class="highlight">கூ</span>டை
+            <span>கூ</span><span>டை</span>
         </button>
 
         <button class="word-btn green-light" data-audio="audiogreen12.mp3">
-            <span class="highlight">சூ</span>டு
+            <span>சூ</span><span>டு</span>
         </button>
 
-
-        <!-- ================= YELLOW ================= -->
+        <!-- YELLOW -->
 
         <button class="word-btn yellow" data-audio="audioyellow1.mp3">
-            <span class="highlight">கெ</span>ட்டி
+            <span>கெ</span><span>ட்</span><span>டி</span>
         </button>
 
         <button class="word-btn yellow" data-audio="audioyellow2.mp3">
-            <span class="highlight">செ</span>டி
+            <span>செ</span><span>டி</span>
         </button>
 
         <button class="word-btn yellow" data-audio="audioyellow3.mp3">
-            <span class="highlight">கே</span>ட்டு
+            <span>கே</span><span>ட்</span><span>டு</span>
         </button>
 
         <button class="word-btn yellow" data-audio="audioyellow4.mp3">
-            <span class="highlight">சே</span>ட்டை
+            <span>சே</span><span>ட்</span><span>டை</span>
         </button>
 
         <button class="word-btn yellow" data-audio="audioyellow5.mp3">
-            <span class="highlight">கை</span>
+            <span>கை</span>
         </button>
 
         <button class="word-btn yellow" data-audio="audioyellow6.mp3">
-            <span class="highlight">சை</span>கை
+            <span>சை</span><span>கை</span>
         </button>
 
-
-        <!-- ================= BLUE ================= -->
+        <!-- BLUE -->
 
         <button class="word-btn blue" data-audio="audioblue1.mp3">
-            <span class="highlight">கொ</span>டி
+            <span>கொ</span><span>டி</span>
         </button>
 
         <button class="word-btn blue" data-audio="audioblue2.mp3">
-            <span class="highlight">சொ</span>ட்டு
+            <span>சொ</span><span>ட்</span><span>டு</span>
         </button>
 
         <button class="word-btn blue" data-audio="audioblue3.mp3">
-            <span class="highlight">கோ</span>ட்டை
+            <span>கோ</span><span>ட்</span><span>டை</span>
         </button>
 
         <button class="word-btn blue" data-audio="audioblue4.mp3">
-            <span class="highlight">சோ</span>கை
+            <span>சோ</span><span>கை</span>
         </button>
 
         <button class="word-btn blue" data-audio="audioblue5.mp3">
-            <span class="highlight">கௌ</span>சிக்
+            <span>கௌ</span><span>சி</span><span>க்</span>
         </button>
 
         <button class="word-btn blue" data-audio="audioblue6.mp3">
-            <span class="highlight">சௌ</span>....
+            <span>சௌ</span><span>....</span>
         </button>
 
-        <!-- ================= ORANGE ================= -->
+        <!-- ORANGE -->
 
         <button class="word-btn orange" data-audio="audiored1.mp3">
-            <span class="highlight">க</span>க்கு
+            <span>கொ</span><span>க்</span><span>கு</span>
         </button>
 
         <button class="word-btn orange" data-audio="audiored2.mp3">
-            <span class="highlight">ச</span>ச்சு
+            <span>கு</span><span>ச்</span><span>சி</span>
         </button>
 
     </div>
+
+
+
     <!-- END WORD GRID -->
 
 </div>
@@ -812,82 +817,257 @@ body{
 
 <script>
     
+
 const buttons = document.querySelectorAll(".word-btn");
 
 let currentAudio = null;
 let currentButton = null;
+let timers = [];
+
+
+
+
+
+const timings = {
+
+    // ==========================
+    // GREEN
+    // ==========================
+
+    "audiogreen1.mp3":[0,4000,5000],   // க | ட்டி
+    "audiogreen2.mp3":[0,4000,5000],   // ச | ட்டை
+    "audiogreen3.mp3":[0,5000],   // கா | டை
+    "audiogreen4.mp3":[0,4000,5000],   // சா | ட்டை
+    "audiogreen5.mp3":[0,4000,5000],   // கி | ட்டு
+    "audiogreen6.mp3":[0,4000,5000],   // சி | ட்டு
+    "audiogreen7.mp3":[0,5000],   // கீ | ச் கீச்
+    "audiogreen8.mp3":[0,4000,5000],   // சீ | ட்டு
+    "audiogreen9.mp3":[0,4000,5000],   // கு | ட்டி
+    "audiogreen10.mp3":[0,4000,5000],  // சு | ட்டி
+    "audiogreen11.mp3":[0,5000],  // கூ | டை
+    "audiogreen12.mp3":[0,5000],  // சூ | டு
+
+    // ==========================
+    // YELLOW
+    // ==========================
+
+    "audioyellow1.mp3":[0,4000,5000],  // கெ | ட்டி
+    "audioyellow2.mp3":[0,5000],  // செ | டி
+    "audioyellow3.mp3":[0,4000,5000],  // கே | ட்டு
+    "audioyellow4.mp3":[0,4000,5000],  // சே | ட்டை
+    "audioyellow5.mp3":[0],      // கை
+    "audioyellow6.mp3":[0,5000],  // சை | கை
+
+    // ==========================
+    // BLUE
+    // ==========================
+
+    "audioblue1.mp3":[0,5000],    // கொ | டி
+    "audioblue2.mp3":[0,4000,5000],    // சொ | ட்டு
+    "audioblue3.mp3":[0,4000,5000],    // கோ |ட்டை
+    "audioblue4.mp3":[0,5000],    // சோ | கை
+    "audioblue5.mp3":[0,4000,5000],    // கௌ | சிக்
+    "audioblue6.mp3":[0,5000],    // சௌ | ....
+
+    // ==========================
+    // ORANGE
+    // ==========================
+
+    "audiored1.mp3":[0,4000,5000],     // கொ | க்கு
+    "audiored2.mp3":[0,4000,5000]      // கு | ச்சி
+
+};
+
+
 
 // ===========================================
-// Button Click
+// LETTER HIGHLIGHT
 // ===========================================
 
-buttons.forEach(button => {
+function clearHighlight(button){
 
-    button.addEventListener("click", function () {
+    if(!button) return;
 
-        const audioFile = this.dataset.audio;
+    button.querySelectorAll("span").forEach(span=>{
 
-        // Stop if same button clicked again
+        span.classList.remove("active");
+
+    });
+
+}
+
+
+function animateLetters(button,audioFile,duration){
+
+    clearHighlight(button);
+
+    timers.forEach(timer=>clearTimeout(timer));
+
+    timers=[];
+
+    const letters=button.querySelectorAll("span");
+
+    if(letters.length===0) return;
+
+    // ===========================================
+    // CUSTOM TIMINGS
+    // ===========================================
+
+    if(timings[audioFile]){
+
+        timings[audioFile].forEach((time,index)=>{
+
+            if(index>=letters.length) return;
+
+            const timer=setTimeout(()=>{
+
+                letters.forEach(l=>l.classList.remove("active"));
+
+                letters[index].classList.add("active");
+
+            },time);
+
+            timers.push(timer);
+
+        });
+
+    }
+
+    // ===========================================
+    // AUTOMATIC (if no custom timing exists)
+    // ===========================================
+
+    else{
+
+        const delay=duration/letters.length;
+
+        letters.forEach((letter,index)=>{
+
+            const timer=setTimeout(()=>{
+
+                letters.forEach(l=>l.classList.remove("active"));
+
+                letter.classList.add("active");
+
+            },index*delay);
+
+            timers.push(timer);
+
+        });
+
+    }
+
+}
+
+
+// ===========================================
+// BUTTON CLICK
+// ===========================================
+
+buttons.forEach(button=>{
+
+    button.addEventListener("click",function(){
+
+        const audioFile=this.dataset.audio;
+
+        // Stop same audio
         if(
             currentAudio &&
-            currentButton === this &&
+            currentButton===this &&
             !currentAudio.paused
         ){
 
             currentAudio.pause();
-            currentAudio.currentTime = 0;
+            currentAudio.currentTime=0;
 
             this.classList.remove("playing");
 
-            currentAudio = null;
-            currentButton = null;
+            clearHighlight(this);
+
+            timers.forEach(timer=>clearTimeout(timer));
+
+            timers=[];
+
+            currentAudio=null;
+            currentButton=null;
 
             return;
+
         }
 
         // Stop previous audio
         if(currentAudio){
 
             currentAudio.pause();
-            currentAudio.currentTime = 0;
+            currentAudio.currentTime=0;
 
         }
 
-        // Remove previous highlight
+        // Remove old highlights
         buttons.forEach(btn=>{
 
             btn.classList.remove("playing");
 
+            clearHighlight(btn);
+
         });
 
-        // Play new audio
-        currentAudio = new Audio(audioFile);
+        timers.forEach(timer=>clearTimeout(timer));
 
-        currentButton = this;
+        timers=[];
+
+        // New audio
+        currentAudio=new Audio(audioFile);
+
+        currentButton=this;
 
         this.classList.add("playing");
 
-        currentAudio.play();
+        currentAudio.onloadedmetadata=()=>{
 
-        // Finished
-        currentAudio.onended = ()=>{
-
-            this.classList.remove("playing");
-
-            currentAudio = null;
-            currentButton = null;
+            animateLetters(
+                this,
+                audioFile,
+                currentAudio.duration*1000
+            );
 
         };
 
-        // Error
-        currentAudio.onerror = ()=>{
+
+
+        currentAudio.play();
+
+        // Audio finished
+        currentAudio.onended=()=>{
+
+            this.classList.remove("playing");
+
+            clearHighlight(this);
+
+            timers.forEach(timer=>clearTimeout(timer));
+
+            timers=[];
+
+            currentAudio=null;
+            currentButton=null;
+
+        };
+
+        // Audio error
+        currentAudio.onerror=()=>{
 
             alert("Audio file not found:\n"+audioFile);
 
             this.classList.remove("playing");
 
-            currentAudio = null;
-            currentButton = null;
+            clearHighlight(this);
+
+            timers.forEach(timer=>clearTimeout(timer));
+
+            timers=[];
+
+            currentAudio=null;
+            currentButton=null;
 
         };
 
@@ -896,7 +1076,7 @@ buttons.forEach(button => {
 });
 
 // ===========================================
-// Keyboard Stop
+// KEYBOARD STOP
 // ===========================================
 
 document.addEventListener("keydown",function(e){
@@ -912,7 +1092,13 @@ document.addEventListener("keydown",function(e){
 
                 currentButton.classList.remove("playing");
 
+                clearHighlight(currentButton);
+
             }
+
+            timers.forEach(timer=>clearTimeout(timer));
+
+            timers=[];
 
             currentAudio=null;
             currentButton=null;
@@ -924,7 +1110,7 @@ document.addEventListener("keydown",function(e){
 });
 
 // ===========================================
-// Page Navigation
+// PAGE NAVIGATION
 // ===========================================
 
 function nextPage(page,direction){
@@ -948,6 +1134,9 @@ function nextPage(page,direction){
     },600);
 
 }
+
+
+
 
 </script>
 </div>
