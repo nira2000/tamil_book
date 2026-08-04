@@ -168,11 +168,28 @@ body{
 
     transition:.25s;
 
+    position: relative;
+
 }
 
 .word-btn:hover{
 
     transform:translateY(-2px);
+
+}
+
+.speaker::after{
+
+    content:"🔊";
+
+    position:absolute;
+
+    top:4px;
+    right:5px;
+
+    font-size:12px;
+
+    pointer-events:none;
 
 }
 
@@ -536,6 +553,15 @@ body{
 
 }
 
+.speaker::after{
+
+    top:2px;
+    right:3px;
+
+    font-size:8px;
+
+}
+
 
 /* ===========================
    COLOUR GROUP SPACING
@@ -665,80 +691,80 @@ body{
     ========================== -->
 
     <!-- ROW 1 -->
-    <button class="word-btn green" data-audio="45audiogreen1.mp3">
+    <button class="word-btn green speaker" data-audio="45audiogreen1.mp3">
         <span>த</span><span>டி</span>
     </button>
 
-    <button class="word-btn green" data-audio="45audiogreen2.mp3">
+    <button class="word-btn green speaker" data-audio="45audiogreen2.mp3">
         <span>ப</span><span>ட்</span><span>டு</span>
     </button>
 
-    <button class="word-btn green" data-audio="45audiogreen3.mp3">
+    <button class="word-btn green speaker" data-audio="45audiogreen3.mp3">
         <span>ம</span><span>ட</span><span>ம்</span>
     </button>
 
     <!-- ROW 2 -->
-    <button class="word-btn green-light" data-audio="45audiogreen4.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen4.mp3">
         <span>தா</span><span>டி</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen5.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen5.mp3">
         <span>பா</span><span>ட்</span><span>டி</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen6.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen6.mp3">
         <span>மா</span><span>ட</span><span>ம்</span>
     </button>
 
     <!-- ROW 3 -->
-    <button class="word-btn green-light" data-audio="45audiogreen7.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen7.mp3">
         <span>தி</span><span>க</span><span>தி</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen8.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen8.mp3">
         <span>பி</span><span>தா</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen9.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen9.mp3">
         <span>மி</span><span>டு</span><span>க்</span><span>கு</span>
     </button>
 
     <!-- ROW 4 -->
-    <button class="word-btn green-light" data-audio="45audiogreen10.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen10.mp3">
         <span>தீ</span><span>மை</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen11.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen11.mp3">
         <span>பீ</span><span>மா</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen12.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen12.mp3">
         <span>மீ</span><span>சை</span>
     </button>
 
     <!-- ROW 5 -->
-    <button class="word-btn green-light" data-audio="45audiogreen13.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen13.mp3">
         <span>து</span><span>க்</span><span>க</span><span>ம்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen14.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen14.mp3">
         <span>பு</span><span>ட்</span><span>டு</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen15.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen15.mp3">
         <span>மு</span><span>ட்</span><span>டை</span>
     </button>
 
     <!-- ROW 6 -->
-    <button class="word-btn green-light" data-audio="45audiogreen16.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen16.mp3">
         <span>தூ</span><span>க்</span><span>க</span><span>ம்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen17.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen17.mp3">
         <span>பூ</span><span>ட்</span><span>டு</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="45audiogreen18.mp3">
+    <button class="word-btn green-light speaker" data-audio="45audiogreen18.mp3">
         <span>மூ</span><span>ட்</span><span>டை</span>
     </button>
 
@@ -749,41 +775,41 @@ body{
     ========================== -->
 
     <!-- ROW 7 -->
-    <button class="word-btn yellow" data-audio="45audioyellow1.mp3">
+    <button class="word-btn yellow speaker" data-audio="45audioyellow1.mp3">
         <span>தெ</span><span>ப்</span><span>ப</span><span>ம்</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="45audioyellow2.mp3">
+    <button class="word-btn yellow speaker" data-audio="45audioyellow2.mp3">
         <span>பெ</span><span>ட்</span><span>டி</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="45audioyellow3.mp3">
+    <button class="word-btn yellow speaker" data-audio="45audioyellow3.mp3">
         <span>மெ</span><span>ட்</span><span>டி</span>
     </button>
 
     <!-- ROW 8 -->
-    <button class="word-btn yellow" data-audio="45audioyellow4.mp3">
+    <button class="word-btn yellow speaker" data-audio="45audioyellow4.mp3">
         <span>தே</span><span>ச</span><span>ம்</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="45audioyellow5.mp3">
+    <button class="word-btn yellow speaker" data-audio="45audioyellow5.mp3">
         <span>பே</span><span>த்</span><span>தி</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="45audioyellow6.mp3">
+    <button class="word-btn yellow speaker" data-audio="45audioyellow6.mp3">
         <span>மே</span><span>தை</span>
     </button>
 
     <!-- ROW 9 -->
-    <button class="word-btn yellow" data-audio="45audioyellow7.mp3">
+    <button class="word-btn yellow speaker" data-audio="45audioyellow7.mp3">
         <span>க</span><span>தை</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="45audioyellow8.mp3">
+    <button class="word-btn yellow speaker" data-audio="45audioyellow8.mp3">
         <span>ச</span><span>பை</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="45audioyellow9.mp3">
+    <button class="word-btn yellow speaker" data-audio="45audioyellow9.mp3">
         <span>சு</span><span>மை</span>
     </button>
 
@@ -792,41 +818,41 @@ body{
     ========================== -->
 
     <!-- ROW 10 -->
-    <button class="word-btn blue" data-audio="45audioblue1.mp3">
+    <button class="word-btn blue speaker" data-audio="45audioblue1.mp3">
         <span>தொ</span><span>ட்</span><span>டி</span>
     </button>
 
-    <button class="word-btn blue" data-audio="45audioblue2.mp3">
+    <button class="word-btn blue speaker" data-audio="45audioblue2.mp3">
         <span>பொ</span><span>ட்</span><span>டி</span>
     </button>
 
-    <button class="word-btn blue" data-audio="45audioblue3.mp3">
+    <button class="word-btn blue speaker" data-audio="45audioblue3.mp3">
         <span>மொ</span><span>ட்</span><span>டை</span>
     </button>
 
     <!-- ROW 11 -->
-    <button class="word-btn blue" data-audio="45audioblue4.mp3">
+    <button class="word-btn blue speaker" data-audio="45audioblue4.mp3">
         <span>தோ</span><span>டு</span>
     </button>
 
-    <button class="word-btn blue" data-audio="45audioblue5.mp3">
+    <button class="word-btn blue speaker" data-audio="45audioblue5.mp3">
         <span>போ</span><span>ட்</span><span>டி</span>
     </button>
 
-    <button class="word-btn blue" data-audio="45audioblue6.mp3">
+    <button class="word-btn blue speaker" data-audio="45audioblue6.mp3">
         <span>மோ</span><span>த</span><span>க</span><span>ம்</span>
     </button>
 
     <!-- ROW 12 -->
-    <button class="word-btn blue" data-audio="45audioblue7.mp3">
+    <button class="word-btn blue speaker" data-audio="45audioblue7.mp3">
         <span>தெள...</span>
     </button>
 
-    <button class="word-btn blue" data-audio="45audioblue8.mp3">
+    <button class="word-btn blue speaker" data-audio="45audioblue8.mp3">
         <span>பெள</span><span>த்</span><span>த</span><span>ம்</span>
     </button>
 
-    <button class="word-btn blue" data-audio="45audioblue9.mp3">
+    <button class="word-btn blue speaker" data-audio="45audioblue9.mp3">
         <span>மொ...</span>
     </button>
 
@@ -835,15 +861,15 @@ body{
     ========================== -->
 
     <!-- ROW 13 -->
-    <button class="word-btn orange" data-audio="45audiored1.mp3">
+    <button class="word-btn orange speaker" data-audio="45audiored1.mp3">
         <span>தா</span><span>த்</span><span>தா</span>
     </button>
 
-    <button class="word-btn orange" data-audio="45audiored2.mp3">
+    <button class="word-btn orange speaker" data-audio="45audiored2.mp3">
         <span>பா</span><span>ப்</span><span>பா</span>
     </button>
 
-    <button class="word-btn orange" data-audio="45audiored3.mp3">
+    <button class="word-btn orange speaker" data-audio="45audiored3.mp3">
         <span>பொ</span><span>ம்</span><span>மை</span>
     </button>
 
@@ -871,7 +897,7 @@ body{
 
     <button
         class="nav-btn"
-        onclick="nextPage('page43.html','prev')">
+        onclick="nextPage('page44.html','prev')">
 
         ❮
 
@@ -887,7 +913,7 @@ body{
 
     <button
         class="nav-btn"
-        onclick="nextPage('page45.html','next')">
+        onclick="nextPage('page46.html','next')">
 
         ❯
 

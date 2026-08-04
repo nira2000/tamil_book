@@ -174,6 +174,8 @@ body{
 
     transition:.25s;
 
+    position: relative;
+
 }
 
 .word-btn:hover{
@@ -181,6 +183,22 @@ body{
     transform:translateY(-2px);
 
 }
+
+.speaker::after{
+
+    content:"🔊";
+
+    position:absolute;
+
+    top:4px;
+    right:5px;
+
+    font-size:12px;
+
+    pointer-events:none;
+
+}
+
 
 /* ===========================================
    COLOURS
@@ -537,6 +555,16 @@ body{
 
 }
 
+.speaker::after{
+
+    top:2px;
+    right:3px;
+
+    font-size:8px;
+
+}
+
+
 /* ===========================
    COLOUR GROUP SPACING
 =========================== */
@@ -654,117 +682,117 @@ body{
 
     <!-- GREEN -->
 
-    <button class="word-btn green" data-audio="yawordgreen1.mp3">
+    <button class="word-btn green speaker" data-audio="yawordgreen1.mp3">
         <span>ப</span><span>ய</span><span>ம்</span>
     </button>
 
-    <button class="word-btn green" data-audio="yawordgreen2.mp3">
+    <button class="word-btn green speaker" data-audio="yawordgreen2.mp3">
         <span>வ</span><span>ண்</span><span>டு</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen3.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen3.mp3">
         <span>யா</span><span>க</span><span>ம்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen4.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen4.mp3">
         <span>வா</span><span>ச</span><span>ல்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen5.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen5.mp3">
         <span>ம</span><span>யி</span><span>ல்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen6.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen6.mp3">
         <span>வி</span><span>ர</span><span>ல்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen7.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen7.mp3">
         <span>நு</span><span>ரை</span><span>யீ</span><span>ர</span><span>ல்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen8.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen8.mp3">
         <span>வீ</span><span>க்</span><span>க</span><span>ம்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen9.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen9.mp3">
         <span>யு</span><span>க</span><span>ம்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen10.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen10.mp3">
         <span>க</span><span>ன</span><span>வு</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen11.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen11.mp3">
         <span>யூ</span><span>க</span><span>ம்</span>
     </button>
 
-    <button class="word-btn green-light" data-audio="yawordgreen12.mp3">
+    <button class="word-btn green-light speaker" data-audio="yawordgreen12.mp3">
         <span>ஓ</span><span>ய்</span><span>வூ</span><span>தி</span><span>ய</span><span>ம்</span>
     </button>
 
 
     <!-- YELLOW -->
 
-    <button class="word-btn yellow" data-audio="yawordyellow1.mp3">
+    <button class="word-btn yellow speaker" data-audio="yawordyellow1.mp3">
         <span>கை</span><span>யெ</span><span>ழு</span><span>த்</span><span>து</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="yawordyellow2.mp3">
+    <button class="word-btn yellow speaker" data-audio="yawordyellow2.mp3">
         <span>வெ</span><span>ந்</span><span>த</span><span>ய</span><span>ம்</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="yawordyellow3.mp3">
+    <button class="word-btn yellow speaker" data-audio="yawordyellow3.mp3">
         <span>கை</span><span>யே</span><span>டு</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="yawordyellow4.mp3">
+    <button class="word-btn yellow speaker" data-audio="yawordyellow4.mp3">
         <span>வே</span><span>ட</span><span>ன்</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="yawordyellow5.mp3">
+    <button class="word-btn yellow speaker" data-audio="yawordyellow5.mp3">
         <span>ஆ</span><span>சி</span><span>ரி</span><span>யை</span>
     </button>
 
-    <button class="word-btn yellow" data-audio="yawordyellow6.mp3">
+    <button class="word-btn yellow speaker" data-audio="yawordyellow6.mp3">
         <span>வை</span><span>ர</span><span>ம்</span>
     </button>
 
 
     <!-- BLUE -->
 
-    <button class="word-btn blue" data-audio="yawordblue1.mp3">
+    <button class="word-btn blue speaker" data-audio="yawordblue1.mp3">
         <span>கை</span><span>யொ</span><span>ப்</span><span>ப</span><span>ம்</span>
     </button>
 
-    <button class="word-btn blue" data-audio="yawordblue2.mp3">
+    <button class="word-btn blue speaker" data-audio="yawordblue2.mp3">
         <span>ஒ</span><span>வ்</span><span>வொ</span><span>ன்</span><span>று</span>
     </button>
 
-    <button class="word-btn blue" data-audio="yawordblue3.mp3">
+    <button class="word-btn blue speaker" data-audio="yawordblue3.mp3">
         <span>யோ</span><span>ச</span><span>னை</span>
     </button>
 
-    <button class="word-btn blue" data-audio="yawordblue4.mp3">
+    <button class="word-btn blue speaker" data-audio="yawordblue4.mp3">
         <span>நு</span><span>க</span><span>ர்</span><span>வோ</span><span>ர்</span>
     </button>
 
-    <button class="word-btn blue" data-audio="yawordblue5.mp3">
+    <button class="word-btn blue speaker" data-audio="yawordblue5.mp3">
         <span>யௌ</span><span>கி</span><span>க</span><span>ம்</span>
     </button>
 
-    <button class="word-btn blue" data-audio="yawordblue6.mp3">
+    <button class="word-btn blue speaker" data-audio="yawordblue6.mp3">
         <span>வெள</span><span>வா</span><span>ல்</span>
     </button>
 
 
     <!-- ORANGE -->
 
-    <button class="word-btn orange" data-audio="yawordred1.mp3">
-        <span>தாய்</span>
+    <button class="word-btn orange speaker" data-audio="yawordred1.mp3">
+        <span>தா</span><span>ய்</span>
     </button>
 
-    <button class="word-btn orange" data-audio="yawordred2.mp3">
-        <span>க</span><span>வ்</span><span>வை</span>
+    <button class="word-btn orange speaker" data-audio="yawordred2.mp3">
+        <span>க</span><span>வ்</span><span>வு</span>
     </button>
 
 </div>
@@ -837,50 +865,50 @@ const timings = {
     // GREEN
     // ==========================
 
-    "yawordgreen1.mp3":[0,2000,3000],            // ப | யம்
-    "yawordgreen2.mp3":[0,2000,3000],            // வண் | டு
-    "yawordgreen3.mp3":[0,2000,3000],            // யா | கம்
-    "yawordgreen4.mp3":[0,2000,3000],            // வா | சல்
-    "yawordgreen5.mp3":[0,2000,3000],            // ம | யில்
-    "yawordgreen6.mp3":[0,2000,3000],            // வி | ரல்
-    "yawordgreen7.mp3":[0,2000,3000],       // நு | ரையீ | ரல்
-    "yawordgreen8.mp3":[0,2000,3000],            // வீக் | கம்
-    "yawordgreen9.mp3":[0,2000,3000],            // யு | கம்
-    "yawordgreen10.mp3":[0,2000,3000],           // கன | வு
-    "yawordgreen11.mp3":[0,2000,3000],           // யூ | கம்
-    "yawordgreen12.mp3":[0,2000,3000],      // ஓய் | வூ | தியம்
+    "yawordgreen1.mp3":[0,1800,3000],            // ப | யம்
+    "yawordgreen2.mp3":[0,2500,3500],            // வண் | டு
+    "yawordgreen3.mp3":[0,2000,3500],            // யா | கம்
+    "yawordgreen4.mp3":[0,2000,3500],            // வா | சல்
+    "yawordgreen5.mp3":[0,2000,3500],            // ம | யில்
+    "yawordgreen6.mp3":[0,2000,3500],            // வி | ரல்
+    "yawordgreen7.mp3":[0,1500,2500,3500,5500,6500],       // நு | ரையீ | ரல்
+    "yawordgreen8.mp3":[0,2000,3500,4500],            // வீக் | கம்
+    "yawordgreen9.mp3":[0,2500,3500],            // யு | கம்
+    "yawordgreen10.mp3":[0,2000,3500],           // கன | வு
+    "yawordgreen11.mp3":[0,2000,3500],           // யூ | கம்
+    "yawordgreen12.mp3":[0,2000,3000,4500,5500,7000],      // ஓய் | வூ | தியம்
 
 
     // ==========================
     // YELLOW
     // ==========================
 
-    "yawordyellow1.mp3":[0,1600,3300],      // கை | யெழு | த்து
-    "yawordyellow2.mp3":[0,1800],           // வெந் | தயம்
-    "yawordyellow3.mp3":[0,1500,3000],      // கை | யே | டு
-    "yawordyellow4.mp3":[0,1800],           // வே | டன்
-    "yawordyellow5.mp3":[0,1700],           // ஆசி | ரியை
-    "yawordyellow6.mp3":[0,1800],           // வை | ரம்
+    "yawordyellow1.mp3":[0,2000,3500,5000,6000],      // கை | யெழு | த்து
+    "yawordyellow2.mp3":[0,2000,3000,4500,5500],           // வெந் | தயம்
+    "yawordyellow3.mp3":[0,2000,3000,4500],      // கை | யே | டு
+    "yawordyellow4.mp3":[0,2000,3000],           // வே | டன்
+    "yawordyellow5.mp3":[0,2000,3500,4500],           // ஆசி | ரியை
+    "yawordyellow6.mp3":[0,2000,3000],           // வை | ரம்
 
 
     // ==========================
     // BLUE
     // ==========================
 
-    "yawordblue1.mp3":[0,1500,3000],        // கை | யொப் | பம்
-    "yawordblue2.mp3":[0,1400,2800],        // ஒவ் | வொன் | று
-    "yawordblue3.mp3":[0,1400,2800],        // யோ | ச | னை
-    "yawordblue4.mp3":[0,1800],             // நுகர் | வோர்
-    "yawordblue5.mp3":[0,1400,2800],        // யௌ | கி | கம்
-    "yawordblue6.mp3":[0,1800],             // வெள | வால்
+    "yawordblue1.mp3":[0,2000,3500,5000,6000],        // கை | யொப் | பம்
+    "yawordblue2.mp3":[0,2000,3500,5000,6000],        // ஒவ் | வொன் | று
+    "yawordblue3.mp3":[0,2000,3000],        // யோ | ச | னை
+    "yawordblue4.mp3":[0,2800,3800,4800,6000],             // நுகர் | வோர்
+    "yawordblue5.mp3":[0,2000,3000,4000],        // யௌ | கி | கம்
+    "yawordblue6.mp3":[0,2000,3000],             // வெள | வால்
 
 
     // ==========================
     // ORANGE
     // ==========================
 
-    "yawordred1.mp3":[0],                   // தாய்
-    "yawordred2.mp3":[0,1800]               // கவ் | வை
+    "yawordred1.mp3":[0,2000],                   // தாய்
+    "yawordred2.mp3":[0,1500,2500]               // கவ் | வை
 
 };
 
