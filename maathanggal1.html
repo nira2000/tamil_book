@@ -249,7 +249,25 @@ body{
 
 .title{
 
-    text-align:center;
+    position:relative;
+
+    width:fit-content;
+
+    min-width:420px;
+
+    margin:0 auto 20px;
+
+    padding:12px 60px 12px 40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#fff;
 
     color:#73160E;
 
@@ -257,15 +275,36 @@ body{
 
     font-weight:800;
 
-    letter-spacing:.5px;
+    letter-spacing:0;
 
-    margin-bottom:20px;
+    border:2px solid #d0d0d0;
 
-    text-shadow:
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
 
-        0 1px 0 #fff,
+    cursor:pointer;
 
-        0 2px 4px rgba(0,0,0,.08);
+    transition:.25s;
+
+}
+
+
+.title:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.title .speaker-icon{
+
+    position:absolute;
+
+    right:14px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:13px;
 
 }
 
@@ -348,6 +387,14 @@ body{
     cursor:pointer;
 
     transition:.25s;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:0;
 
 }
 
@@ -644,19 +691,30 @@ body{
 
 
 .word{
-    display:inline-block;
-    padding:2px 4px;
+
+    display:inline;
+
+    margin:0;
+
+    padding:2px 2px;
+
     border-radius:6px;
+
     transition:.25s;
+
 }
 
 .word.active{
-    background:#FFF59A;
-    color:#D50000;
-    font-weight:700;
-    box-shadow:0 0 8px rgba(255,215,0,.8);
-}
 
+    background:#FFF59A;
+
+    color:#D50000;
+
+    font-weight:700;
+
+    box-shadow:0 0 8px rgba(255,215,0,.8);
+
+}
 
 
 /* =====================================================
@@ -750,6 +808,37 @@ body{
     background:#19D400;
 
 }
+
+
+.highlight{
+
+    display:inline-block;
+
+    color:#111;
+
+    transition:.25s;
+
+}
+
+.highlight.active{
+
+    color:#ff0000;
+
+    transform:scale(1.08);
+
+    font-weight:700;
+
+    text-shadow:0 0 5px rgba(255,0,0,.35);
+
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -968,8 +1057,13 @@ body{
 /* BUTTON TEXT */
 
 .text{
-    width:100%;
-    text-align:center;
+
+    display:inline;
+
+    margin:0;
+
+    padding:0;
+
 }
 
 /* WORD HIGHLIGHT */
@@ -1004,215 +1098,378 @@ body{
     <div class="sparkle"></div>
 
 
-    <!-- ==========================
-            TITLE
-    =========================== -->
-
-    <h1 class="title">
-        தமிழ் மாதங்கள்
-    </h1>
 
 
-    <!-- ==========================
-         MONTHS SECTION
-    ========================== -->
+<!-- ==========================
+        TITLE
+========================== -->
 
-    <div class="months-wrapper">
+<button class="title speaker-btn"
+        data-audio="months.mp3">
 
-        <!-- LEFT CARD -->
+    <span class="highlight">தமிழ்</span>
+    <span class="highlight">மாதங்கள்</span>
 
-        <div class="card pink">
+    <span class="speaker-icon">🔊</span>
 
-            <button class="month-btn speaker-btn" data-audio="chithirai">
-                <span class="text">சித்திரை</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
-
-            <button class="month-btn speaker-btn" data-audio="vaikasi">
-                <span class="text">வைகாசி</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
-
-            <button class="month-btn speaker-btn" data-audio="aani">
-                <span class="text">ஆனி</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
-
-            <button class="month-btn speaker-btn" data-audio="aadi">
-                <span class="text">ஆடி</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
-
-            <button class="month-btn speaker-btn" data-audio="aavani">
-                <span class="text">ஆவணி</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
-
-            <button class="month-btn speaker-btn" data-audio="purattasi">
-                <span class="text">புரட்டாசி</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
-
-        </div>
+</button>
 
 
 
-        <!-- RIGHT CARD -->
+<!-- ==========================
+     MONTHS SECTION
+========================== -->
 
-        <div class="card yellow">
+<div class="months-wrapper">
 
-            <button class="month-btn speaker-btn" data-audio="aippasi">
-                <span class="text">ஐப்பசி</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
+    <!-- LEFT CARD -->
 
-            <button class="month-btn speaker-btn" data-audio="karthigai">
-                <span class="text">கார்த்திகை</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
+    <div class="card pink">
 
-            <button class="month-btn speaker-btn" data-audio="margazhi">
-                <span class="text">மார்கழி</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
+        <button class="month-btn speaker-btn"
+                data-audio="chithirai.mp3">
 
-            <button class="month-btn speaker-btn" data-audio="thai">
-                <span class="text">தை</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
-
-            <button class="month-btn speaker-btn" data-audio="maasi">
-                <span class="text">மாசி</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
-
-            <button class="month-btn speaker-btn" data-audio="panguni">
-                <span class="text">பங்குனி</span>
-                <span class="speaker-icon">🔊</span>
-            </button>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ==========================
-        AATHICHUDI TITLE
-    ========================== -->
-
-    <div class="aathichudi-header">
-
-        <div class="line left"></div>
-
-        <button class="heading speaker-btn" data-audio="aathichudi_title">
-
-            <span class="text">ஆத்திசூடி</span>
+            <span class="highlight">சித்</span>
+            <span class="highlight">திரை</span>
 
             <span class="speaker-icon">🔊</span>
 
         </button>
 
-        <div class="line right"></div>
+
+        <button class="month-btn speaker-btn"
+                data-audio="vaikasi.mp3">
+
+            <span class="highlight">வை</span>
+            <span class="highlight">கா</span>
+            <span class="highlight">சி</span>
+
+            <span class="speaker-icon">🔊</span>
+
+        </button>
+
+
+        <button class="month-btn speaker-btn"
+                data-audio="aani.mp3">
+
+            <span class="highlight">ஆ</span>
+            <span class="highlight">னி</span>
+
+            <span class="speaker-icon">🔊</span>
+
+        </button>
+
+
+        <button class="month-btn speaker-btn"
+                data-audio="aadi.mp3">
+
+            <span class="highlight">ஆ</span>
+            <span class="highlight">டி</span>
+
+            <span class="speaker-icon">🔊</span>
+
+        </button>
+
+
+        <button class="month-btn speaker-btn"
+                data-audio="aavani.mp3">
+
+            <span class="highlight">ஆ</span>
+            <span class="highlight">வ</span>
+            <span class="highlight">ணி</span>
+
+            <span class="speaker-icon">🔊</span>
+
+        </button>
+
+
+        <button class="month-btn speaker-btn"
+                data-audio="purattasi.mp3">
+
+            <span class="highlight">பு</span>
+            <span class="highlight">ரட்</span>
+            <span class="highlight">டா</span>
+            <span class="highlight">சி</span>
+
+            <span class="speaker-icon">🔊</span>
+
+        </button>
 
     </div>
 
 
-    <!-- ==========================
-        AATHICHUDI CARD
-    ========================== -->
 
-    <div class="aathichudi-card">
+    <!-- RIGHT CARD -->
 
-        <!-- LEFT COLUMN -->
+    <div class="card yellow">
 
-        <div class="column">
+        <button class="month-btn speaker-btn"
+                data-audio="aippasi.mp3">
 
-            <button class="rule-btn speaker-btn" data-audio="aram">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• அறம்</span>
-                <span class="word">செய</span>
-                <span class="word">விரும்பு</span>
-            </button>
+            <span class="highlight">ஐப்</span>
+            <span class="highlight">ப</span>
+            <span class="highlight">சி</span>
 
-            <button class="rule-btn speaker-btn" data-audio="aaruvathu">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• ஆறுவது</span>
-                <span class="word">சினம்</span>
-            </button>
+            <span class="speaker-icon">🔊</span>
 
-            <button class="rule-btn speaker-btn" data-audio="iyalvathu">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• இயல்வது</span>
-                <span class="word">கரவேல்</span>
-            </button>
-
-            <button class="rule-btn speaker-btn" data-audio="eevathu">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• ஈவது</span>
-                <span class="word">விலக்கேல்</span>
-            </button>
-
-            <button class="rule-btn speaker-btn" data-audio="udaiyathu">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• உடையது</span>
-                <span class="word">விளம்பேல்</span>
-            </button>
-
-            <button class="rule-btn speaker-btn" data-audio="ookkamathu">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• ஊக்கமது</span>
-                <span class="word">கைவிடேல்</span>
-            </button>
-
-        </div>
+        </button>
 
 
-        <!-- RIGHT COLUMN -->
+        <button class="month-btn speaker-btn"
+                data-audio="karthigai.mp3">
 
-        <div class="column">
+            <span class="highlight">கார்த்</span>
+            <span class="highlight">தி</span>
+            <span class="highlight">கை</span>
 
-            <button class="rule-btn speaker-btn" data-audio="en_ezhuthu">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• எண்</span>
-                <span class="word">எழுத்து</span>
-                <span class="word">இகழேல்</span>
-            </button>
+            <span class="speaker-icon">🔊</span>
 
-            <button class="rule-btn speaker-btn" data-audio="erpathu">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• ஏற்பது</span>
-                <span class="word">இகழ்ச்சி</span>
-            </button>
+        </button>
 
-            <button class="rule-btn speaker-btn" data-audio="aiyam">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• ஐயம்</span>
-                <span class="word">இட்டு</span>
-                <span class="word">உண்</span>
-            </button>
 
-            <button class="rule-btn speaker-btn" data-audio="oppura">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• ஒப்புர</span>
-                <span class="word">ஒழுகு</span>
-            </button>
+        <button class="month-btn speaker-btn"
+                data-audio="margazhi.mp3">
 
-            <button class="rule-btn speaker-btn" data-audio="othuvathu">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• ஓதுவது</span>
-                <span class="word">ஒழியேல்</span>
-            </button>
+            <span class="highlight">மார்</span>
+            <span class="highlight">க</span>
+            <span class="highlight">ழி</span>
 
-            <button class="rule-btn speaker-btn" data-audio="auviyam">
-                <span class="speaker-icon">🔊</span>
-                <span class="word">• ஔவியம்</span>
-                <span class="word">பேசேல்</span>
-            </button>
+            <span class="speaker-icon">🔊</span>
 
-        </div>
+        </button>
 
-    </div> <!-- End .aathichudi-card -->
+
+        <button class="month-btn speaker-btn"
+                data-audio="thai.mp3">
+
+            <span class="highlight">தை</span>
+
+            <span class="speaker-icon">🔊</span>
+
+        </button>
+
+
+        <button class="month-btn speaker-btn"
+                data-audio="maasi.mp3">
+
+            <span class="highlight">மா</span>
+            <span class="highlight">சி</span>
+
+            <span class="speaker-icon">🔊</span>
+
+        </button>
+
+
+        <button class="month-btn speaker-btn"
+                data-audio="panguni.mp3">
+
+            <span class="highlight">பங்</span>
+            <span class="highlight">கு</span>
+            <span class="highlight">னி</span>
+
+            <span class="speaker-icon">🔊</span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================
+     AATHICHUDI TITLE
+========================== -->
+
+<div class="aathichudi-header">
+
+    <div class="line left"></div>
+
+    <button class="heading speaker-btn"
+            data-audio="aathichudi_title.mp3">
+
+        <span class="highlight">ஆத்தி</span>
+        <span class="highlight">சூடி</span>
+
+        <span class="speaker-icon">🔊</span>
+
+    </button>
+
+    <div class="line right"></div>
+
+</div>
+
+
+
+<!-- ==========================
+     AATHICHUDI CARD
+========================== -->
+
+<div class="aathichudi-card">
+
+    <!-- LEFT COLUMN -->
+
+    <div class="column">
+
+        <button class="rule-btn speaker-btn"
+                data-audio="aram.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• அறம்</span>
+            <span class="highlight">செய</span>
+            <span class="highlight">விரும்பு</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="aaruvathu.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• ஆறுவது</span>
+            <span class="highlight">சினம்</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="iyalvathu.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• இயல்வது</span>
+            <span class="highlight">கரவேல்</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="eevathu.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• ஈவது</span>
+            <span class="highlight">விலக்கேல்</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="udaiyathu.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• உடையது</span>
+            <span class="highlight">விளம்பேல்</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="ookkamathu.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• ஊக்கமது</span>
+            <span class="highlight">கைவிடேல்</span>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- RIGHT COLUMN -->
+
+    <div class="column">
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="en_ezhuthu.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• எண்</span>
+            <span class="highlight">எழுத்து</span>
+            <span class="highlight">இகழேல்</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="erpathu.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• ஏற்பது</span>
+            <span class="highlight">இகழ்ச்சி</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="aiyam.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• ஐயம்</span>
+            <span class="highlight">இட்டு</span>
+            <span class="highlight">உண்</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="oppura.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• ஒப்புர</span>
+            <span class="highlight">ஒழுகு</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="othuvathu.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• ஓதுவது</span>
+            <span class="highlight">ஒழியேல்</span>
+
+        </button>
+
+
+
+        <button class="rule-btn speaker-btn"
+                data-audio="auviyam.mp3">
+
+            <span class="speaker-icon">🔊</span>
+
+            <span class="highlight">• ஔவியம்</span>
+            <span class="highlight">பேசேல்</span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
 
     <!-- PAGE NUMBER -->
 
@@ -1247,40 +1504,10 @@ body{
 </div> <!-- End .app -->
 
 
-<!-- ==========================
-      AUDIO FILES
-=========================== -->
 
-<audio id="chithirai" src="audio/chithirai.mp3"></audio>
-<audio id="vaikasi" src="audio/vaikasi.mp3"></audio>
-<audio id="aani" src="audio/aani.mp3"></audio>
-<audio id="aadi" src="audio/aadi.mp3"></audio>
-<audio id="aavani" src="audio/aavani.mp3"></audio>
-<audio id="purattasi" src="audio/purattasi.mp3"></audio>
-
-<audio id="aippasi" src="audio/aippasi.mp3"></audio>
-<audio id="karthigai" src="audio/karthigai.mp3"></audio>
-<audio id="margazhi" src="audio/margazhi.mp3"></audio>
-<audio id="thai" src="audio/thai.mp3"></audio>
-<audio id="maasi" src="audio/maasi.mp3"></audio>
-<audio id="panguni" src="audio/panguni.mp3"></audio>
-
-<audio id="aathichudi_title" src="audio/aathichudi_title.mp3"></audio>
-<audio id="aram" src="audio/aram.mp3"></audio>
-<audio id="aaruvathu" src="audio/aaruvathu.mp3"></audio>
-<audio id="iyalvathu" src="audio/iyalvathu.mp3"></audio>
-<audio id="eevathu" src="audio/eevathu.mp3"></audio>
-<audio id="udaiyathu" src="audio/udaiyathu.mp3"></audio>
-<audio id="ookkamathu" src="audio/ookkamathu.mp3"></audio>
-
-<audio id="en_ezhuthu" src="audio/en_ezhuthu.mp3"></audio>
-<audio id="erpathu" src="audio/erpathu.mp3"></audio>
-<audio id="aiyam" src="audio/aiyam.mp3"></audio>
-<audio id="oppura" src="audio/oppura.mp3"></audio>
-<audio id="othuvathu" src="audio/othuvathu.mp3"></audio>
-<audio id="auviyam" src="audio/auviyam.mp3"></audio>
 
 <script>
+
 
 /* ===================================
    PAGE 33
@@ -1289,48 +1516,87 @@ body{
 
 let currentAudio = null;
 let currentButton = null;
+let highlightTimers = [];
+
 
 /* ==========================
-   WORD TIMINGS
+   AUDIO TIMINGS
 ========================== */
 
-const wordTimings = {
+const timings = {
 
-    aram:[0,0.9,1.8],
+    /* ---------- TITLE ---------- */
 
-    aaruvathu:[0,1.0],
+    "months.mp3":[0,1800],
 
-    iyalvathu:[0,1.0],
+    "aathichudi_title.mp3":[0,1800],
 
-    eevathu:[0,0.9],
 
-    udaiyathu:[0,1.0],
+    /* ---------- MONTHS ---------- */
 
-    ookkamathu:[0,1.2],
+    "chithirai.mp3":[0,1500],
 
-    en_ezhuthu:[0,0.7,1.4],
+    "vaikasi.mp3":[0,1200,2400],
 
-    erpathu:[0,1.0],
+    "aani.mp3":[0,1500],
 
-    aiyam:[0,0.7,1.4],
+    "aadi.mp3":[0,1500],
 
-    oppura:[0,1.0],
+    "aavani.mp3":[0,1000,2200],
 
-    othuvathu:[0,1.0],
+    "purattasi.mp3":[0,900,1800,2700],
 
-    auviyam:[0,1.0]
+    "aippasi.mp3":[0,1000,2000],
+
+    "karthigai.mp3":[0,1200,2400],
+
+    "margazhi.mp3":[0,1200,2400],
+
+    "thai.mp3":[0],
+
+    "maasi.mp3":[0,1500],
+
+    "panguni.mp3":[0,1200,2400],
+
+
+    /* ---------- AATHICHUDI ---------- */
+
+    "aram.mp3":[0,1500,3000],
+
+    "aaruvathu.mp3":[0,1700],
+
+    "iyalvathu.mp3":[0,1700],
+
+    "eevathu.mp3":[0,1700],
+
+    "udaiyathu.mp3":[0,1700],
+
+    "ookkamathu.mp3":[0,1700],
+
+    "en_ezhuthu.mp3":[0,1000,2200],
+
+    "erpathu.mp3":[0,1700],
+
+    "aiyam.mp3":[0,900,1800],
+
+    "oppura.mp3":[0,1700],
+
+    "othuvathu.mp3":[0,1700],
+
+    "auviyam.mp3":[0,1700]
 
 };
 
+
 /* ==========================
-   WORD HIGHLIGHT
+   CLEAR HIGHLIGHTS
 ========================== */
 
-function clearWordHighlight(button){
+function clearHighlights(button){
 
     if(!button) return;
 
-    button.querySelectorAll(".word").forEach(word=>{
+    button.querySelectorAll(".highlight").forEach(word=>{
 
         word.classList.remove("active");
 
@@ -1338,25 +1604,51 @@ function clearWordHighlight(button){
 
 }
 
-function animateWords(button,audioId){
 
-    clearWordHighlight(button);
+/* ==========================
+   CLEAR TIMERS
+========================== */
 
-    const words = button.querySelectorAll(".word");
+function clearTimers(){
 
-    const timings = wordTimings[audioId];
+    highlightTimers.forEach(timer=>{
 
-    if(!timings) return;
+        clearTimeout(timer);
 
-    timings.forEach((time,index)=>{
+    });
 
-        setTimeout(()=>{
+    highlightTimers=[];
+
+}
+
+
+/* ==========================
+   HIGHLIGHT WORDS
+========================== */
+
+function animateWords(button){
+
+    clearTimers();
+
+    clearHighlights(button);
+
+    const words = button.querySelectorAll(".highlight");
+
+    const audio = button.dataset.audio;
+
+    const times = timings[audio];
+
+    if(!times) return;
+
+    times.forEach((time,index)=>{
+
+        const timer = setTimeout(()=>{
 
             if(currentButton!==button) return;
 
-            words.forEach(word=>{
+            words.forEach(w=>{
 
-                word.classList.remove("active");
+                w.classList.remove("active");
 
             });
 
@@ -1366,11 +1658,14 @@ function animateWords(button,audioId){
 
             }
 
-        },time*1000);
+        },time);
+
+        highlightTimers.push(timer);
 
     });
 
 }
+
 
 /* ==========================
    STOP AUDIO
@@ -1378,9 +1673,12 @@ function animateWords(button,audioId){
 
 function stopCurrent(){
 
+    clearTimers();
+
     if(currentAudio){
 
         currentAudio.pause();
+
         currentAudio.currentTime=0;
 
         currentAudio=null;
@@ -1391,13 +1689,14 @@ function stopCurrent(){
 
         currentButton.classList.remove("active");
 
-        clearWordHighlight(currentButton);
+        clearHighlights(currentButton);
 
         currentButton=null;
 
     }
 
 }
+
 
 /* ==========================
    PLAY AUDIO
@@ -1407,11 +1706,9 @@ document.querySelectorAll("[data-audio]").forEach(button=>{
 
     button.addEventListener("click",()=>{
 
-        const audio=document.getElementById(button.dataset.audio);
+        /* Click same button again = Stop */
 
-        if(!audio) return;
-
-        if(currentAudio===audio){
+        if(currentButton===button && currentAudio){
 
             stopCurrent();
 
@@ -1421,31 +1718,66 @@ document.querySelectorAll("[data-audio]").forEach(button=>{
 
         stopCurrent();
 
-        currentAudio=audio;
         currentButton=button;
+
+        currentAudio = new Audio(button.dataset.audio);
 
         button.classList.add("active");
 
-        audio.currentTime=0;
+        animateWords(button);
 
-        audio.play();
+        currentAudio.play();
 
-        animateWords(button,button.dataset.audio);
+        currentAudio.onended=()=>{
 
-        audio.onended=()=>{
+            clearTimers();
+
+            clearHighlights(button);
 
             button.classList.remove("active");
 
-            clearWordHighlight(button);
-
             currentAudio=null;
+
             currentButton=null;
+
+        };
+
+        currentAudio.onerror=()=>{
+
+            console.log("Cannot load audio:",button.dataset.audio);
+
+            stopCurrent();
 
         };
 
     });
 
-});
+}); 
+
+
+const words = button.querySelectorAll(".highlight");
+
+words.forEach(w=>w.classList.remove("active"));
+
+if(timings[button.dataset.audio]){
+
+    timings[button.dataset.audio].forEach((time,index)=>{
+
+        setTimeout(()=>{
+
+            words.forEach(w=>w.classList.remove("active"));
+
+            if(words[index]){
+
+                words[index].classList.add("active");
+
+            }
+
+        },time);
+
+    });
+
+}
 
 /* ==========================
    SPACEBAR
@@ -1471,8 +1803,9 @@ document.addEventListener("keydown",(e)=>{
 
 });
 
+
 /* ==========================
-   ESC
+   ESC TO STOP
 ========================== */
 
 document.addEventListener("keydown",(e)=>{
@@ -1485,6 +1818,7 @@ document.addEventListener("keydown",(e)=>{
 
 });
 
+
 /* ==========================
    BEFORE UNLOAD
 ========================== */
@@ -1495,8 +1829,9 @@ window.addEventListener("beforeunload",()=>{
 
 });
 
+
 /* ==========================
-   DOUBLE TAP ZOOM
+   PREVENT DOUBLE TAP ZOOM
 ========================== */
 
 let lastTouchEnd=0;
@@ -1514,6 +1849,7 @@ document.addEventListener("touchend",(event)=>{
     lastTouchEnd=now;
 
 },{passive:false});
+
 
 /* ==========================
    KEYBOARD NAVIGATION
@@ -1553,6 +1889,8 @@ buttons.forEach((btn,index)=>{
 
         if(e.key==="Enter"){
 
+            e.preventDefault();
+
             btn.click();
 
         }
@@ -1561,15 +1899,16 @@ buttons.forEach((btn,index)=>{
 
 });
 
+
 /* ==========================
    CLICK ANIMATION
 ========================== */
 
-document.querySelectorAll(".month-btn,.rule-btn").forEach(btn=>{
+document.querySelectorAll(".speaker-btn").forEach(btn=>{
 
     btn.addEventListener("mousedown",()=>{
 
-        btn.style.transform="scale(.95)";
+        btn.style.transform="scale(.96)";
 
     });
 
@@ -1585,13 +1924,43 @@ document.querySelectorAll(".month-btn,.rule-btn").forEach(btn=>{
 
     });
 
+    btn.addEventListener("touchstart",()=>{
+
+        btn.style.transform="scale(.96)";
+
+    },{passive:true});
+
+    btn.addEventListener("touchend",()=>{
+
+        btn.style.transform="";
+
+    });
+
 });
+
+
+/* ==========================
+   STOP AUDIO WHEN PAGE HIDES
+========================== */
+
+document.addEventListener("visibilitychange",()=>{
+
+    if(document.hidden){
+
+        stopCurrent();
+
+    }
+
+});
+
 
 /* ==========================
    PAGE FLIP
 ========================== */
 
 function nextPage(page,direction){
+
+    stopCurrent();
 
     const app=document.querySelector(".app");
 
@@ -1616,6 +1985,7 @@ function nextPage(page,direction){
     },600);
 
 }
+
 
 </script>
 
