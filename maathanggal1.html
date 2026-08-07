@@ -908,9 +908,42 @@ body{
 
 /* TITLE */
 
+/* TITLE */
+
 .title{
-    font-size:26px;
-    margin-bottom:10px;
+
+    width:100%;
+
+    min-width:0;
+
+    max-width:260px;
+
+    margin:0 auto 10px;
+
+    padding:8px 30px 8px 16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    gap:6px;
+
+    font-size:24px;
+
+    border-radius:12px;
+
+}
+
+.title .speaker-icon{
+
+    right:8px;
+
+    font-size:10px;
+
 }
 
 /* MONTHS */
@@ -1129,8 +1162,8 @@ body{
         <button class="month-btn speaker-btn"
                 data-audio="chithirai.mp3">
 
-            <span class="highlight">சித்</span>
-            <span class="highlight">திரை</span>
+            <span class="highlight">சி</span><span class="highlight">த்</span>
+            <span class="highlight">தி</span><span class="highlight">ரை</span>
 
             <span class="speaker-icon">🔊</span>
 
@@ -1187,7 +1220,8 @@ body{
                 data-audio="purattasi.mp3">
 
             <span class="highlight">பு</span>
-            <span class="highlight">ரட்</span>
+            <span class="highlight">ர</span>
+            <span class="highlight">ட்</span>
             <span class="highlight">டா</span>
             <span class="highlight">சி</span>
 
@@ -1206,7 +1240,8 @@ body{
         <button class="month-btn speaker-btn"
                 data-audio="aippasi.mp3">
 
-            <span class="highlight">ஐப்</span>
+            <span class="highlight">ஐ</span>
+            <span class="highlight">ப்</span>
             <span class="highlight">ப</span>
             <span class="highlight">சி</span>
 
@@ -1218,7 +1253,9 @@ body{
         <button class="month-btn speaker-btn"
                 data-audio="karthigai.mp3">
 
-            <span class="highlight">கார்த்</span>
+            <span class="highlight">கா</span>
+            <span class="highlight">ர்</span>
+            <span class="highlight">த்</span>
             <span class="highlight">தி</span>
             <span class="highlight">கை</span>
 
@@ -1230,7 +1267,8 @@ body{
         <button class="month-btn speaker-btn"
                 data-audio="margazhi.mp3">
 
-            <span class="highlight">மார்</span>
+            <span class="highlight">மா</span>
+            <span class="highlight">ர்</span>
             <span class="highlight">க</span>
             <span class="highlight">ழி</span>
 
@@ -1240,7 +1278,7 @@ body{
 
 
         <button class="month-btn speaker-btn"
-                data-audio="thai.mp3">
+                data-audio="theii.mp3">
 
             <span class="highlight">தை</span>
 
@@ -1263,7 +1301,8 @@ body{
         <button class="month-btn speaker-btn"
                 data-audio="panguni.mp3">
 
-            <span class="highlight">பங்</span>
+            <span class="highlight">ப</span>
+            <span class="highlight">ங்</span>
             <span class="highlight">கு</span>
             <span class="highlight">னி</span>
 
@@ -1527,63 +1566,63 @@ const timings = {
 
     /* ---------- TITLE ---------- */
 
-    "months.mp3":[0,1800],
+    "months.mp3":[0,1500],
 
-    "aathichudi_title.mp3":[0,1800],
+    "aathichudi_title.mp3":[0,1000],
 
 
     /* ---------- MONTHS ---------- */
 
-    "chithirai.mp3":[0,1500],
+    "chithirai.mp3":[0,2000,3000,4000],
 
-    "vaikasi.mp3":[0,1200,2400],
+    "vaikasi.mp3":[0,2000,3000],
 
-    "aani.mp3":[0,1500],
+    "aani.mp3":[0,2000],
 
-    "aadi.mp3":[0,1500],
+    "aadi.mp3":[0,2000],
 
-    "aavani.mp3":[0,1000,2200],
+    "aavani.mp3":[0,1800,2800],
 
-    "purattasi.mp3":[0,900,1800,2700],
+    "purattasi.mp3":[0,2000,3000,4000,5000],
 
-    "aippasi.mp3":[0,1000,2000],
+    "aippasi.mp3":[0,2000,3000,4000],
 
-    "karthigai.mp3":[0,1200,2400],
+    "karthigai.mp3":[0,2000,3000,4000,5000],
 
-    "margazhi.mp3":[0,1200,2400],
+    "margazhi.mp3":[0,2000,3000,4000],
 
-    "thai.mp3":[0],
+    "theii.mp3":[0],
 
-    "maasi.mp3":[0,1500],
+    "maasi.mp3":[0,2000],
 
-    "panguni.mp3":[0,1200,2400],
+    "panguni.mp3":[0,2000,3000,4000],
 
 
     /* ---------- AATHICHUDI ---------- */
 
-    "aram.mp3":[0,1500,3000],
+    "aram.mp3":[0,1500,2500],
 
-    "aaruvathu.mp3":[0,1700],
+    "aaruvathu.mp3":[0,2500],
 
-    "iyalvathu.mp3":[0,1700],
+    "iyalvathu.mp3":[0,2500],
 
-    "eevathu.mp3":[0,1700],
+    "eevathu.mp3":[0,2500],
 
-    "udaiyathu.mp3":[0,1700],
+    "udaiyathu.mp3":[0,2500],
 
-    "ookkamathu.mp3":[0,1700],
+    "ookkamathu.mp3":[0,2500],
 
-    "en_ezhuthu.mp3":[0,1000,2200],
+    "en_ezhuthu.mp3":[0,1600,2600],
 
-    "erpathu.mp3":[0,1700],
+    "erpathu.mp3":[0,2500],
 
-    "aiyam.mp3":[0,900,1800],
+    "aiyam.mp3":[0,1800,2800],
 
-    "oppura.mp3":[0,1700],
+    "oppura.mp3":[0,2300],
 
-    "othuvathu.mp3":[0,1700],
+    "othuvathu.mp3":[0,2500],
 
-    "auviyam.mp3":[0,1700]
+    "auviyam.mp3":[0,2000]
 
 };
 
