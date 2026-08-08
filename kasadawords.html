@@ -375,6 +375,10 @@ body{
 
 
 
+
+
+
+
 /* ==========================================
    MOBILE
 ========================================== */
@@ -416,6 +420,8 @@ body{
     display:flex;
     flex-direction:column;
 
+    padding:8px;
+
 }
 
 
@@ -429,7 +435,7 @@ body{
 
     display:flex;
     justify-content:center;
-    align-items:stretch;
+    align-items:center;
 
 }
 
@@ -445,7 +451,7 @@ body{
     width:100%;
     max-width:410px;
 
-    flex:1;
+    height:100%;
 
     display:flex;
     flex-direction:column;
@@ -454,9 +460,9 @@ body{
 
     border:5px solid #f2d8a0;
 
-    border-radius:20px;
+    border-radius:22px;
 
-    padding:8px;
+    padding:12px 12px 8px 18px;
 
     overflow:hidden;
 
@@ -469,13 +475,21 @@ body{
 
 .page-container::before{
 
-    left:5px;
+    content:"";
 
-    top:10px;
+    position:absolute;
 
-    bottom:10px;
+    left:4px;
 
-    width:8px;
+    top:14px;
+
+    bottom:14px;
+
+    width:6px;
+
+    background:#D40C02;
+
+    border-radius:10px;
 
 }
 
@@ -486,11 +500,13 @@ body{
 
 .lesson-number{
 
-    font-size:15px;
+    font-size:16px;
 
     font-weight:700;
 
-    margin-bottom:2px;
+    margin-bottom:4px;
+
+    margin-left:4px;
 
 }
 
@@ -501,19 +517,17 @@ body{
 
 .title-box{
 
-    width:fit-content;
+    margin:0 auto 8px;
 
-    margin:0 auto 6px;
+    padding:5px 14px;
 
-    padding:4px 14px;
+    border-width:2px;
 
 }
 
 .title-box h1{
 
-    font-size:19px;
-
-    line-height:1.1;
+    font-size:21px;
 
 }
 
@@ -532,7 +546,7 @@ body{
 
     column-gap:8px;
 
-    row-gap:3px;
+    row-gap:4px;
 
     align-content:start;
 
@@ -547,13 +561,11 @@ body{
 
     width:100%;
 
-    height:32px;
+    height:33px;
 
     font-size:15px;
 
-    font-weight:600;
-
-    border-radius:6px;
+    border-radius:7px;
 
     border-width:1px;
 
@@ -571,27 +583,27 @@ body{
 
 
 /* ==========================
-   GROUP SPACING
+   COLOUR GAPS
 ========================== */
 
 .word-grid button:nth-child(13),
 .word-grid button:nth-child(14){
 
-    margin-top:4px;
+    margin-top:6px;
 
 }
 
 .word-grid button:nth-child(19),
 .word-grid button:nth-child(20){
 
-    margin-top:2px;
+    margin-top:3px;
 
 }
 
 .word-grid button:nth-child(25),
 .word-grid button:nth-child(26){
 
-    margin-top:2px;
+    margin-top:3px;
 
 }
 
@@ -606,11 +618,9 @@ body{
 
     padding-top:4px;
 
-    padding-bottom:2px;
-
     text-align:center;
 
-    font-size:15px;
+    font-size:16px;
 
     font-weight:bold;
 
@@ -625,8 +635,6 @@ body{
 
 .navigation{
 
-    flex-shrink:0;
-
     margin-top:6px;
 
     display:flex;
@@ -635,15 +643,15 @@ body{
 
     align-items:center;
 
-    padding:0 6px;
+    padding:0 8px;
 
 }
 
 .nav-btn{
 
-    width:38px;
+    width:40px;
 
-    height:38px;
+    height:40px;
 
     font-size:18px;
 
@@ -657,13 +665,15 @@ body{
 
 .dot{
 
-    width:7px;
+    width:8px;
 
-    height:7px;
+    height:8px;
+
+}
 
 }
 
-}
+
 
 </style>
 
@@ -810,12 +820,13 @@ body{
 
     <!-- END WORD GRID -->
 
-</div>
-<!-- END PAGE CONTAINER -->
-
 <div class="page-number">
     43
 </div>
+
+</div>
+<!-- END PAGE CONTAINER -->
+
 
 </div>
 <!-- END CONTAINER -->
