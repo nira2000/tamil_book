@@ -377,14 +377,9 @@ body{
 
 
 
-
-
-
-
-
-/* ===========================================
-   MOBILE - PAGE 43
-=========================================== */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width:768px){
 
@@ -392,8 +387,7 @@ html,
 body{
 
     width:100%;
-    height:100dvh;
-
+    height:100%;
     margin:0;
     padding:0;
 
@@ -403,49 +397,48 @@ body{
 
 body{
 
-    background:#dff4ff;
+    background:#1b2c73;
 
     display:flex;
     justify-content:center;
-    align-items:flex-start;
-
-    padding:4px;
-
-}
-
-/* ===========================
-   WRAPPER
-=========================== */
-
-.page-wrapper{
-
-    width:100%;
-    height:100dvh;
-
-    display:flex;
-    flex-direction:column;
     align-items:center;
 
 }
 
-/* ===========================
-   CONTAINER
-=========================== */
 
-.container{
+/* ==========================
+   PAGE WRAPPER
+========================== */
+
+.page-wrapper{
 
     width:100%;
+    height:96dvh;
 
     display:flex;
-    justify-content:center;
-
-    flex:1;
+    flex-direction:column;
 
 }
 
-/* ===========================
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container{
+
+    flex:0.93;
+
+    display:flex;
+    justify-content:center;
+    align-items:stretch;
+
+}
+
+
+/* ==========================
    BOOK
-=========================== */
+========================== */
 
 .page-container{
 
@@ -454,23 +447,27 @@ body{
     width:100%;
     max-width:410px;
 
-    height:87dvh;
+    flex:1;
 
-    padding:6px 7px;
+    display:flex;
+    flex-direction:column;
+
+    background:#fffef8;
 
     border:5px solid #f2d8a0;
 
-    border-radius:18px;
+    border-radius:20px;
+
+    padding:8px;
 
     overflow:hidden;
 
-    transform:none;
-
 }
 
-/* ===========================
+
+/* ==========================
    RED SPINE
-=========================== */
+========================== */
 
 .page-container::before{
 
@@ -480,33 +477,33 @@ body{
 
     bottom:10px;
 
-    width:7px;
+    width:8px;
 
 }
 
-/* ===========================
+
+/* ==========================
    LESSON
-=========================== */
+========================== */
 
 .lesson-number{
 
-    font-size:16px;
+    font-size:15px;
 
-    margin-bottom:0;
-
-    line-height:1;
+    margin-bottom:2px;
 
 }
 
-/* ===========================
+
+/* ==========================
    TITLE
-=========================== */
+========================== */
 
 .title-box{
 
-    margin:0 auto 2px;
+    margin:0 auto 4px;
 
-    padding:4px 12px;
+    padding:4px 14px;
 
 }
 
@@ -518,31 +515,35 @@ body{
 
 }
 
-/* ===========================
+
+/* ==========================
    GRID
-=========================== */
+========================== */
 
 .word-grid{
 
+    flex:1;
+
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr 1fr;
 
-    column-gap:6px;
+    column-gap:8px;
 
-    row-gap:2px;
+    row-gap:3px;
 
 }
 
-/* ===========================
+
+/* ==========================
    BUTTONS
-=========================== */
+========================== */
 
 .word-btn{
 
     width:100%;
 
-    height:31px;
+    height:32px;
 
     font-size:15px;
 
@@ -557,15 +558,17 @@ body{
 .speaker::after{
 
     top:2px;
+
     right:3px;
 
     font-size:8px;
 
 }
 
-/* ===========================
-   COLOUR GROUP SPACING
-=========================== */
+
+/* ==========================
+   GROUP SPACING
+========================== */
 
 .word-grid button:nth-child(13),
 .word-grid button:nth-child(14){
@@ -588,29 +591,33 @@ body{
 
 }
 
-/* ===========================
+
+/* ==========================
    PAGE NUMBER
-=========================== */
+========================== */
 
 .page-number{
 
-    margin-top:4px;
+    margin-top:2px;
 
     margin-bottom:2px;
+
+    text-align:center;
 
     font-size:15px;
 
     font-weight:bold;
 
+    color:#7a42d5;
+
 }
 
-/* ===========================
+
+/* ==========================
    NAVIGATION
-=========================== */
+========================== */
 
 .navigation{
-
-    width:100%;
 
     margin-top:2px;
 
@@ -626,25 +633,25 @@ body{
 
 .nav-btn{
 
-    width:34px;
+    width:38px;
 
-    height:34px;
+    height:38px;
 
-    font-size:17px;
+    font-size:18px;
 
 }
 
 .dots{
 
-    gap:6px;
+    gap:7px;
 
 }
 
 .dot{
 
-    width:6px;
+    width:7px;
 
-    height:6px;
+    height:7px;
 
 }
 
