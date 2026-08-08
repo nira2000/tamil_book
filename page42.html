@@ -536,7 +536,7 @@ body{
     padding:0;
 
     width:100%;
-    height:100dvh;
+    height:100%;
 
     overflow:hidden;
 
@@ -550,8 +550,6 @@ body{
     justify-content:center;
     align-items:center;
 
-    padding:10px;
-
 }
 
 /* ---------- WRAPPER ---------- */
@@ -560,7 +558,7 @@ body{
 .container{
 
     width:100%;
-    height:100%;
+    height:100dvh;
 
     display:flex;
     justify-content:center;
@@ -572,10 +570,10 @@ body{
 
 .book{
 
+    flex:0.93;
+
     width:100%;
     max-width:410px;
-
-    height:90dvh;
 
     display:flex;
     flex-direction:column;
@@ -723,15 +721,20 @@ body{
 
 }
 
-/* ---------- BOTTOM ---------- */
+/* ---------- PAGE NUMBER ---------- */
 
 .page-number{
 
     margin-top:4px;
+    margin-bottom:2px;
 
     font-size:15px;
 
+    font-weight:bold;
+
 }
+
+/* ---------- NAVIGATION ---------- */
 
 .navigation{
 
@@ -739,7 +742,11 @@ body{
 
     max-width:420px;
 
-    margin-top:6px;
+    margin-top:2px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
 }
 
@@ -768,7 +775,6 @@ body{
 .speaker::after{
 
     top:2px;
-
     right:3px;
 
     font-size:8px;
