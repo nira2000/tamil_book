@@ -375,8 +375,6 @@ body{
 
 
 
-
-
 /* ==========================================
    MOBILE
 ========================================== */
@@ -427,7 +425,7 @@ body{
 
 .container{
 
-    flex:0.93;
+    flex:1;
 
     display:flex;
     justify-content:center;
@@ -490,6 +488,8 @@ body{
 
     font-size:15px;
 
+    font-weight:700;
+
     margin-bottom:2px;
 
 }
@@ -501,7 +501,9 @@ body{
 
 .title-box{
 
-    margin:0 auto 4px;
+    width:fit-content;
+
+    margin:0 auto 6px;
 
     padding:4px 14px;
 
@@ -531,6 +533,8 @@ body{
     column-gap:8px;
 
     row-gap:3px;
+
+    align-content:start;
 
 }
 
@@ -598,9 +602,11 @@ body{
 
 .page-number{
 
-    margin-top:2px;
+    margin-top:auto;
 
-    margin-bottom:2px;
+    padding-top:4px;
+
+    padding-bottom:2px;
 
     text-align:center;
 
@@ -619,7 +625,9 @@ body{
 
 .navigation{
 
-    margin-top:2px;
+    flex-shrink:0;
+
+    margin-top:6px;
 
     display:flex;
 
@@ -656,7 +664,6 @@ body{
 }
 
 }
-
 
 </style>
 
@@ -806,14 +813,13 @@ body{
 </div>
 <!-- END PAGE CONTAINER -->
 
-</div>
-<!-- END CONTAINER -->
-
-<!-- PAGE NUMBER (OUTSIDE BOOK) -->
-
 <div class="page-number">
     43
 </div>
+
+</div>
+<!-- END CONTAINER -->
+
 
 <!-- NAVIGATION (OUTSIDE BOOK) -->
 
