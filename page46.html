@@ -515,6 +515,13 @@ box-shadow:0 0 0 rgba(255,196,0,0);
 
 }
 
+.mouth-img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    transform:translateY(16px);
+}
+
 
 
 
@@ -661,6 +668,13 @@ body{
 
 }
 
+.orange-row{
+
+    gap:4px;
+
+}
+
+
 /* ---------- EYE ---------- */
 
 .eye-box{
@@ -775,6 +789,13 @@ body{
     font-size:8px;
 
 }
+
+.mouth-img{
+    width:30px;
+    height:30px;
+    transform:translateY(8px);
+}
+
 
 }
 
@@ -902,12 +923,19 @@ body{
 
     <div class="group">
 
-        <button class="head orange speaker" data-audio="in.mp3">
-            <span class="highlight">ந்</span>
-        </button>
+        <div class="orange-row">
+
+            <button class="head orange speaker" data-audio="in.mp3">
+                <span class="highlight">ந்</span>
+            </button>
+
+            <img src="mouth1.png"
+                 class="mouth-img"
+                 alt="ந் pronunciation">
+
+        </div>
 
     </div>
-
 </div>
 
 <!-- ========================= -->
@@ -989,9 +1017,16 @@ body{
 
     <div class="group">
 
-        <button class="head orange speaker" data-audio="inn.mp3">
-            <span class="highlight">ன்</span>
-        </button>
+        <div class="orange-row">
+
+            <button class="head orange speaker" data-audio="inn.mp3">
+                <span class="highlight">ன்</span>
+            </button>
+
+            <img src="mouth2.png"
+                 class="mouth-img">
+
+        </div>
 
     </div>
 
@@ -1072,19 +1107,24 @@ body{
 
     </div>
 
-    <!-- ORANGE -->
+        <!-- ORANGE -->
 
-    <div class="group">
+        <div class="group">
 
-        <button class="head orange speaker" data-audio="innn.mp3">
-            <span class="highlight">ண்</span>
-        </button>
+            <div class="orange-row">
 
-    </div>
+                <button class="head orange speaker" data-audio="innn.mp3">
+                    <span class="highlight">ண்</span>
+                </button>
 
-</div>
+                <img src="mouth3.png"
+                     class="mouth-img"
+                     alt="ண் pronunciation">
 
-</div>
+            </div>
+
+        </div>
+
 
     <div class="page-number">
         46
