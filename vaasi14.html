@@ -659,6 +659,7 @@ body{
 }
 
 
+
 /* ==========================================
    MOBILE
 ========================================== */
@@ -675,8 +676,8 @@ body{
     padding:0;
 
     overflow:hidden;
-}
 
+}
 
 body{
 
@@ -686,6 +687,7 @@ body{
 
     justify-content:center;
     align-items:center;
+
 }
 
 
@@ -701,9 +703,10 @@ body{
     display:flex;
     flex-direction:column;
 
-    padding:4px 10px 6px;
+    padding:4px 8px 6px;
 
     box-sizing:border-box;
+
 }
 
 
@@ -720,6 +723,7 @@ body{
     text-align:center;
 
     margin-bottom:4px;
+
 }
 
 
@@ -729,14 +733,18 @@ body{
 
 .book{
 
-    flex:0.92;
+    flex:1;
+
+    min-height:0;
 
     width:100%;
+
     max-width:410px;
 
     margin:0 auto;
 
     display:flex;
+
     flex-direction:column;
 
     background:#F8F1E4;
@@ -745,7 +753,13 @@ body{
 
     padding:8px;
 
-    overflow:hidden;
+    /*
+       IMPORTANT:
+       Do not clip the transformed page.
+    */
+
+    overflow:visible;
+
 }
 
 
@@ -760,25 +774,36 @@ body{
     left:-4px;
 
     top:10px;
+
     bottom:10px;
 
 }
 
 
 /* ==========================
-   PAGE AREA
+   BOOK CONTENT
 ========================== */
 
 .book-content{
 
     flex:1;
 
+    min-height:0;
+
     display:flex;
 
     justify-content:center;
+
     align-items:flex-start;
 
-    overflow:hidden;
+    /*
+       IMPORTANT:
+       transform:scale() does not change
+       normal layout height.
+    */
+
+    overflow:visible;
+
 }
 
 
@@ -791,6 +816,7 @@ body{
     width:900px;
 
     transform-origin:top center;
+
 }
 
 
@@ -800,7 +826,13 @@ body{
 
 .title{
 
-    margin-bottom:45px;
+    width:420px;
+    height:110px;
+
+    margin:0 auto 45px;
+
+    font-size:52px;
+
 }
 
 
@@ -814,22 +846,31 @@ body{
 
     grid-template-columns:repeat(3,1fr);
 
+    /*
+       Keep the overall grid.
+    */
+
     border:3px solid #222;
 
     background:#F8E7A4;
+
 }
 
 
 /* ==========================
-   MOBILE CARD
+   CARD
 ========================== */
 
 .card{
 
     height:305px;
 
-    border-right:3px solid #222;
-    border-bottom:3px solid #222;
+    /*
+       REMOVE individual card borders.
+       The outer grid remains.
+    */
+
+    border:none;
 
     display:flex;
 
@@ -841,35 +882,48 @@ body{
 
     padding:14px 10px 8px;
 
-    overflow:hidden;
+    overflow:visible;
 
     position:relative;
-}
 
-
-/* Remove right border */
-
-.card:nth-child(3n){
-
-    border-right:none;
-}
-
-
-/* Remove bottom border */
-
-.card:nth-last-child(-n+3){
-
-    border-bottom:none;
 }
 
 
 /* ==========================
-   MOBILE IMAGE
+   GRID LINES
+========================== */
+
+/*
+   Add vertical lines between columns
+*/
+
+.card:not(:nth-child(3n)){
+
+    border-right:3px solid #222;
+
+}
+
+
+/*
+   Add horizontal lines between rows,
+   but keep them behind the meaning text.
+*/
+
+.card:nth-child(-n+9){
+
+    border-bottom:3px solid #222;
+
+}
+
+
+/* ==========================
+   IMAGE
 ========================== */
 
 .card img{
 
     width:170px;
+
     height:150px;
 
     object-fit:contain;
@@ -881,16 +935,18 @@ body{
     user-select:none;
 
     pointer-events:none;
+
 }
 
 
 /* ==========================
-   MOBILE WORD
+   WORD BUTTON
 ========================== */
 
 .word{
 
     width:210px;
+
     height:58px;
 
     flex-shrink:0;
@@ -911,36 +967,50 @@ body{
 
     align-items:center;
 
+    cursor:pointer;
+
     white-space:nowrap;
 
     position:relative;
 
     z-index:3;
-}
 
-
-/* Smaller words */
-
-.word.small-word{
-
-    font-size:24px;
 }
 
 
 /* ==========================
-   MOBILE MEANING
-   NO EXTRA GRID LOOK
+   SMALL WORD
+========================== */
+
+.word.small-word{
+
+    font-size:24px;
+
+}
+
+
+/* ==========================
+   RED MEANING
 ========================== */
 
 .meaning{
 
-    width:100%;
+    /*
+       IMPORTANT:
+       This sits visually ABOVE the grid line.
+    */
 
-    height:30px;
+    width:calc(100% + 20px);
 
-    margin:4px 0 0;
+    height:32px;
 
-    padding:0;
+    flex-shrink:0;
+
+    margin-top:4px;
+
+    margin-left:-10px;
+
+    padding:0 5px;
 
     display:flex;
 
@@ -950,33 +1020,42 @@ body{
 
     text-align:center;
 
-    background:transparent;
-
-    border:none;
-
-    box-shadow:none;
-
     color:#8B2E1E;
 
-    font-size:19px;
+    font-size:20px;
 
     font-weight:700;
 
     white-space:nowrap;
 
+    /*
+       Same background as page/grid.
+       This hides the grid line behind it.
+    */
+
+    background:#F8E7A4;
+
     position:relative;
 
-    z-index:2;
+    z-index:20;
+
+    border:none;
+
+    box-shadow:none;
+
 }
 
 
-/* Empty meanings */
+/* ==========================
+   EMPTY MEANING
+========================== */
 
 .meaning:empty{
 
     visibility:hidden;
 
     background:transparent;
+
 }
 
 
@@ -989,6 +1068,7 @@ body{
     flex-shrink:0;
 
     margin-top:2px;
+
     margin-bottom:2px;
 
     text-align:center;
@@ -998,6 +1078,7 @@ body{
     font-weight:bold;
 
     color:#9d68d3;
+
 }
 
 
@@ -1009,6 +1090,10 @@ body{
 
     flex-shrink:0;
 
+    height:40px;
+
+    margin-top:4px;
+
     display:flex;
 
     justify-content:space-between;
@@ -1017,7 +1102,6 @@ body{
 
     padding:0 8px;
 
-    margin-top:4px;
 }
 
 
@@ -1028,6 +1112,7 @@ body{
 .nav-btn{
 
     width:34px;
+
     height:34px;
 
     border:none;
@@ -1041,6 +1126,7 @@ body{
     cursor:pointer;
 
     box-shadow:0 5px 15px rgba(0,0,0,.25);
+
 }
 
 
@@ -1053,26 +1139,31 @@ body{
     display:flex;
 
     gap:7px;
+
 }
 
 
 .dot{
 
     width:8px;
+
     height:8px;
 
     border-radius:50%;
 
     background:#999;
+
 }
 
 
 .dot.active{
 
     background:#00ff40;
+
 }
 
 }
+
 
 </style>
 
