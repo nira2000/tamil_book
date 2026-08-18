@@ -528,9 +528,6 @@ box-shadow:0 0 0 rgba(255,196,0,0);
 
 
 
-
-
-
 /* ===========================================
    MOBILE & TABLET
 =========================================== */
@@ -562,6 +559,7 @@ body{
 
 }
 
+
 /* ---------- WRAPPER ---------- */
 
 .page-wrapper,
@@ -575,6 +573,7 @@ body{
     align-items:center;
 
 }
+
 
 /* ---------- BOOK ---------- */
 
@@ -597,17 +596,20 @@ body{
 
 }
 
+
 /* RED SPINE */
 
 .book::before{
 
     left:-5px;
+
     top:12px;
     bottom:12px;
 
     width:10px;
 
 }
+
 
 /* ---------- TITLE ---------- */
 
@@ -625,6 +627,9 @@ body{
 
 }
 
+
+/* ---------- LESSON ---------- */
+
 .lesson{
 
     font-size:17px;
@@ -632,6 +637,7 @@ body{
     margin-bottom:6px;
 
 }
+
 
 /* ---------- GRID ---------- */
 
@@ -648,6 +654,7 @@ body{
     align-items:start;
 
 }
+
 
 /* ---------- PINK COLUMN ---------- */
 
@@ -668,12 +675,6 @@ body{
 
 }
 
-.orange-row{
-
-    gap:4px;
-
-}
-
 
 /* ---------- EYE ---------- */
 
@@ -683,6 +684,7 @@ body{
     height:32px;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
@@ -697,7 +699,8 @@ body{
 
 }
 
-/* ---------- BUTTONS ---------- */
+
+/* ---------- COLUMNS ---------- */
 
 .column{
 
@@ -710,6 +713,32 @@ body{
     gap:4px;
 
 }
+
+
+/* ===========================================
+   ORANGE ROW
+=========================================== */
+
+.orange-row{
+
+    display:flex;
+
+    flex-direction:row;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:3px;
+
+    width:max-content;
+
+    white-space:nowrap;
+
+}
+
+
+/* ---------- BUTTONS ---------- */
 
 .head,
 .btn{
@@ -729,6 +758,9 @@ body{
 
 }
 
+
+/* ---------- HEAD SPEAKER ---------- */
+
 .head::after{
 
     top:2px;
@@ -737,6 +769,35 @@ body{
     font-size:8px;
 
 }
+
+
+/* ---------- SPEAKER ---------- */
+
+.speaker::after{
+
+    top:2px;
+    right:3px;
+
+    font-size:8px;
+
+}
+
+
+/* ---------- MOUTH IMAGE ---------- */
+
+.mouth-img{
+
+    width:30px;
+    height:30px;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+
+    transform:translateY(8px);
+
+}
+
 
 /* ---------- BOTTOM ---------- */
 
@@ -748,6 +809,9 @@ body{
 
 }
 
+
+/* ---------- NAVIGATION ---------- */
+
 .navigation{
 
     width:100%;
@@ -755,6 +819,8 @@ body{
     max-width:420px;
 
     margin-top:6px;
+
+    flex-shrink:0;
 
 }
 
@@ -780,26 +846,7 @@ body{
 
 }
 
-.speaker::after{
-
-    top:2px;
-
-    right:3px;
-
-    font-size:8px;
-
 }
-
-.mouth-img{
-    width:30px;
-    height:30px;
-    transform:translateY(8px);
-}
-
-
-}
-
-
 
 
 
