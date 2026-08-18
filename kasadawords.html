@@ -378,7 +378,6 @@ body{
 
 
 
-
 /* ==========================================
    MOBILE
 ========================================== */
@@ -390,6 +389,7 @@ body{
 
     width:100%;
     height:100%;
+
     margin:0;
     padding:0;
 
@@ -402,6 +402,7 @@ body{
     background:#1b2c73;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
@@ -420,7 +421,9 @@ body{
     display:flex;
     flex-direction:column;
 
-    padding:8px;
+    padding:6px 8px;
+
+    overflow:hidden;
 
 }
 
@@ -432,11 +435,15 @@ body{
 .container{
 
     flex:1;
+
     min-height:0;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
+
+    overflow:hidden;
 
 }
 
@@ -453,6 +460,7 @@ body{
     max-width:410px;
 
     height:100%;
+
     min-height:0;
 
     display:flex;
@@ -464,7 +472,7 @@ body{
 
     border-radius:22px;
 
-    padding:12px 12px 8px 18px;
+    padding:10px 12px 6px 18px;
 
     overflow:hidden;
 
@@ -484,7 +492,6 @@ body{
     left:4px;
 
     top:14px;
-
     bottom:14px;
 
     width:6px;
@@ -502,11 +509,13 @@ body{
 
 .lesson-number{
 
+    flex-shrink:0;
+
     font-size:16px;
 
     font-weight:700;
 
-    margin-bottom:4px;
+    margin-bottom:3px;
 
     margin-left:4px;
 
@@ -519,9 +528,11 @@ body{
 
 .title-box{
 
-    margin:0 auto 8px;
+    flex-shrink:0;
 
-    padding:5px 14px;
+    margin:0 auto 6px;
+
+    padding:4px 13px;
 
     border-width:2px;
 
@@ -542,15 +553,19 @@ body{
 
     flex:1;
 
+    min-height:0;
+
     display:grid;
 
     grid-template-columns:1fr 1fr;
 
     column-gap:8px;
 
-    row-gap:4px;
+    row-gap:2px;
 
     align-content:start;
+
+    overflow:hidden;
 
 }
 
@@ -563,13 +578,17 @@ body{
 
     width:100%;
 
-    height:33px;
+    height:30px;
+
+    min-height:30px;
 
     font-size:15px;
 
     border-radius:7px;
 
     border-width:1px;
+
+    padding:0;
 
 }
 
@@ -591,21 +610,21 @@ body{
 .word-grid button:nth-child(13),
 .word-grid button:nth-child(14){
 
-    margin-top:6px;
+    margin-top:4px;
 
 }
 
 .word-grid button:nth-child(19),
 .word-grid button:nth-child(20){
 
-    margin-top:3px;
+    margin-top:2px;
 
 }
 
 .word-grid button:nth-child(25),
 .word-grid button:nth-child(26){
 
-    margin-top:3px;
+    margin-top:2px;
 
 }
 
@@ -616,9 +635,11 @@ body{
 
 .page-number{
 
-    margin-top:auto;
+    flex-shrink:0;
 
-    padding-top:4px;
+    margin-top:3px;
+
+    padding-top:2px;
 
     text-align:center;
 
@@ -641,7 +662,7 @@ body{
 
     height:40px;
 
-    margin-top:6px;
+    margin-top:5px;
 
     display:flex;
 
@@ -678,7 +699,6 @@ body{
 }
 
 }
-
 
 
 </style>
