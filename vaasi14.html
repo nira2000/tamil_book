@@ -665,16 +665,13 @@ body{
 
 @media (max-width:768px){
 
-
 html,
 body{
 
     width:100%;
-
     height:100%;
 
     margin:0;
-
     padding:0;
 
     overflow:hidden;
@@ -688,7 +685,6 @@ body{
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 }
 
@@ -700,11 +696,9 @@ body{
 .app{
 
     width:100%;
-
     height:96dvh;
 
     display:flex;
-
     flex-direction:column;
 
     padding:4px 10px 6px;
@@ -738,13 +732,11 @@ body{
     flex:0.92;
 
     width:100%;
-
     max-width:410px;
 
     margin:0 auto;
 
     display:flex;
-
     flex-direction:column;
 
     background:#F8F1E4;
@@ -758,7 +750,7 @@ body{
 
 
 /* ==========================
-   MOBILE RED SPINE
+   RED SPINE
 ========================== */
 
 .book::before{
@@ -768,8 +760,8 @@ body{
     left:-4px;
 
     top:10px;
-
     bottom:10px;
+
 }
 
 
@@ -784,7 +776,6 @@ body{
     display:flex;
 
     justify-content:center;
-
     align-items:flex-start;
 
     overflow:hidden;
@@ -804,7 +795,193 @@ body{
 
 
 /* ==========================
-   MOBILE PAGE NUMBER
+   TITLE
+========================== */
+
+.title{
+
+    margin-bottom:45px;
+}
+
+
+/* ==========================
+   MOBILE GRID
+========================== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    border:3px solid #222;
+
+    background:#F8E7A4;
+}
+
+
+/* ==========================
+   MOBILE CARD
+========================== */
+
+.card{
+
+    height:305px;
+
+    border-right:3px solid #222;
+    border-bottom:3px solid #222;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding:14px 10px 8px;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+
+/* Remove right border */
+
+.card:nth-child(3n){
+
+    border-right:none;
+}
+
+
+/* Remove bottom border */
+
+.card:nth-last-child(-n+3){
+
+    border-bottom:none;
+}
+
+
+/* ==========================
+   MOBILE IMAGE
+========================== */
+
+.card img{
+
+    width:170px;
+    height:150px;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+
+    margin-bottom:8px;
+
+    user-select:none;
+
+    pointer-events:none;
+}
+
+
+/* ==========================
+   MOBILE WORD
+========================== */
+
+.word{
+
+    width:210px;
+    height:58px;
+
+    flex-shrink:0;
+
+    border:3px solid #222;
+
+    border-radius:6px;
+
+    background:#F6E8A7;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    white-space:nowrap;
+
+    position:relative;
+
+    z-index:3;
+}
+
+
+/* Smaller words */
+
+.word.small-word{
+
+    font-size:24px;
+}
+
+
+/* ==========================
+   MOBILE MEANING
+   NO EXTRA GRID LOOK
+========================== */
+
+.meaning{
+
+    width:100%;
+
+    height:30px;
+
+    margin:4px 0 0;
+
+    padding:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:transparent;
+
+    border:none;
+
+    box-shadow:none;
+
+    color:#8B2E1E;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* Empty meanings */
+
+.meaning:empty{
+
+    visibility:hidden;
+
+    background:transparent;
+}
+
+
+/* ==========================
+   PAGE NUMBER
 ========================== */
 
 .page-number{
@@ -812,7 +989,6 @@ body{
     flex-shrink:0;
 
     margin-top:2px;
-
     margin-bottom:2px;
 
     text-align:center;
@@ -826,7 +1002,7 @@ body{
 
 
 /* ==========================
-   MOBILE NAVIGATION
+   NAVIGATION
 ========================== */
 
 .navigation{
@@ -845,10 +1021,13 @@ body{
 }
 
 
+/* ==========================
+   NAV BUTTON
+========================== */
+
 .nav-btn{
 
     width:34px;
-
     height:34px;
 
     border:none;
@@ -866,7 +1045,7 @@ body{
 
 
 /* ==========================
-   MOBILE DOTS
+   DOTS
 ========================== */
 
 .dots{
@@ -880,60 +1059,17 @@ body{
 .dot{
 
     width:8px;
-
     height:8px;
 
     border-radius:50%;
+
+    background:#999;
 }
 
 
-/* ==========================
-   MOBILE MEANING
-========================== */
+.dot.active{
 
-.meaning{
-
-    width:calc(100% + 20px);
-
-    height:32px;
-
-    margin-top:4px;
-
-    margin-left:-10px;
-
-    padding:0 5px;
-
-    font-size:20px;
-
-    font-weight:700;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    white-space:nowrap;
-
-    background:#F8E7A4;
-
-    position:relative;
-
-    z-index:5;
-
-    border:none;
-
-    box-shadow:none;
-}
-
-
-.meaning:empty{
-
-    visibility:hidden;
-
-    background:transparent;
+    background:#00ff40;
 }
 
 }
