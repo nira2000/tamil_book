@@ -134,6 +134,8 @@
     border:3px solid #222;
 
     background:#F8E7A4;
+
+    gap:0;
 }
 
 
@@ -144,6 +146,8 @@
 .card{
 
     height:305px;
+
+    margin:0;
 
     border-right:3px solid #222;
 
@@ -274,44 +278,31 @@
 =========================== */
 
 .meaning{
-
-    width:calc(100% + 20px);
-
+    width:100%;
     height:32px;
 
-    flex-shrink:0;
-
-    margin-top:4px;
-
-    margin-left:-10px;
-
-    padding:0 5px;
+    margin:4px 0 0 0;
+    padding:0;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     text-align:center;
 
     color:#8B2E1E;
-
     font-size:20px;
-
     font-weight:700;
 
     white-space:nowrap;
 
-    background:#F8E7A4;
-
-    position:relative;
-
-    z-index:5;
+    background:transparent;
 
     border:none;
-
     box-shadow:none;
+
+    position:relative;
+    z-index:1;
 }
 
 
@@ -660,6 +651,11 @@ body{
 
 
 
+
+
+
+
+
 /* ==========================================
    MOBILE
 ========================================== */
@@ -751,7 +747,7 @@ body{
 
     border-radius:22px;
 
-    padding:8px;
+    padding:8px 8px 15px;
 
     /*
        IMPORTANT:
@@ -1000,15 +996,13 @@ body{
        This sits visually ABOVE the grid line.
     */
 
-    width:calc(100% + 20px);
+    width:100%
 
     height:32px;
 
     flex-shrink:0;
 
     margin-top:4px;
-
-    margin-left:-10px;
 
     padding:0 5px;
 
