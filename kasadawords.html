@@ -374,6 +374,45 @@ body{
 }
 
 
+/* ==========================================
+   PAGE FLIP
+========================================== */
+
+.flip-out-next{
+    animation:flipNext .6s ease forwards;
+    transform-origin:left center;
+}
+
+.flip-out-prev{
+    animation:flipPrev .6s ease forwards;
+    transform-origin:right center;
+}
+
+@keyframes flipNext{
+
+    from{
+        transform:rotateY(0deg);
+    }
+
+    to{
+        transform:rotateY(-90deg);
+    }
+
+}
+
+@keyframes flipPrev{
+
+    from{
+        transform:rotateY(0deg);
+    }
+
+    to{
+        transform:rotateY(90deg);
+    }
+
+}
+
+
 
 
 
@@ -1211,9 +1250,9 @@ function nextPage(page,direction){
 }
 
 
-
-
 </script>
+
+
 </div>
 
 </div>
