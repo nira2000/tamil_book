@@ -587,46 +587,25 @@ body{
 ========================== */
 
 .word-grid{
-
     flex:1;
-
     min-height:0;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
+    grid-auto-rows:1fr;        /* rows share space equally, always fit */
     column-gap:8px;
-
     row-gap:2px;
-
-    align-content:start;
-
-    overflow:visible;
-
+    align-content:stretch;     /* changed from start */
+    overflow:hidden;
 }
 
-
-/* ==========================
-   BUTTONS
-========================== */
-
 .word-btn{
-
     width:100%;
-
-    height:30px;
-
-    min-height:30px;
-
-    font-size:15px;
-
+    height:100%;               /* fill its row instead of fixed px */
+    min-height:0;
+    font-size:clamp(9px,3vw,15px);  /* shrinks text if rows get tight */
     border-radius:7px;
-
     border-width:1px;
-
     padding:0;
-
 }
 
 .speaker::after{
