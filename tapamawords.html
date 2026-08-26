@@ -408,7 +408,7 @@ body{
 
 body{
 
-    background:#dff4ff;
+    background:#1b2c73;
 
     display:flex;
     justify-content:center;
@@ -461,7 +461,10 @@ body{
 
     height:87dvh;
 
-    padding:6px 7px;
+    display:flex;
+    flex-direction:column;
+
+    padding:6px 7px 6px 16px;
 
     border:5px solid #f2d8a0;
 
@@ -528,10 +531,14 @@ body{
 =========================== */
 
 .word-grid{
+    flex:1;
+    min-height:0;
     display:grid;
     grid-template-columns:repeat(3,1fr);
+    grid-auto-rows:1fr;
+    align-content:stretch;
     column-gap:6px;
-    row-gap:2px;
+    row-gap:6px;
 }
 
 /* ===========================
@@ -542,7 +549,7 @@ body{
 
     width:100%;
 
-    height:31px;
+    height:100%;
 
     font-size:15px;
 
