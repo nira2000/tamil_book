@@ -383,7 +383,6 @@ body{
 
 
 
-
 /* ===========================================
    MOBILE - PAGE 43
 =========================================== */
@@ -410,9 +409,7 @@ body{
     display:flex;
 
     justify-content:center;
-    align-items:flex-start;
-
-    padding:4px;
+    align-items:center;
 
 }
 
@@ -424,12 +421,15 @@ body{
 .page-wrapper{
 
     width:100%;
-    height:100dvh;
+
+    height:96dvh;
 
     display:flex;
+
     flex-direction:column;
 
     align-items:center;
+
     justify-content:center;
 
 }
@@ -447,6 +447,8 @@ body{
 
     justify-content:center;
 
+    align-items:center;
+
 }
 
 
@@ -459,11 +461,13 @@ body{
     position:relative;
 
     width:100%;
+
     max-width:410px;
 
-    height:87dvh;
+    height:84dvh;
 
     display:flex;
+
     flex-direction:column;
 
     padding:6px 7px 6px 16px;
@@ -472,11 +476,6 @@ body{
 
     border-radius:18px;
 
-    /*
-       IMPORTANT:
-       allow page number + navigation
-       to appear outside the page
-    */
     overflow:visible;
 
     transform:none;
@@ -493,6 +492,7 @@ body{
     left:5px;
 
     top:10px;
+
     bottom:10px;
 
     width:7px;
@@ -584,6 +584,7 @@ body{
 .speaker::after{
 
     top:2px;
+
     right:3px;
 
     font-size:8px;
@@ -592,10 +593,8 @@ body{
 
 
 /* ===========================
-   COLOUR GROUP SPACING
+   COLOUR SPACING
 =========================== */
-
-/* Gap before YELLOW */
 
 .word-grid button:nth-child(19),
 .word-grid button:nth-child(20),
@@ -605,9 +604,6 @@ body{
 
 }
 
-
-/* Gap before BLUE */
-
 .word-grid button:nth-child(28),
 .word-grid button:nth-child(29),
 .word-grid button:nth-child(30){
@@ -615,9 +611,6 @@ body{
     margin-top:8px;
 
 }
-
-
-/* Gap before ORANGE */
 
 .word-grid button:nth-child(37),
 .word-grid button:nth-child(38),
@@ -634,24 +627,19 @@ body{
 
 .page-number{
 
-    position:absolute;
-
-    left:50%;
-
-    bottom:8px;
-
-    transform:translateX(-50%);
+    flex-shrink:0;
 
     margin:0;
+
     padding:0;
+
+    text-align:center;
 
     font-size:16px;
 
     font-weight:bold;
 
     color:#7a42d5;
-
-    z-index:100;
 
 }
 
@@ -662,15 +650,14 @@ body{
 
 .navigation{
 
-    position:absolute;
-
-    left:0;
-
-    bottom:-52px;
-
     width:100%;
 
-    margin:0;
+    height:40px;
+
+    flex-shrink:0;
+
+    margin-top:6px;
+
     padding:0 8px;
 
     display:flex;
@@ -679,22 +666,30 @@ body{
 
     align-items:center;
 
-    z-index:100;
-
 }
 
 
 /* ===========================
-   NAV BUTTON
+   NAV BUTTONS
 =========================== */
 
 .nav-btn{
 
-    width:34px;
+    width:38px;
 
-    height:34px;
+    height:38px;
 
-    font-size:17px;
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff8ea;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
 
 }
 
@@ -707,20 +702,21 @@ body{
 
     display:flex;
 
-    gap:6px;
+    gap:7px;
 
 }
 
 .dot{
 
-    width:6px;
+    width:8px;
 
-    height:6px;
+    height:8px;
+
+    border-radius:50%;
 
 }
 
 }
-
 
 </style>
 
