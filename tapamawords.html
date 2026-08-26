@@ -384,9 +384,6 @@ body{
 
 
 
-
-
-
 /* ===========================================
    MOBILE - PAGE 43
 =========================================== */
@@ -411,12 +408,14 @@ body{
     background:#1b2c73;
 
     display:flex;
+
     justify-content:center;
     align-items:flex-start;
 
     padding:4px;
 
 }
+
 
 /* ===========================
    WRAPPER
@@ -429,10 +428,12 @@ body{
 
     display:flex;
     flex-direction:column;
+
     align-items:center;
     justify-content:center;
 
 }
+
 
 /* ===========================
    CONTAINER
@@ -443,9 +444,11 @@ body{
     width:100%;
 
     display:flex;
+
     justify-content:center;
 
 }
+
 
 /* ===========================
    BOOK
@@ -469,11 +472,17 @@ body{
 
     border-radius:18px;
 
-    overflow:hidden;
+    /*
+       IMPORTANT:
+       allow page number + navigation
+       to appear outside the page
+    */
+    overflow:visible;
 
     transform:none;
 
 }
+
 
 /* ===========================
    RED SPINE
@@ -484,12 +493,12 @@ body{
     left:5px;
 
     top:10px;
-
     bottom:10px;
 
     width:7px;
 
 }
+
 
 /* ===========================
    LESSON
@@ -504,6 +513,7 @@ body{
     line-height:1;
 
 }
+
 
 /* ===========================
    TITLE
@@ -525,20 +535,31 @@ body{
 
 }
 
+
 /* ===========================
    GRID
 =========================== */
 
 .word-grid{
+
     flex:1;
+
     min-height:0;
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     grid-auto-rows:1fr;
+
     align-content:stretch;
+
     column-gap:6px;
+
     row-gap:6px;
+
 }
+
 
 /* ===========================
    BUTTONS
@@ -574,7 +595,8 @@ body{
    COLOUR GROUP SPACING
 =========================== */
 
-/* Gap before YELLOW section */
+/* Gap before YELLOW */
+
 .word-grid button:nth-child(19),
 .word-grid button:nth-child(20),
 .word-grid button:nth-child(21){
@@ -583,7 +605,9 @@ body{
 
 }
 
-/* Gap before BLUE section */
+
+/* Gap before BLUE */
+
 .word-grid button:nth-child(28),
 .word-grid button:nth-child(29),
 .word-grid button:nth-child(30){
@@ -592,7 +616,9 @@ body{
 
 }
 
-/* Gap before ORANGE section */
+
+/* Gap before ORANGE */
+
 .word-grid button:nth-child(37),
 .word-grid button:nth-child(38),
 .word-grid button:nth-child(39){
@@ -602,29 +628,65 @@ body{
 }
 
 
-
 /* ===========================
    PAGE NUMBER
 =========================== */
 
 .page-number{
+
     position:absolute;
+
     left:50%;
+
     bottom:8px;
+
     transform:translateX(-50%);
+
+    margin:0;
+    padding:0;
+
     font-size:16px;
+
     font-weight:bold;
+
     color:#7a42d5;
+
     z-index:100;
+
 }
 
+
+/* ===========================
+   NAVIGATION
+=========================== */
+
 .navigation{
+
     position:absolute;
+
     left:0;
+
     bottom:-52px;
+
     width:100%;
+
+    margin:0;
+    padding:0 8px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
     z-index:100;
+
 }
+
+
+/* ===========================
+   NAV BUTTON
+=========================== */
 
 .nav-btn{
 
@@ -636,7 +698,14 @@ body{
 
 }
 
+
+/* ===========================
+   DOTS
+=========================== */
+
 .dots{
+
+    display:flex;
 
     gap:6px;
 
