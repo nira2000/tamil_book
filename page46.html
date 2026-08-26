@@ -613,7 +613,7 @@ body{
 
     position:relative;
 
-    overflow:hidden;
+    overflow:visible;
 }
 
 
@@ -897,37 +897,23 @@ body{
 }
 
 
-/* ===========================================
-   PAGE NUMBER
-=========================================== */
-
-/*
-   The page number is currently INSIDE
-   the third column.
-
-   Position it relative to the whole
-   .main instead.
-*/
 
 .page-number{
 
     position:absolute;
 
     left:50%;
-
-    bottom:40px;
+    bottom:8px;
 
     transform:translateX(-50%);
 
     margin:0;
 
-    padding:0;
-
-    font-size:15px;
+    font-size:16px;
 
     font-weight:bold;
 
-    color:#7a42d5;
+    color:#9d68d3;
 
     z-index:100;
 }
@@ -939,17 +925,12 @@ body{
 
 .navigation{
 
-    position:static;
+    position:absolute;
+
+    left:0;
+    bottom:-52px;
 
     width:100%;
-
-    height:42px;
-
-    flex-shrink:0;
-
-    margin-top:6px;
-
-    padding:0 8px;
 
     display:flex;
 
@@ -957,9 +938,12 @@ body{
 
     align-items:center;
 
+    padding:0 8px;
+
+    margin:0;
+
     z-index:100;
 }
-
 
 /* ===========================================
    NAV BUTTON
