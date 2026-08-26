@@ -702,17 +702,13 @@ body{
 
     grid-template-columns:34px repeat(3,1fr);
 
-    grid-auto-rows:1fr;
-
     column-gap:6px;
 
-    row-gap:4px;
-
-    align-content:stretch;
+    align-items:start;
 
     position:static;
 
-    overflow:hidden;
+    overflow:visible;
 
 }
 
@@ -723,17 +719,9 @@ body{
 
 .sound-column{
 
-    margin-top:0;
+    margin-top:227px;
 
-    display:flex;
-
-    flex-direction:column;
-
-    height:100%;
-
-    justify-content:space-between;
-
-    gap:0;
+    gap:5px;
 
 }
 
@@ -741,15 +729,9 @@ body{
 
     width:32px;
 
-    flex:1;
+    height:26px;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:11px;
+    font-size:13px;
 
 }
 
@@ -789,27 +771,13 @@ body{
 
 .column{
 
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    gap:4px;
+    gap:3px;
 
 }
 
 .group{
 
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    gap:3px;
+    gap:2px;
 
 }
 
@@ -821,11 +789,11 @@ body{
 .head,
 .btn{
 
-    width:100%;
+    width:60px;
 
-    height:100%;
+    height:28px;
 
-    font-size:clamp(10px,3.2vw,17px);
+    font-size:17px;
 
     border-radius:8px;
 
@@ -918,14 +886,14 @@ body{
 
 .mouth-img{
 
-    width:30px;
-
-    height:30px;
+    width:26px;
+    height:26px;
 
     object-fit:contain;
 
     flex-shrink:0;
 
+    transform:translateY(4px);
 }
 
 
@@ -947,7 +915,7 @@ body{
 
     left:50%;
 
-    bottom:56px;
+    bottom:46px;
 
     transform:translateX(-50%);
 
