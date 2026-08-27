@@ -383,11 +383,6 @@ body{
 
 
 
-
-/* ==========================================
-   MOBILE - FINAL
-========================================== */
-
 @media (max-width:768px){
 
 html,
@@ -421,7 +416,7 @@ body{
     justify-content:center;
 
     padding:6px 8px;
-    overflow:visible;
+    overflow:hidden;
 }
 
 
@@ -431,13 +426,15 @@ body{
 
 .container{
     width:100%;
-    height:100%;
-    
+
+    flex:1;
+    min-height:0;
+
     display:flex;
     justify-content:center;
     align-items:center;
 
-    overflow:visible;
+    overflow:hidden;
 }
 
 
@@ -452,7 +449,7 @@ body{
     width:100%;
     max-width:410px;
 
-    height:84dvh;
+    height:100%;
 
     display:flex;
     flex-direction:column;
@@ -464,12 +461,7 @@ body{
 
     padding:8px 10px 8px 18px;
 
-    /*
-       IMPORTANT:
-       Must be visible so navigation
-       can sit outside the book.
-    */
-    overflow:visible;
+    overflow:hidden;
 }
 
 
@@ -556,10 +548,6 @@ body{
     column-gap:7px;
     row-gap:5px;
 
-    /*
-       Keep ONLY the word area
-       clipped if necessary.
-    */
     overflow:hidden;
 }
 
@@ -622,42 +610,39 @@ body{
 
 /* ==========================
    PAGE NUMBER
-   INSIDE THE BOOK
+   NORMAL FLOW, BELOW GRID
 ========================== */
 
 .page-number{
 
-    position:absolute;
+    flex-shrink:0;
 
-    left:50%;
-    bottom:7px;
+    text-align:center;
 
-    transform:translateX(-50%);
+    margin-top:4px;
 
     font-size:16px;
     font-weight:bold;
 
     color:#7a42d5;
-
-    z-index:20;
 }
 
 
 /* ==========================
    NAVIGATION
-   OUTSIDE THE BOOK
+   NORMAL FLOW, BELOW BOOK
 ========================== */
 
 .navigation{
 
-    position:absolute;
-
-    left:0;
-    bottom:-58px;
+    flex-shrink:0;
 
     width:100%;
+    max-width:410px;
 
     height:44px;
+
+    margin-top:8px;
 
     display:flex;
 
@@ -666,8 +651,6 @@ body{
     align-items:center;
 
     padding:0 8px;
-
-    z-index:100;
 }
 
 
@@ -724,7 +707,6 @@ body{
 }
 
 }
-
 
 
 </style>
