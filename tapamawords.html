@@ -383,161 +383,161 @@ body{
 
 
 
-/* ===========================================
-   MOBILE - PAGE 43
-=========================================== */
+
+/* ==========================================
+   MOBILE - FINAL
+========================================== */
 
 @media (max-width:768px){
 
 html,
 body{
-
     width:100%;
-    height:100dvh;
-
+    height:100%;
     margin:0;
     padding:0;
-
     overflow:hidden;
-
 }
 
 body{
-
     background:#1b2c73;
-
     display:flex;
-
     justify-content:center;
     align-items:center;
-
 }
 
 
-/* ===========================
-   WRAPPER
-=========================== */
+/* ==========================
+   PAGE WRAPPER
+========================== */
 
 .page-wrapper{
-
     width:100%;
-    height:96dvh;
+    height:100dvh;
 
     display:flex;
     flex-direction:column;
-
     align-items:center;
     justify-content:center;
 
-    position:relative;
-
+    padding:6px 8px;
+    overflow:visible;
 }
 
 
-/* ===========================
+/* ==========================
    CONTAINER
-=========================== */
+========================== */
 
 .container{
-
     width:100%;
-
+    height:100%;
+    
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
+    overflow:visible;
 }
 
 
-/* ===========================
+/* ==========================
    BOOK
-=========================== */
+========================== */
 
 .page-container{
 
     position:relative;
 
     width:100%;
-
     max-width:410px;
 
     height:84dvh;
 
     display:flex;
-
     flex-direction:column;
 
-    padding:6px 7px 6px 16px;
+    background:#fffef8;
 
     border:5px solid #f2d8a0;
+    border-radius:22px;
 
-    border-radius:18px;
+    padding:8px 10px 8px 18px;
 
+    /*
+       IMPORTANT:
+       Must be visible so navigation
+       can sit outside the book.
+    */
     overflow:visible;
-
-    transform:none;
-
 }
 
 
-/* ===========================
+/* ==========================
    RED SPINE
-=========================== */
+========================== */
 
 .page-container::before{
 
-    left:5px;
+    content:"";
 
-    top:10px;
+    position:absolute;
 
-    bottom:10px;
+    left:4px;
+    top:14px;
+    bottom:14px;
 
-    width:7px;
+    width:6px;
 
+    background:#D40C02;
+
+    border-radius:10px;
 }
 
 
-/* ===========================
+/* ==========================
    LESSON
-=========================== */
+========================== */
 
 .lesson-number{
 
-    font-size:16px;
+    flex-shrink:0;
 
-    margin-bottom:0;
+    font-size:16px;
+    font-weight:700;
+
+    margin:0 0 2px 4px;
 
     line-height:1;
-
 }
 
 
-/* ===========================
+/* ==========================
    TITLE
-=========================== */
+========================== */
 
 .title-box{
 
-    margin:0 auto 2px;
+    flex-shrink:0;
 
-    padding:4px 12px;
+    margin:0 auto 5px;
 
+    padding:4px 13px;
+
+    border-width:2px;
 }
 
 .title-box h1{
 
-    font-size:19px;
+    font-size:21px;
 
     line-height:1.1;
-
 }
 
 
-/* ===========================
-   GRID
-=========================== */
+/* ==========================
+   WORD GRID
+========================== */
 
 .word-grid{
 
@@ -553,107 +553,116 @@ body{
 
     align-content:stretch;
 
-    column-gap:6px;
+    column-gap:7px;
+    row-gap:5px;
 
-    row-gap:4px;
-
-    padding-bottom:4px;
+    /*
+       Keep ONLY the word area
+       clipped if necessary.
+    */
+    overflow:hidden;
 }
 
-/* ===========================
-   BUTTONS
-=========================== */
+
+/* ==========================
+   WORD BUTTONS
+========================== */
 
 .word-btn{
 
     width:100%;
-
     height:100%;
 
-    font-size:15px;
+    min-height:0;
 
+    font-size:15px;
     font-weight:600;
 
-    border-radius:6px;
+    border-radius:7px;
 
     border-width:1px;
 
+    padding:0;
 }
 
 .speaker::after{
 
     top:2px;
-
     right:3px;
 
     font-size:8px;
-
 }
 
 
-/* ===========================
-   COLOUR SPACING
-=========================== */
+/* ==========================
+   COLOUR GROUP SPACING
+========================== */
 
 .word-grid button:nth-child(19),
 .word-grid button:nth-child(20),
 .word-grid button:nth-child(21){
 
-    margin-top:4px;
-
+    margin-top:6px;
 }
 
 .word-grid button:nth-child(28),
 .word-grid button:nth-child(29),
 .word-grid button:nth-child(30){
 
-    margin-top:4px;
-
+    margin-top:6px;
 }
 
 .word-grid button:nth-child(37),
 .word-grid button:nth-child(38),
 .word-grid button:nth-child(39){
 
-    margin-top:4px;
-
+    margin-top:6px;
 }
 
 
-/* ===========================
-   MOBILE PAGE NUMBER
-=========================== */
+/* ==========================
+   PAGE NUMBER
+   INSIDE THE BOOK
+========================== */
 
 .page-number{
+
     position:absolute;
-    bottom:10px;
+
     left:50%;
+    bottom:7px;
+
     transform:translateX(-50%);
 
-    margin:0;
-
-    font-size:18px;
+    font-size:16px;
     font-weight:bold;
+
     color:#7a42d5;
 
-    z-index:100;
+    z-index:20;
 }
 
 
-/* ===========================
-   MOBILE NAVIGATION
-=========================== */
+/* ==========================
+   NAVIGATION
+   OUTSIDE THE BOOK
+========================== */
 
 .navigation{
+
     position:absolute;
 
     left:0;
-    bottom:-55px;
+    bottom:-58px;
 
     width:100%;
 
+    height:44px;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     padding:0 8px;
@@ -662,63 +671,61 @@ body{
 }
 
 
-/* ===========================
+/* ==========================
    NAV BUTTONS
-=========================== */
+========================== */
 
 .nav-btn{
 
-    width:38px;
-
-    height:38px;
+    width:40px;
+    height:40px;
 
     border:none;
-
     border-radius:50%;
 
     background:#fff8ea;
 
-    font-size:18px;
+    font-size:19px;
 
     cursor:pointer;
 
     box-shadow:0 4px 10px rgba(0,0,0,.15);
-
 }
 
 
-/* ===========================
+/* ==========================
    DOTS
-=========================== */
+========================== */
 
 .dots{
 
     display:flex;
 
-    gap:7px;
+    align-items:center;
 
+    justify-content:center;
+
+    gap:7px;
 }
 
 .dot{
 
     width:8px;
-
     height:8px;
 
     border-radius:50%;
 
+    background:#bbb;
 }
 
-.page-number{
-    position:absolute;
-    bottom:8px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:16px;
-    z-index:100;
+.dot.active{
+
+    background:#35ff2d;
 }
 
 }
+
+
 
 </style>
 
