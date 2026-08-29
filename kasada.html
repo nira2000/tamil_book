@@ -1118,6 +1118,7 @@ body{
 
 <script>
     
+
 // ===========================================
 // AUDIO PLAYER
 // ===========================================
@@ -1127,6 +1128,19 @@ let currentButton = null;
 
 let highlightTimer = null;
 let highlightedButtons = [];
+
+
+// ===========================================
+// INDIVIDUAL FAMILY AUDIO TIMERS
+// ===========================================
+
+const familyTimers = {
+
+    "kafamily.mpeg": 9800,
+    "dafamily.mpeg": 9800,
+    "safamily.mpeg": 9800,
+
+};
 
 
 // Stop everything
@@ -1213,6 +1227,16 @@ function playAudio(button){
 
         buttons[index].classList.add("playing");
 
+
+        // ===================================
+        // INDIVIDUAL TIMER
+        // ===================================
+
+        const totalTime = familyTimers[file] || 9800;
+
+        const intervalTime = totalTime / buttons.length;
+
+
         highlightTimer = setInterval(()=>{
 
             buttons[index].classList.remove("playing");
@@ -1231,9 +1255,10 @@ function playAudio(button){
 
             }
 
-        },9800/buttons.length);
+        }, intervalTime);
 
     }
+
 
     // ===================================
     // NORMAL BUTTON
@@ -1251,7 +1276,6 @@ function playAudio(button){
     currentAudio.play();
 
 }
-
 
 
 // ===========================================
