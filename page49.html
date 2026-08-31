@@ -535,7 +535,6 @@ box-shadow:0 0 0 rgba(255,196,0,0);
 
 
 
-
 /* ===========================================
    MOBILE & TABLET
 =========================================== */
@@ -567,6 +566,7 @@ body{
 
 }
 
+
 /* ---------- WRAPPER ---------- */
 
 .page-wrapper,
@@ -580,6 +580,7 @@ body{
     align-items:center;
 
 }
+
 
 /* ---------- BOOK ---------- */
 
@@ -602,6 +603,7 @@ body{
 
 }
 
+
 /* ---------- RED SPINE ---------- */
 
 .book::before{
@@ -613,6 +615,7 @@ body{
     width:10px;
 
 }
+
 
 /* ---------- TITLE ---------- */
 
@@ -629,12 +632,14 @@ body{
 
 }
 
+
 .lesson{
 
     font-size:17px;
     margin-bottom:6px;
 
 }
+
 
 /* ---------- GRID ---------- */
 
@@ -644,7 +649,8 @@ body{
 
     display:grid;
 
-    grid-template-columns:32px repeat(3,60px);
+    /* PINK COLUMN + 2 LETTER COLUMNS */
+    grid-template-columns:32px repeat(2,88px);
 
     justify-content:center;
 
@@ -653,6 +659,7 @@ body{
     align-items:start;
 
 }
+
 
 /* ---------- PINK COLUMN ---------- */
 
@@ -672,6 +679,7 @@ body{
     font-size:13px;
 
 }
+
 
 /* ---------- EYE ---------- */
 
@@ -695,6 +703,7 @@ body{
 
 }
 
+
 /* ---------- BUTTON COLUMNS ---------- */
 
 .column{
@@ -705,7 +714,10 @@ body{
 
     gap:6px;
 
+    width:88px;
+
 }
+
 
 .group{
 
@@ -716,6 +728,7 @@ body{
     gap:4px;
 
 }
+
 
 /* ---------- BUTTONS ---------- */
 
@@ -746,6 +759,40 @@ body{
 
 }
 
+
+/* ---------- MOUTH IMAGES ---------- */
+
+.ra-head{
+
+    width:88px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:4px;
+
+    flex-shrink:0;
+
+}
+
+.ra-mouth{
+
+    width:24px !important;
+    height:24px !important;
+
+    max-width:24px !important;
+    max-height:24px !important;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+
+}
+
+
 /* ---------- PAGE NUMBER ---------- */
 
 .page-number{
@@ -756,17 +803,20 @@ body{
 
 }
 
+
 /* ---------- NAVIGATION ---------- */
 
 .navigation{
 
     width:100%;
-
     max-width:420px;
 
     margin-top:6px;
 
 }
+
+
+/* ---------- NAV BUTTON ---------- */
 
 .nav-btn{
 
@@ -776,6 +826,9 @@ body{
     font-size:18px;
 
 }
+
+
+/* ---------- DOTS ---------- */
 
 .dots{
 
@@ -790,6 +843,7 @@ body{
 
 }
 
+
 /* ---------- SPEAKER ICON ---------- */
 
 .speaker::after{
@@ -801,13 +855,7 @@ body{
 
 }
 
-.ra-mouth{
-    width:28px;
-    height:28px;
 }
-
-}
-
 
 
 </style>
