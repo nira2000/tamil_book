@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> page 49 தமிழ் எழுத்துகள்</title>
+    <title>THOGUTHI 6</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -516,6 +516,18 @@ box-shadow:0 0 0 rgba(255,196,0,0);
 }
 
 
+.ra-head{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.ra-mouth{
+    width:45px;
+    height:45px;
+    object-fit:contain;
+    flex-shrink:0;
+}
 
 
 
@@ -789,6 +801,11 @@ body{
 
 }
 
+.ra-mouth{
+    width:28px;
+    height:28px;
+}
+
 }
 
 
@@ -839,12 +856,19 @@ body{
 
 <div class="column">
 
-    <!-- GREEN -->
     <div class="group">
 
-        <button class="head green" data-audio="rafamily.mpeg">
-            <span class="highlight">ர</span>
-        </button>
+        <div class="ra-head">
+
+            <button class="head green speaker" data-audio="rafamily.mpeg">
+                <span class="highlight">ர</span>
+            </button>
+
+            <img src="ramouth1.png"
+                 class="ra-mouth"
+                 alt="ர pronunciation">
+
+        </div>
 
         <button class="btn green speaker" data-audio="ra.mp3">
             <span class="highlight">ர</span>
@@ -932,9 +956,17 @@ body{
 
     <div class="group">
 
-        <button class="head green" data-audio="rrafamily.mpeg">
-            <span class="highlight">ற</span>
-        </button>
+        <div class="ra-head">
+
+            <button class="head green speaker" data-audio="rrafamily.mpeg">
+                <span class="highlight">ற</span>
+            </button>
+
+            <img src="ramouth2.png"
+                 class="ra-mouth"
+                 alt="ற pronunciation">
+
+        </div>
 
         <button class="btn green speaker" data-audio="rra.mp3">
             <span class="highlight">ற</span>
