@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> page 48 தமிழ் எழுத்துகள்</title>
+    <title>THOGUTHI 5</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -249,6 +249,34 @@ body{
     gap:12px;
 
 }
+
+
+
+
+/* ===========================================
+   MOUTH IMAGES
+=========================================== */
+
+.green-group{
+    position:relative;
+}
+
+.mouth-img{
+    position:absolute;
+
+    left:calc(100% + 8px);
+    top:0;
+
+    width:55px;
+    height:55px;
+
+    object-fit:contain;
+
+    pointer-events:none;
+}
+
+
+
 
 /* ===========================================
    BUTTONS
@@ -776,6 +804,14 @@ body{
 
 }
 
+.mouth-img{
+    width:30px;
+    height:30px;
+
+    left:calc(100% + 4px);
+    top:-1px;
+}
+
 }
 
 
@@ -828,11 +864,13 @@ body{
 <div class="column">
 
     <!-- GREEN -->
-    <div class="group">
+    <div class="group green-group">
 
         <button class="head green" data-audio="lafamily.mpeg">
             <span class="highlight">ல</span>
         </button>
+
+        <img src="lamouth1.png" class="mouth-img" alt="">
 
         <button class="btn green speaker" data-audio="la.mp3">
             <span class="highlight">ல</span>
@@ -915,11 +953,13 @@ body{
 <div class="column">
 
     <!-- GREEN -->
-    <div class="group">
+    <div class="group green-group">
 
         <button class="head green" data-audio="llafamily.mpeg">
             <span class="highlight">ள</span>
         </button>
+
+        <img src="lamouth2.png" class="mouth-img" alt="">
 
         <button class="btn green speaker" data-audio="lla.mp3">
             <span class="highlight">ள</span>
@@ -1002,11 +1042,13 @@ body{
 <div class="column">
 
     <!-- GREEN -->
-    <div class="group">
+    <div class="group green-group">
 
         <button class="head green" data-audio="zhafamily.mpeg">
             <span class="highlight">ழ</span>
         </button>
+
+        <img src="lamouth3.png" class="mouth-img" alt="">
 
         <button class="btn green speaker" data-audio="zha.mp3">
             <span class="highlight">ழ</span>
