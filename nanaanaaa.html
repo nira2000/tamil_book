@@ -514,11 +514,18 @@ box-shadow:0 0 0 rgba(255,196,0,0);
 
 }
 
+.letter-with-mouth{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
 .mouth-img{
     width:55px;
     height:55px;
     object-fit:contain;
-    transform:translateY(16px);
+    flex-shrink:0;
+    transform:none;
 }
 
 
@@ -884,21 +891,6 @@ body{
 }
 
 
-/* ===========================================
-   MOUTH
-=========================================== */
-
-.mouth-img{
-
-    width:26px;
-    height:26px;
-
-    object-fit:contain;
-
-    flex-shrink:0;
-
-    transform:translateY(4px);
-}
 
 
 
@@ -984,6 +976,18 @@ body{
 
 }
 
+
+.letter-with-mouth{
+    display:flex;
+    align-items:center;
+    gap:3px;
+}
+
+.mouth-img{
+    width:26px;
+    height:26px;
+}
+
 }
 
 </style>
@@ -1036,9 +1040,15 @@ body{
     <!-- GREEN -->
     <div class="group">
 
-        <button class="head green" data-audio="nafamily.mpeg">
-            <span class="highlight">ந</span>
-        </button>
+        <div class="letter-with-mouth">
+            <button class="head green" data-audio="nafamily.mpeg">
+                <span class="highlight">ந</span>
+            </button>
+
+            <img src="mouth1.png" class="mouth-img" alt="ந pronunciation">
+        </div>
+
+
 
         <button class="btn green speaker" data-audio="na.mp3">
             <span class="highlight">ந</span>
@@ -1112,9 +1122,6 @@ body{
                 <span class="highlight">ந்</span>
             </button>
 
-            <img src="mouth1.png"
-                 class="mouth-img"
-                 alt="ந் pronunciation">
 
         </div>
 
@@ -1130,9 +1137,13 @@ body{
     <!-- GREEN -->
     <div class="group">
 
-        <button class="head green" data-audio="nnafamily.mpeg">
-            <span class="highlight">ன</span>
-        </button>
+        <div class="letter-with-mouth">
+            <button class="head green" data-audio="nnafamily.mpeg">
+                <span class="highlight">ன</span>
+            </button>
+
+            <img src="mouth2.png" class="mouth-img" alt="ன pronunciation">
+        </div>
 
         <button class="btn green speaker" data-audio="nna.mp3">
             <span class="highlight">ன</span>
@@ -1206,8 +1217,6 @@ body{
                 <span class="highlight">ன்</span>
             </button>
 
-            <img src="mouth2.png"
-                 class="mouth-img">
 
         </div>
 
@@ -1224,9 +1233,13 @@ body{
     <!-- GREEN -->
     <div class="group">
 
-        <button class="head green" data-audio="nnnafamily.mpeg">
-            <span class="highlight">ண</span>
-        </button>
+        <div class="letter-with-mouth">
+            <button class="head green" data-audio="nnnafamily.mpeg">
+                <span class="highlight">ண</span>
+            </button>
+
+            <img src="mouth3.png" class="mouth-img" alt="ண pronunciation">
+        </div>
 
         <button class="btn green speaker" data-audio="nnna.mp3">
             <span class="highlight">ண</span>
@@ -1300,9 +1313,6 @@ body{
                     <span class="highlight">ண்</span>
                 </button>
 
-                <img src="mouth3.png"
-                     class="mouth-img"
-                     alt="ண் pronunciation">
 
             </div>
 
