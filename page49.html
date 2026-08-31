@@ -1097,6 +1097,7 @@ function stopAudio(){
 
 
 
+
 // ===========================================
 // PLAY AUDIO
 // ===========================================
@@ -1147,6 +1148,22 @@ function playAudio(button){
 
         buttons[index].classList.add("playing");
 
+
+        // ===================================
+        // INDIVIDUAL AUDIO TIMERS
+        // ===================================
+
+        let timerDuration = 9800; // Default = 9.8 seconds
+
+        if(file === "rafamily.mpeg"){
+            timerDuration = 8400; // RAFAMILY = 10 seconds
+        }
+
+        if(file === "rrafamily.mpeg"){
+            timerDuration = 8500; // RRAFAMILY = 7 seconds
+        }
+
+
         highlightTimer = setInterval(()=>{
 
             buttons[index].classList.remove("playing");
@@ -1165,7 +1182,7 @@ function playAudio(button){
 
             }
 
-        },9800/buttons.length);
+        }, timerDuration / buttons.length);
 
     }
 
@@ -1185,6 +1202,7 @@ function playAudio(button){
     currentAudio.play();
 
 }
+
 
 
 
