@@ -631,7 +631,7 @@ body{
 
 .navigation{
 
-    position:absolute;
+    position:relative;
 
     flex-shrink:0;
 
@@ -1300,7 +1300,7 @@ document.addEventListener("keydown",function(e){
 
 function nextPage(page,direction){
 
-    const book=document.querySelector(".page-wrapper");
+    const book=document.querySelector(".container");
 
     if(direction==="next"){
 
