@@ -1330,31 +1330,34 @@ document.addEventListener("keydown",function(e){
 });
 
 // ===========================================
-// PAGE NAVIGATION
+// PAGE FLIP
 // ===========================================
 
 function nextPage(page,direction){
 
-    const book=document.querySelector(".container");
+    const pageContainer = document.querySelector(".book");
+
+    pageContainer.classList.remove("flip-out-next","flip-out-prev");
+
+    void pageContainer.offsetWidth;
 
     if(direction==="next"){
 
-        book.classList.add("flip-out-next");
+        pageContainer.classList.add("flip-out-next");
 
     }else{
 
-        book.classList.add("flip-out-prev");
+        pageContainer.classList.add("flip-out-prev");
 
     }
 
     setTimeout(()=>{
 
-        window.location.href=page;
+        window.location.href = page;
 
     },600);
 
 }
-
 
 
 
