@@ -374,17 +374,52 @@ body{
 }
 
 
+/* ==========================================
+   PAGE FLIP
+========================================== */
+
+.flip-out-next{
+    animation:flipNext .6s ease forwards;
+    transform-origin:left center;
+}
+
+.flip-out-prev{
+    animation:flipPrev .6s ease forwards;
+    transform-origin:right center;
+}
+
+@keyframes flipNext{
+
+    from{
+        transform:rotateY(0deg);
+    }
+
+    to{
+        transform:rotateY(-90deg);
+    }
+
+}
+
+@keyframes flipPrev{
+
+    from{
+        transform:rotateY(0deg);
+    }
+
+    to{
+        transform:rotateY(90deg);
+    }
+
+}
 
 
 
 
 
 
-
-
-/* ===========================================
-   MOBILE - PAGE 43
-=========================================== */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width:768px){
 
@@ -392,7 +427,7 @@ html,
 body{
 
     width:100%;
-    height:100dvh;
+    height:100%;
 
     margin:0;
     padding:0;
@@ -403,49 +438,58 @@ body{
 
 body{
 
-    background:#dff4ff;
+    background:#1b2c73;
 
     display:flex;
+
     justify-content:center;
-    align-items:flex-start;
-
-    padding:4px;
-
-}
-
-/* ===========================
-   WRAPPER
-=========================== */
-
-.page-wrapper{
-
-    width:100%;
-    height:100dvh;
-
-    display:flex;
-    flex-direction:column;
     align-items:center;
 
 }
 
-/* ===========================
-   CONTAINER
-=========================== */
 
-.container{
+/* ==========================
+   PAGE WRAPPER
+========================== */
+
+.page-wrapper{
 
     width:100%;
+    height:96dvh;
 
     display:flex;
-    justify-content:center;
+    flex-direction:column;
 
-    flex:1;
+    padding:6px 8px;
+
+    overflow:hidden;
 
 }
 
-/* ===========================
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container{
+
+    flex:0.97;
+
+    min-height:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+
+/* ==========================
    BOOK
-=========================== */
+========================== */
 
 .page-container{
 
@@ -454,118 +498,153 @@ body{
     width:100%;
     max-width:410px;
 
-    height:87dvh;
+    height:100%;
 
-    padding:6px 7px;
+    min-height:0;
+
+    display:flex;
+    flex-direction:column;
+
+    background:#fffef8;
 
     border:5px solid #f2d8a0;
 
-    border-radius:18px;
+    border-radius:22px;
+
+    padding:10px 12px 6px 18px;
 
     overflow:hidden;
 
-    transform:none;
-
 }
 
-/* ===========================
+
+/* ==========================
    RED SPINE
-=========================== */
+========================== */
 
 .page-container::before{
 
-    left:5px;
+    content:"";
 
-    top:10px;
+    position:absolute;
 
-    bottom:10px;
+    left:4px;
 
-    width:7px;
+    top:14px;
+    bottom:14px;
+
+    width:6px;
+
+    background:#D40C02;
+
+    border-radius:10px;
 
 }
 
-/* ===========================
+
+/* ==========================
    LESSON
-=========================== */
+========================== */
 
 .lesson-number{
 
+    flex-shrink:0;
+
     font-size:16px;
 
-    margin-bottom:0;
+    font-weight:700;
 
-    line-height:1;
+    margin-bottom:3px;
+
+    margin-left:4px;
 
 }
 
-/* ===========================
+
+/* ==========================
    TITLE
-=========================== */
+========================== */
 
 .title-box{
 
-    margin:0 auto 2px;
+    flex-shrink:0;
 
-    padding:4px 12px;
+    margin:0 auto 6px;
+
+    padding:4px 13px;
+
+    border-width:2px;
 
 }
 
 .title-box h1{
 
-    font-size:19px;
-
-    line-height:1.1;
+    font-size:21px;
 
 }
 
-/* ===========================
+
+/* ==========================
    GRID
-=========================== */
+========================== */
 
 .word-grid{
 
+    flex:1;
+
+    min-height:0;
+
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr 1fr;
 
-    column-gap:6px;
+    column-gap:8px;
 
     row-gap:2px;
 
+    align-content:start;
+
+    overflow:hidden;
+
 }
 
-/* ===========================
+
+/* ==========================
    BUTTONS
-=========================== */
+========================== */
 
 .word-btn{
 
     width:100%;
 
-    height:31px;
+    height:30px;
+
+    min-height:30px;
 
     font-size:15px;
 
-    font-weight:600;
-
-    border-radius:6px;
+    border-radius:7px;
 
     border-width:1px;
+
+    padding:0;
 
 }
 
 .speaker::after{
 
     top:2px;
+
     right:3px;
 
     font-size:8px;
 
 }
 
-/* ===========================
-   COLOUR GROUP SPACING
-=========================== */
+
+/* ==========================
+   COLOUR GAPS
+========================== */
 
 .word-grid button:nth-child(13),
 .word-grid button:nth-child(14){
@@ -588,31 +667,41 @@ body{
 
 }
 
-/* ===========================
+
+/* ==========================
    PAGE NUMBER
-=========================== */
+========================== */
 
 .page-number{
 
-    margin-top:4px;
+    flex-shrink:0;
 
-    margin-bottom:2px;
+    margin-top:3px;
 
-    font-size:15px;
+    padding-top:2px;
+
+    text-align:center;
+
+    font-size:16px;
 
     font-weight:bold;
 
+    color:#7a42d5;
+
 }
 
-/* ===========================
+
+/* ==========================
    NAVIGATION
-=========================== */
+========================== */
 
 .navigation{
 
-    width:100%;
+    flex-shrink:0;
 
-    margin-top:2px;
+    height:40px;
+
+    margin-top:5px;
 
     display:flex;
 
@@ -620,31 +709,31 @@ body{
 
     align-items:center;
 
-    padding:0 6px;
+    padding:0 8px;
 
 }
 
 .nav-btn{
 
-    width:34px;
+    width:40px;
 
-    height:34px;
+    height:40px;
 
-    font-size:17px;
+    font-size:18px;
 
 }
 
 .dots{
 
-    gap:6px;
+    gap:7px;
 
 }
 
 .dot{
 
-    width:6px;
+    width:8px;
 
-    height:6px;
+    height:8px;
 
 }
 
