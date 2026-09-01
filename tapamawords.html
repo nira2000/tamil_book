@@ -1335,13 +1335,16 @@ document.addEventListener("keydown",function(e){
 
 function nextPage(page,direction){
 
-    const pageContainer = document.querySelector(".book");
+    const pageContainer = document.querySelector(".container");
 
-    pageContainer.classList.remove("flip-out-next","flip-out-prev");
+    pageContainer.classList.remove(
+        "flip-out-next",
+        "flip-out-prev"
+    );
 
     void pageContainer.offsetWidth;
 
-    if(direction==="next"){
+    if(direction === "next"){
 
         pageContainer.classList.add("flip-out-next");
 
