@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AA WORDS</title>
+    <title>THOGUTHI 4</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -189,7 +189,7 @@ body{
 
     border-radius:12px;
 
-    font-size:25px;
+    font-size:30px;
 
     font-weight:bold;
 
@@ -263,26 +263,17 @@ body{
 
 .highlight{
 
-    display:inline-block;
-
     color:#111;
 
-    transition:all .25s ease;
+    transition:.25s;
 
 }
 
-.highlight.active{
+.playing .highlight{
 
-    color:#ff0000;
-
-    font-weight:700;
-
-    transform:scale(1.04);
-
-    text-shadow:0 0 4px rgba(255,0,0,.35);
+    color:#e60000;
 
 }
-
 
 /* ===========================================
    PAGE NUMBER
@@ -442,9 +433,6 @@ to{
 
 
 
-
-
-
 @media (max-width:768px){
 
 html,
@@ -462,17 +450,15 @@ body{
 
 body{
 
-    background:#1b2c73;
-
     display:flex;
     justify-content:center;
     align-items:flex-start;
 
-    padding:6px;
+    background:#1b2c73;
 
+    padding:8px;
 }
 
-/* ====================== */
 
 .page-wrapper{
 
@@ -488,74 +474,69 @@ body{
 .container{
 
     width:100%;
-
     display:flex;
     justify-content:center;
+    align-items:center;
 
 }
 
-/* ====================== */
+
 
 .book{
 
     width:100%;
     max-width:400px;
 
-    height:91dvh;
+    height:90dvh;
 
     display:flex;
     flex-direction:column;
 
     padding:8px;
-
-    border-width:5px;
-    border-radius:18px;
-
 }
 
 .book::before{
 
     left:-5px;
 
-    top:8px;
-    bottom:8px;
+    top:10px;
 
-    width:8px;
+    bottom:10px;
+
+    width:10px;
 
 }
 
-/* ====================== */
-
 .page-title{
 
-    margin-bottom:3px;
+    margin-bottom:5px;
 
 }
 
 .page-title h1{
 
-    font-size:17px;
+    font-size:18px;
 
-    padding:5px 14px;
+    padding:5px 16px;
 
 }
 
 .lesson{
 
-    font-size:15px;
+    font-size:16px;
 
-    margin-bottom:10px;
+    margin-bottom:16px;
 
 }
-
-/* ====================== */
 
 .single-layout{
 
     flex:1;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
 }
@@ -563,72 +544,61 @@ body{
 .single-column{
 
     display:flex;
+
     flex-direction:column;
 
-    gap:5px;
+    gap:0.4vh;
 
 }
-
-/* ====================== */
 
 .btn{
 
-    width:100px;
+    width:24vw;
 
-    height:30px;
+    max-width:95px;
 
-    font-size:14px;
+    height:3.8vh;
 
-    border-radius:7px;
+    min-height:28px;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    gap:1px;
+    font-size:4vw;
 
 }
-
-/* ====================== */
-
-.highlight{
-
-    padding:0;
-
-}
-
-/* ====================== */
 
 .speaker::after{
 
     top:2px;
-    right:4px;
 
-    font-size:7px;
+    right:3px;
+
+    font-size:8px;
 
 }
 
-/* ====================== */
-
 .page-number{
 
-    margin-top:5px;
+    width:100%;
+
+    margin-top:4px;
+
+    text-align:center;
 
     font-size:15px;
 
 }
 
-/* ====================== */
-
 .navigation{
 
     width:100%;
+
     max-width:400px;
 
-    margin-top:3px;
+    margin-top:2px;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
 }
@@ -636,26 +606,29 @@ body{
 .nav-btn{
 
     width:34px;
+
     height:34px;
 
-    font-size:15px;
+    font-size:16px;
 
 }
 
 .dots{
 
-    gap:6px;
+    gap:8px;
 
 }
 
 .dot{
 
     width:7px;
+
     height:7px;
 
 }
 
 }
+
 
 </style>
 
@@ -691,78 +664,78 @@ body{
 
                 <div class="single-column">
 
-                <!-- GREEN -->
+                    <!-- GREEN -->
 
-            <button class="btn green speaker"
-                    data-audio="word1.mp3">
-                <span class="highlight">அ</span><span class="highlight">ம்</span><span class="highlight">மா</span>
-            </button>
+                    <button class="btn green speaker"
+                            data-audio="a.mp3">
+                        <span class="highlight">அ</span>
+                    </button>
 
-            <button class="btn green speaker"
-                    data-audio="word2.mp3">
-                <span class="highlight">ஆ</span><span class="highlight">ந்</span><span class="highlight">தை</span>
-            </button>
+                    <button class="btn green speaker"
+                            data-audio="aa.mp3">
+                        <span class="highlight">ஆ</span>
+                    </button>
 
-            <button class="btn green speaker"
-                    data-audio="word3.mp3">
-                <span class="highlight">இ</span><span class="highlight">மை</span>
-            </button>
+                    <button class="btn green speaker"
+                            data-audio="i.mp3">
+                        <span class="highlight">இ</span>
+                    </button>
 
-            <button class="btn green speaker"
-                    data-audio="word4.mp3">
-                <span class="highlight">ஈ</span><span class="highlight">ச</span><span class="highlight">ன்</span>
-            </button>
+                    <button class="btn green speaker"
+                            data-audio="ii.mp3">
+                        <span class="highlight">ஈ</span>
+                    </button>
 
-            <button class="btn green speaker"
-                    data-audio="word5.mp3">
-                <span class="highlight">உ</span><span class="highlight">ண்</span><span class="highlight">மை</span>
-            </button>
+                    <button class="btn green speaker"
+                            data-audio="u.mp3">
+                        <span class="highlight">உ</span>
+                    </button>
 
-            <button class="btn green speaker"
-                    data-audio="word6.mp3">
-                <span class="highlight">ஊ</span><span class="highlight">தா</span>
-            </button>
+                    <button class="btn green speaker"
+                            data-audio="uu.mp3">
+                        <span class="highlight">ஊ</span>
+                    </button>
 
-            <!-- YELLOW -->
+                    <!-- YELLOW -->
 
-            <button class="btn yellow speaker"
-                    data-audio="word7.mp3">
-                <span class="highlight">எ</span><span class="highlight">ட்</span><span class="highlight">டு</span>
-            </button>
+                    <button class="btn yellow speaker"
+                            data-audio="e.mp3">
+                        <span class="highlight">எ</span>
+                    </button>
 
-            <button class="btn yellow speaker"
-                    data-audio="word8.mp3">
-                <span class="highlight">ஏ</span><span class="highlight">ணி</span>
-            </button>
+                    <button class="btn yellow speaker"
+                            data-audio="ee.mp3">
+                        <span class="highlight">ஏ</span>
+                    </button>
 
-            <button class="btn yellow speaker"
-                    data-audio="word9.mp3">
-                <span class="highlight">ஐ</span><span class="highlight">ம்</span><span class="highlight">ப</span><span class="highlight">து</span>
-            </button>
+                    <button class="btn yellow speaker"
+                            data-audio="ai.mp3">
+                        <span class="highlight">ஐ</span>
+                    </button>
 
-            <!-- BLUE -->
+                    <!-- BLUE -->
 
-            <button class="btn blue speaker"
-                    data-audio="word10.mp3">
-                <span class="highlight">ஒ</span><span class="highlight">ட்</span><span class="highlight">ட</span><span class="highlight">க</span><span class="highlight">ம்</span>
-            </button>
+                    <button class="btn blue speaker"
+                            data-audio="o.mp3">
+                        <span class="highlight">ஒ</span>
+                    </button>
 
-            <button class="btn blue speaker"
-                    data-audio="word11.mp3">
-                <span class="highlight">ஓ</span><span class="highlight">சை</span>
-            </button>
+                    <button class="btn blue speaker"
+                            data-audio="oo.mp3">
+                        <span class="highlight">ஓ</span>
+                    </button>
 
-            <button class="btn blue speaker"
-                    data-audio="word12.mp3">
-                <span class="highlight">ஔ</span><span class="highlight">ட</span><span class="highlight">த</span><span class="highlight">ம்</span>
-            </button>
+                    <button class="btn blue speaker"
+                            data-audio="ow.mp3">
+                        <span class="highlight">ஔ</span>
+                    </button>
 
-            <!-- ORANGE -->
+                     <!-- ORANGE -->
 
-            <button class="btn orange speaker"
-                    data-audio="word13.mp3">
-                <span class="highlight">அ</span><span class="highlight">ஃ</span><span class="highlight">து</span>
-            </button>
+                    <button class="btn orange speaker"
+                            data-audio="ak.mp3">
+                        <span class="highlight">ஃ</span>
+                    </button>
 
                 </div>
 
@@ -770,7 +743,7 @@ body{
 
             <div class="page-number">
 
-                47
+                7
 
             </div>
 
@@ -786,7 +759,7 @@ body{
 
         <button
             class="nav-btn"
-            onclick="nextPage('aaiiuu.html','prev')">
+            onclick="nextPage('nawords.html','prev')">
 
             ❮
 
@@ -804,7 +777,7 @@ body{
 
         <button
             class="nav-btn"
-            onclick="nextPage('page48.html','next')">
+            onclick="nextPage('aawords.html','next')">
 
             ❯
 
@@ -819,63 +792,51 @@ body{
 
 <script>
 
-// ===========================================
-// TIMINGS
-// ===========================================
 
-const timings = {
-
-    "word1.mp3":[0,2000,3000],          // அம் | மா
-    "word2.mp3":[0,1800,2800],         // ஆன் | தை
-    "word3.mp3":[0,2000],          // இ | மை
-    "word4.mp3":[0,2000,3000],         // ஈ | சன்
-    "word5.mp3":[0,2000,3000],         // உண் | மை
-    "word6.mp3":[0,2000],         // ஊ | தா
-
-    "word7.mp3":[0,2000,3000],          // எட் | டு
-    "word8.mp3":[0,2000],          // ஏ | ணி
-    "word9.mp3":[0,2000,3000,4200],     // ஐம் | ப | து
-
-    "word10.mp3":[0,2000,3000,4500,5500],    // ஒட் | ட | கம்
-    "word11.mp3":[0,2000],         // ஓ | சை
-    "word12.mp3":[0,2000,3500,4500],    // ஔ | ட | தம்
-
-    "word13.mp3":[0,2000,3000]          // அஃ | து
-
-};
-
-
-// ===========================================
-// VARIABLES
-// ===========================================
+/* ===========================================
+   AUDIO PLAYER
+=========================================== */
 
 let currentAudio = null;
 let currentButton = null;
-let highlightTimers = [];
 
 const buttons = document.querySelectorAll(".btn");
 
+buttons.forEach(button => {
 
-// ===========================================
-// CLEAR HIGHLIGHTS
-// ===========================================
+    button.addEventListener("click", function(){
 
-function clearHighlights(button){
+        const audioFile = this.dataset.audio;
 
-    if(!button) return;
+        if(!audioFile) return;
 
-    button.querySelectorAll(".highlight").forEach(letter=>{
+        // Click same button again = stop
+        if(
+            currentAudio &&
+            currentButton === this &&
+            !currentAudio.paused
+        ){
 
-        letter.classList.remove("active");
+            stopAudio();
+            return;
+
+        }
+
+        stopAudio();
+
+        currentAudio = new Audio(audioFile);
+
+        currentButton = this;
+
+        this.classList.add("playing");
+
+        currentAudio.play();
+
+        currentAudio.onended = stopAudio;
 
     });
 
-}
-
-
-// ===========================================
-// STOP AUDIO
-// ===========================================
+});
 
 function stopAudio(){
 
@@ -886,13 +847,9 @@ function stopAudio(){
 
     }
 
-    highlightTimers.forEach(timer=>clearTimeout(timer));
-    highlightTimers=[];
-
     buttons.forEach(btn=>{
 
         btn.classList.remove("playing");
-        clearHighlights(btn);
 
     });
 
@@ -902,109 +859,13 @@ function stopAudio(){
 }
 
 
-// ===========================================
-// PLAY LETTER HIGHLIGHTS
-// ===========================================
-
-function playHighlights(button,audioFile){
-
-    clearHighlights(button);
-
-    highlightTimers.forEach(timer=>clearTimeout(timer));
-    highlightTimers=[];
-
-    const letterTiming = timings[audioFile];
-
-    if(!letterTiming) return;
-
-    const letters = button.querySelectorAll(".highlight");
-
-    letterTiming.forEach((time,index)=>{
-
-        const timer = setTimeout(()=>{
-
-            if(button!==currentButton) return;
-
-
-            if(letters[index]){
-
-                letters[index].classList.add("active");
-
-            }
-
-        },time);
-
-        highlightTimers.push(timer);
-
-    });
-
-}
-
-
-// ===========================================
-// BUTTON CLICK
-// ===========================================
-
-buttons.forEach(button=>{
-
-    button.addEventListener("click",()=>{
-
-        const audioFile = button.dataset.audio;
-
-        if(!audioFile) return;
-
-        // Click same button = stop
-
-        if(currentButton===button &&
-           currentAudio &&
-           !currentAudio.paused){
-
-            stopAudio();
-            return;
-
-        }
-
-        stopAudio();
-
-        currentButton = button;
-
-        currentAudio = new Audio(audioFile);
-
-        button.classList.add("playing");
-
-        playHighlights(button,audioFile);
-
-        currentAudio.play();
-
-        currentAudio.onended = stopAudio;
-
-        currentAudio.onerror = ()=>{
-
-            alert("Audio file not found:\n"+audioFile);
-
-            stopAudio();
-
-        };
-
-    });
-
-});
-
-
-// ===========================================
-// PAGE FLIP
-// ===========================================
+/* ===========================================
+   PAGE FLIP
+=========================================== */
 
 function nextPage(page,direction){
 
     const pageContainer = document.querySelector(".page-wrapper");
-
-    pageContainer.classList.remove(
-        "flip-out-next",
-        "flip-out-prev"
-    );
-
-    void pageContainer.offsetWidth;
 
     if(direction==="next"){
 
@@ -1023,7 +884,6 @@ function nextPage(page,direction){
     },600);
 
 }
-
 
 </script>
 
