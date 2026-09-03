@@ -378,6 +378,16 @@ body{
 
 }
 
+.container{
+    transform-style:preserve-3d;
+    backface-visibility:hidden;
+}
+
+.flip-out-next,
+.flip-out-prev{
+    backface-visibility:hidden;
+}
+
 
 
 
@@ -1335,8 +1345,7 @@ document.addEventListener("keydown",function(e){
 // ===========================================
 
 function nextPage(page,direction){
-
-    const pageContainer = document.querySelector(".page-wrapper");
+    const pageContainer = document.querySelector(".container");
 
     pageContainer.classList.remove(
         "flip-out-next",
@@ -1346,21 +1355,14 @@ function nextPage(page,direction){
     void pageContainer.offsetWidth;
 
     if(direction === "next"){
-
         pageContainer.classList.add("flip-out-next");
-
     }else{
-
         pageContainer.classList.add("flip-out-prev");
-
     }
 
     setTimeout(()=>{
-
         window.location.href = page;
-
     },600);
-
 }
 
 
