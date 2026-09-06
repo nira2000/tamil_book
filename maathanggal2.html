@@ -842,9 +842,6 @@ body{
 
 
 
-
-
-
 /* =====================================================
    MOBILE
 ===================================================== */
@@ -886,7 +883,6 @@ body{
 
 .book{
     width:100%;
-
     height:87dvh;
 
     display:flex;
@@ -908,123 +904,206 @@ body{
     bottom:12px;
 }
 
-/* TITLE */
-
-/* TITLE */
+/* =====================================================
+   TITLE
+===================================================== */
 
 .title{
 
     width:100%;
-
     min-width:0;
+    max-width:280px;
 
-    max-width:260px;
+    margin:0 auto 14px;
 
-    margin:0 auto 10px;
-
-    padding:8px 30px 8px 16px;
+    padding:9px 30px 9px 16px;
 
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
     text-align:center;
 
     gap:6px;
 
-    font-size:24px;
+    font-size:27px;
 
-    border-radius:12px;
-
+    border-radius:14px;
 }
 
 .title .speaker-icon{
-
     right:8px;
-
-    font-size:10px;
-
+    font-size:11px;
 }
 
-/* MONTHS */
+
+/* =====================================================
+   MONTHS
+===================================================== */
 
 .months-wrapper{
-    gap:8px;
-    margin-bottom:10px;
+
+    gap:10px;
+
+    margin-bottom:14px;
+
 }
 
 .card{
-    padding:10px;
-    gap:4px;
-    border-radius:16px;
+
+    padding:12px;
+
+    gap:6px;
+
+    border-radius:18px;
+
 }
 
 .month-btn{
-    font-size:13px;
-    padding:2px;
+
+    font-size:15px;
+
+    padding:4px;
+
+    min-height:36px;
+
 }
 
-/* AATHICHUDI */
+
+/* =====================================================
+   WEEK DAYS TITLE
+===================================================== */
 
 .aathichudi-header{
-    gap:8px;
-    margin-bottom:8px;
+
+    gap:10px;
+
+    margin-bottom:10px;
+
 }
 
 .heading{
-    font-size:20px;
-    padding:4px 16px;
+
+    font-size:23px;
+
+    padding:5px 18px;
+
     font-family:inherit;
+
     cursor:pointer;
+
     position:relative;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
 }
 
 .line{
-    width:22px;
+
+    width:26px;
     height:4px;
+
 }
 
 .line::before,
 .line::after{
-    width:16px;
+
+    width:19px;
     height:4px;
+
 }
 
-.left::before{top:-6px;}
-.left::after{top:6px;}
-.right::before{top:-6px;}
-.right::after{top:6px;}
+.left::before{top:-7px;}
+.left::after{top:7px;}
 
-/* CARD */
+.right::before{top:-7px;}
+.right::after{top:7px;}
+
+
+/* =====================================================
+   WEEK DAYS CARD
+===================================================== */
 
 .aathichudi-card{
-    padding:10px;
+
+    flex:1;
+
+    min-height:0;
+
+    padding:14px;
+
+    gap:10px;
+
+    border-radius:18px;
+
+}
+
+.column{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
     gap:8px;
-    border-radius:16px;
+
+    justify-content:space-evenly;
+
 }
 
 .rule-btn{
-    font-size:11.5px;
-    line-height:1.25;
-    padding:2px;
+
+    flex:1;
+
+    min-height:0;
+
+    font-size:15px;
+
+    line-height:1.2;
+
+    padding:5px 6px;
+
 }
 
-/* PAGE NUMBER */
+
+/* =====================================================
+   PAGE NUMBER
+===================================================== */
 
 .page-number{
-    margin-top:8px;
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:10px;
+
+    transform:translateX(-50%);
+
+    margin:0;
+
     text-align:center;
-    font-size:14px;
+
+    font-size:17px;
+
     font-weight:700;
+
     color:#8D64D8;
+
+    z-index:100;
+
 }
 
-/* NAVIGATION */
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .navigation{
 
@@ -1045,72 +1124,105 @@ body{
 }
 
 .nav-btn{
+
     width:35px;
     height:35px;
+
     font-size:18px;
+
 }
 
 .dots{
+
     gap:6px;
+
 }
 
 .dot{
+
     width:8px;
     height:8px;
+
 }
 
-/* DECORATIONS */
+
+/* =====================================================
+   DECORATIONS
+===================================================== */
 
 .swirl{
+
     transform:scale(.42);
+
     left:-8px;
     top:-8px;
+
 }
 
 .curve-top{
+
     transform:scale(.55);
+
     right:-6px;
     top:2px;
+
 }
 
 .sparkle{
+
     transform:scale(.42);
+
     right:10px;
     top:105px;
+
 }
 
-/* SPEAKER ICON */
+
+/* =====================================================
+   SPEAKER ICON
+===================================================== */
 
 .speaker-icon{
+
     position:absolute;
+
     top:2px;
     right:5px;
-    font-size:9px;
+
+    font-size:10px;
+
     opacity:.8;
+
 }
 
-/* BUTTON TEXT */
+
+/* =====================================================
+   BUTTON TEXT
+===================================================== */
 
 .text{
 
     display:inline;
 
     margin:0;
-
     padding:0;
 
 }
 
-/* WORD HIGHLIGHT */
+
+/* =====================================================
+   WORD HIGHLIGHT
+===================================================== */
 
 .word{
+
     padding:1px 2px;
+
     border-radius:4px;
-}
 
 }
 
-
+}
 
 
 
