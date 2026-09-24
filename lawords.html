@@ -172,6 +172,13 @@ body{
 
 }
 
+/* BOTTOM ORANGE BUTTONS ONLY */
+.word-grid button:nth-child(37),
+.word-grid button:nth-child(38),
+.word-grid button:nth-child(39){
+    height:25px;
+}
+
 .word-btn:hover{
 
     transform:translateY(-2px);
@@ -374,6 +381,56 @@ body{
     transform:scale(1.12);
 
     text-shadow:0 0 5px rgba(255,0,0,.35);
+
+}
+
+
+
+.container{
+    transform-style:preserve-3d;
+    backface-visibility:hidden;
+}
+
+.flip-out-next,
+.flip-out-prev{
+    backface-visibility:hidden;
+}
+
+.page-wrapper{
+    perspective:1500px;
+}
+
+.flip-out-next{
+    animation:flipNext .6s ease forwards;
+    transform-origin:left center;
+}
+
+.flip-out-prev{
+    animation:flipPrev .6s ease forwards;
+    transform-origin:right center;
+}
+
+@keyframes flipNext{
+
+    0%{
+        transform:rotateY(0deg);
+    }
+
+    100%{
+        transform:rotateY(-90deg);
+    }
+
+}
+
+@keyframes flipPrev{
+
+    0%{
+        transform:rotateY(0deg);
+    }
+
+    100%{
+        transform:rotateY(90deg);
+    }
 
 }
 
@@ -1303,7 +1360,7 @@ document.addEventListener("keydown",function(e){
 
 function nextPage(page,direction){
 
-    const book=document.querySelector(".container");
+    const book=document.querySelector(".page-wrapper");
 
     if(direction==="next"){
 
